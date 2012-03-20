@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FA26BB4-DB2D-422E-AA28-DC55FF1B1A43}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebMisSharp</RootNamespace>
+    <AssemblyName>WebMisSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Docking, Version=2.5.0.30341, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ErrorReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\ErrorReport.Designer.cs">
+      <DependentUpon>ErrorReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigComBoxStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigComBoxStore.Designer.cs">
+      <DependentUpon>ConfigComBoxStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalConfig.Designer.cs">
+      <DependentUpon>GlobalConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Attributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Attributes.Designer.cs">
+      <DependentUpon>Attributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\Console.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Console.Designer.cs">
+      <DependentUpon>Console.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DynamicModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Layout\Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\Project.Designer.cs">
+      <DependentUpon>Project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectAttributes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectAttributes.Designer.cs">
+      <DependentUpon>ProjectAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ProjectProperty.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\SplashScreenApplicationContext.cs" />
+    <Compile Include="Layout\WebMisSharp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layout\WebMisSharp.Designer.cs">
+      <DependentUpon>WebMisSharp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableInfo.Designer.cs">
+      <DependentUpon>TableInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserCtrls\FieldSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserCtrls\FieldSettings.Designer.cs">
+      <DependentUpon>FieldSettings.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Common\ErrorReport.resx">
+      <DependentUpon>ErrorReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigComBoxStore.resx">
+      <DependentUpon>ConfigComBoxStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GlobalConfig.resx">
+      <DependentUpon>GlobalConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Attributes.resx">
+      <DependentUpon>Attributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Console.resx">
+      <DependentUpon>Console.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\Project.resx">
+      <DependentUpon>Project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectAttributes.resx">
+      <DependentUpon>ProjectAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\WebMisSharp.resx">
+      <DependentUpon>WebMisSharp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableInfo.resx">
+      <DependentUpon>TableInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCtrls\FieldSettings.resx">
+      <DependentUpon>FieldSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\cloud.ico" />
+    <Content Include="Images\Codes\cs.ico" />
+    <Content Include="Images\Codes\cs.png" />
+    <Content Include="Images\Codes\csproj.ico" />
+    <Content Include="Images\Codes\csproj.png" />
+    <Content Include="Images\Codes\sln.ico" />
+    <Content Include="Images\Codes\sln.png" />
+    <Content Include="Images\Codes\VS2005.ico" />
+    <Content Include="Images\DB\acc.png" />
+    <Content Include="Images\DB\btnConnect.png" />
+    <Content Include="Images\DB\btnRefresh.png" />
+    <Content Include="Images\DB\btnUnConnect.png" />
+    <Content Include="Images\DB\db.gif" />
+    <Content Include="Images\DB\DBAdd.gif" />
+    <Content Include="Images\DB\DBType.ico" />
+    <Content Include="Images\DB\fild.gif" />
+    <Content Include="Images\DB\Folderclose.gif" />
+    <Content Include="Images\DB\Folderopen.gif" />
+    <Content Include="Images\DB\pk.gif" />
+    <Content Include="Images\DB\server.gif" />
+    <Content Include="Images\DB\server0.gif" />
+    <Content Include="Images\DB\server1.gif" />
+    <Content Include="Images\DB\sp.gif" />
+    <Content Include="Images\DB\sp_p.gif" />
+    <Content Include="Images\DB\sp_return.gif" />
+    <Content Include="Images\DB\sql.png" />
+    <Content Include="Images\DB\sqlconn.png" />
+    <Content Include="Images\DB\table.gif" />
+    <Content Include="Images\DB\view.gif" />
+    <Content Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseLibs\BaseLibs.csproj">
+      <Project>{DD497C52-DBD1-47E3-9D08-DD160DC2147F}</Project>
+      <Name>BaseLibs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{7072927C-0581-4E52-8E7D-82E921AB0432}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBHelper\DBHelper.csproj">
+      <Project>{0DA7747E-FE2D-4BE3-89D7-56CB1549180E}</Project>
+      <Name>DBHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaticConfigure\StaticConfigure.csproj">
+      <Project>{9591E33E-B5A4-48D3-9DA5-B6268C8C624A}</Project>
+      <Name>StaticConfigure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
