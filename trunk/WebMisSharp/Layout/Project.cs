@@ -158,6 +158,8 @@ namespace WebMisSharp
             }
             else if (NodeType == ObjectProperty.ObjectList.DataBase.ToString())
             {
+                MainGlobalProjectInfo(Node.Text, Tree_Project.SelectedNode.Text.Replace("数据库[", "").Replace("]", ""), "");
+
                 DataTable dtemp = DBHelper.SQLDBHelper.GetDBBasicInfo(Node.Text);
                 DataTable dfile = DBHelper.SQLDBHelper.GetDBFilesInfo(Node.Text);
                 DataTable dpvu = DBHelper.SQLDBHelper.GetUVPcount(Node.Text);
@@ -446,15 +448,9 @@ namespace WebMisSharp
                 RM_TabStruct.ImageIndex = 19;
                 RM_TabStruct.Click += new EventHandler(RM_TabDEV_Click);
 
-                ToolStripMenuItem RM_TabDataView = new ToolStripMenuItem();
-                RM_TabDataView.Name = "RM_TabDataView";
-                RM_TabDataView.Text = "查看表数据";
-                RM_TabDataView.ImageIndex = 21;
-                RM_TabDataView.Click += new EventHandler(RM_TabDataView_Click);
-
                 ToolStripMenuItem RM_TabSQL = new ToolStripMenuItem();
                 RM_TabSQL.Name = "RM_TabSQL";
-                RM_TabSQL.Text = "生成脚本";
+                RM_TabSQL.Text = "生成SQL语句";
                 RM_TabSQL.ImageIndex = 11;
 
                 #region 生成SQL语句到
@@ -505,7 +501,7 @@ namespace WebMisSharp
 
                 RightMenuProTree.Items.AddRange(
                            new System.Windows.Forms.ToolStripItem[] { 
-                                RM_TabStruct,RM_TabDataView,RM_TabSQL,RM_TabCode,
+                                RM_TabStruct,RM_TabSQL,RM_TabCode,
                                 RM_DBCode,RM_DBFCCode
                             });
             }
@@ -569,6 +565,9 @@ namespace WebMisSharp
         //新建查询
         private void RM_DBQuery_Click(object sender, EventArgs e)
         {
+            RunSQL rs = new RunSQL();
+            rs.Show(GlobalForm.MainDockPanel);
+            SendLog("您打开新建查询");
         }
 
         private void RM_CreateBaseTab_Click(object sender, EventArgs e)
@@ -631,16 +630,13 @@ namespace WebMisSharp
             //    ((TableInfo)Application.OpenForms["TableInfo"]).BindTableStruct();
             //}
         }
-        //表数据查看
-        private void RM_TabDataView_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         //生成SQL
         private void RM_Select_Click(object sender, EventArgs e)
         {
-            RunSQL rs = new RunSQL();
+            RunSQL rs = new RunSQL(GlobalForm.LbGlobalTable.ToString(), "select * from " + GlobalForm.LbGlobalTable.ToString());
             rs.Show(GlobalForm.MainDockPanel);
+            SendLog("您生成了SQL查询");
         }
         private void RM_Update_Click(object sender, EventArgs e)
         {
@@ -718,6 +714,8 @@ namespace WebMisSharp
         }
         private void backgroundWorkDBLoad_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            MainGlobalProjectInfo(CurrentNode.Parent.Text, Tree_Project.SelectedNode.Text.Replace("数据库[", "").Replace("]", ""), "");
+
             CurrentNode.Nodes.Clear();//清除
             CurrentNode.Nodes.Add(GlobalDBNodes.Nodes[0]);
             CurrentNode.Nodes.Add(GlobalDBNodes.Nodes[1]);

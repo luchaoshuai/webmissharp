@@ -2500,3 +2500,50 @@ Stack Trace:
    在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
    在 System.Threading.ThreadHelper.ThreadStart()
 [Header] 2012-05-02 13:36:17,230 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 14:13:35,840 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 14:32:16,801 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 14:36:08,844 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 14:44:38,229 [8] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 14:50:18,140 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 14:52:28,363 [11] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 14:57:23,378 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 14:59:22,504 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 15:00:52,970 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 15:09:16,233 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 15:12:12,718 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 15:15:31,944 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 15:16:15,333 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 15:27:18,871 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 15:36:37,433 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 15:39:24,934 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 15:40:03,799 [9] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+在创建窗口句柄之前，不能在控件上调用 Invoke 或 BeginInvoke。
+
+System.InvalidOperationException
+
+Stack Trace:
+   在 System.Windows.Forms.Control.WaitForWaitHandle(WaitHandle waitHandle)
+   在 System.Windows.Forms.Control.MarshaledInvoke(Control caller, Delegate method, Object[] args, Boolean synchronous)
+   在 System.Windows.Forms.Control.Invoke(Delegate method, Object[] args)
+   在 System.Windows.Forms.Control.Invoke(Delegate method)
+   在 WebMisSharp.SplashScreenApplicationContext.MainFormLoad() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Common\SplashScreenApplicationContext.cs:行号 71
+   在 WebMisSharp.SplashScreenApplicationContext..ctor() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Common\SplashScreenApplicationContext.cs:行号 18
+   在 WebMisSharp.WebMisSharpContext..ctor()
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-02 15:40:26,752 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 15:53:38,291 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 15:59:38,466 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 16:35:41,069 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 16:38:33,484 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 16:41:14,525 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 16:44:51,609 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 16:48:21,870 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 16:52:03,111 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] 

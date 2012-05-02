@@ -22,7 +22,7 @@ namespace WebMisSharp
         {
             InitializeComponent();
             txtContent.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy(FileType);
-                   
+            txtContent.ShowInvalidLines = false;
             StreamReader srFile = new StreamReader(tempFile, Encoding.Default);
             string Contents = srFile.ReadToEnd();
             srFile.Close();

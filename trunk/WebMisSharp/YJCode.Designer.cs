@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(YJCode));
             this.txtContent = new ICSharpCode.TextEditor.TextEditorControl();
             this.SuspendLayout();
             // 
             // txtContent
             // 
             this.txtContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtContent.Encoding = ((System.Text.Encoding)(resources.GetObject("txtContent.Encoding")));
             this.txtContent.IsReadOnly = false;
             this.txtContent.Location = new System.Drawing.Point(0, 0);
             this.txtContent.Name = "txtContent";

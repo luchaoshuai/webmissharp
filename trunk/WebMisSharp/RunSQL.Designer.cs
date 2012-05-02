@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunSQL));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpResult = new System.Windows.Forms.TabPage();
             this.dataGridResult = new System.Windows.Forms.DataGridView();
             this.tpMsgs = new System.Windows.Forms.TabPage();
-            this.lbResult = new System.Windows.Forms.Label();
             this.txtSQL = new ICSharpCode.TextEditor.TextEditorControl();
+            this.txtMsgs = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.执行SQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -43,6 +48,7 @@
             this.tpResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResult)).BeginInit();
             this.tpMsgs.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -90,20 +96,38 @@
             // 
             this.dataGridResult.AllowUserToAddRows = false;
             this.dataGridResult.AllowUserToDeleteRows = false;
-            this.dataGridResult.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridResult.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.dataGridResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridResult.Location = new System.Drawing.Point(3, 3);
             this.dataGridResult.Name = "dataGridResult";
             this.dataGridResult.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridResult.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridResult.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridResult.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Consolas", 9F);
             this.dataGridResult.RowTemplate.Height = 23;
             this.dataGridResult.Size = new System.Drawing.Size(766, 203);
             this.dataGridResult.TabIndex = 0;
             // 
             // tpMsgs
             // 
-            this.tpMsgs.Controls.Add(this.lbResult);
+            this.tpMsgs.Controls.Add(this.txtMsgs);
             this.tpMsgs.Location = new System.Drawing.Point(4, 22);
             this.tpMsgs.Name = "tpMsgs";
             this.tpMsgs.Padding = new System.Windows.Forms.Padding(3);
@@ -112,23 +136,41 @@
             this.tpMsgs.Text = "消息";
             this.tpMsgs.UseVisualStyleBackColor = true;
             // 
-            // lbResult
-            // 
-            this.lbResult.AutoSize = true;
-            this.lbResult.Location = new System.Drawing.Point(8, 9);
-            this.lbResult.Name = "lbResult";
-            this.lbResult.Size = new System.Drawing.Size(71, 12);
-            this.lbResult.TabIndex = 0;
-            this.lbResult.Text = "SQL执行结果";
-            // 
             // txtSQL
             // 
+            this.txtSQL.ContextMenuStrip = this.contextMenuStrip1;
             this.txtSQL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSQL.Encoding = ((System.Text.Encoding)(resources.GetObject("txtSQL.Encoding")));
             this.txtSQL.IsReadOnly = false;
             this.txtSQL.Location = new System.Drawing.Point(0, 0);
             this.txtSQL.Name = "txtSQL";
             this.txtSQL.Size = new System.Drawing.Size(780, 255);
             this.txtSQL.TabIndex = 0;
+            // 
+            // txtMsgs
+            // 
+            this.txtMsgs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMsgs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMsgs.Location = new System.Drawing.Point(3, 3);
+            this.txtMsgs.Multiline = true;
+            this.txtMsgs.Name = "txtMsgs";
+            this.txtMsgs.Size = new System.Drawing.Size(766, 203);
+            this.txtMsgs.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.执行SQLToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 26);
+            // 
+            // 执行SQLToolStripMenuItem
+            // 
+            this.执行SQLToolStripMenuItem.Name = "执行SQLToolStripMenuItem";
+            this.执行SQLToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.执行SQLToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.执行SQLToolStripMenuItem.Text = "执行";
+            this.执行SQLToolStripMenuItem.Click += new System.EventHandler(this.执行SQLToolStripMenuItem_Click);
             // 
             // RunSQL
             // 
@@ -148,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResult)).EndInit();
             this.tpMsgs.ResumeLayout(false);
             this.tpMsgs.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -159,7 +202,9 @@
         private System.Windows.Forms.TabPage tpResult;
         private System.Windows.Forms.TabPage tpMsgs;
         private System.Windows.Forms.DataGridView dataGridResult;
-        private System.Windows.Forms.Label lbResult;
         private ICSharpCode.TextEditor.TextEditorControl txtSQL;
+        private System.Windows.Forms.TextBox txtMsgs;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 执行SQLToolStripMenuItem;
     }
 }

@@ -142,5 +142,26 @@ namespace DBHelper
 
             return command;
         }
+        //获取列说明
+        public static DataTable GetColumnsDesc(string ProName,string TableName)
+        {
+            CJ_DevelopHelper.SqlConn_Str = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + ProName + "']/DBConStr", "");
+            CJ_DevelopHelper.SqlStr = string.Format(SQLCmds.S_GetTableColumnsDesc,TableName);
+            return CJ_DevelopHelper.SQL_ReturnDateTable;
+        }
+        //执行查询
+        public static DataTable RunSQLString(string ProName, string sql)
+        {
+            CJ_DevelopHelper.SqlConn_Str = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + ProName + "']/DBConStr", "");
+            CJ_DevelopHelper.SqlStr = sql;
+            return CJ_DevelopHelper.SQL_ReturnDateTable;
+        }
+        //执行非查询
+        public static int RunNoReturnSQLString(string ProName,string sql)
+        {
+            CJ_DevelopHelper.SqlConn_Str = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + ProName + "']/DBConStr", "");
+            CJ_DevelopHelper.SqlStr = sql;
+            return CJ_DevelopHelper.SQL_ExecuteNonQuery;
+        }
     }
 }
