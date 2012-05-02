@@ -75,5 +75,16 @@ namespace DBHelper
                                         + ("		end ")
                                         + ("	exec (@strsql); ")
                                         + ("end ");
+
+        public static string S_GetTableColumnsDesc = ""
+                                                + ("Select  ")
+                                                + ("  'FieldName'=a.name, ")
+                                                + ("  'FieldDesc'=isnull(g.[value],'') ")
+                                                + ("FROM syscolumns a ")
+                                                + ("inner join sysobjects d on (a.id=d.id) and(d.name<>'dtproperties') ")
+                                                + ("left join sys.extended_properties g on (a.id=g.major_id)and(a.colid=g.minor_id)    ")
+                                                + ("left join sys.extended_properties f on (d.id=f.major_id)and(f.minor_id=0)    ")
+                                                + ("where d.name='{0}' ")
+                                                + ("order by a.id,a.colorder  ; ");
     }
 }

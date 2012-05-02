@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <SQLSERVER2008>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=HisDemo;</SQLSERVER2008>
+  <SQLSERVER2008>Server=192.168.0.73;Uid=sa;Pwd=ovenjackchain;DataBase=PLMASS_Test;</SQLSERVER2008>
   <ORACLE>Server=[Oracle Service];Uid=[UserName];Pwd=[PassWord];</ORACLE>
   <Project Name="星云搜索">
     <DBType>SQLSERVER2008</DBType>
@@ -24,6 +24,12 @@
     <DBType>SQLSERVER2008</DBType>
     <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=HisDemo;</DBConStr>
     <Path>H:\HHH\WebMis</Path>
+    <Structure>SimpleThreeLayer</Structure>
+  </Project>
+  <Project Name="PLMASS">
+    <DBType>SQLSERVER2008</DBType>
+    <DBConStr>Server=192.168.0.73;Uid=sa;Pwd=ovenjackchain;DataBase=PLMASS_Test;</DBConStr>
+    <Path>H:\</Path>
     <Structure>SimpleThreeLayer</Structure>
   </Project>
 </Root>

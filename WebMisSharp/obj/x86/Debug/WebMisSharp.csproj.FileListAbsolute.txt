@@ -147,4 +147,3 @@ E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\obj\x86\Debug\WebMis
 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\obj\x86\Debug\WebMisSharp.YJCode.resources
 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\obj\x86\Debug\WebMisSharp.RunSQL.resources
 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\bin\Debug\ICSharpCode.TextEditor.pdb
-E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\bin\Debug\ICSharpCode.TextEditor.dll
