@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
  * 作者：陈杰
  * QQ  : 710782046
  * Email:ovenjackchain@gmail.com
- * Web :http://www.ChinaCloudTech.com
+ * Web :http://yj.ChinaCloudTech.com
  */
 namespace Model
 {

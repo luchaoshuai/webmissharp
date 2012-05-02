@@ -103,6 +103,12 @@
     </Compile>
     <Compile Include="Model\ProjectProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunSQL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RunSQL.Designer.cs">
+      <DependentUpon>RunSQL.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,18 @@
     </Compile>
     <Compile Include="UserCtrls\FieldSettings.Designer.cs">
       <DependentUpon>FieldSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Waiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Waiting.Designer.cs">
+      <DependentUpon>Waiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YJCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YJCode.Designer.cs">
+      <DependentUpon>YJCode.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Common\ErrorReport.resx">
       <DependentUpon>ErrorReport.cs</DependentUpon>
@@ -159,6 +177,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RunSQL.resx">
+      <DependentUpon>RunSQL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +191,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserCtrls\FieldSettings.resx">
       <DependentUpon>FieldSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Waiting.resx">
+      <DependentUpon>Waiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YJCode.resx">
+      <DependentUpon>YJCode.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -195,6 +222,7 @@
     <Content Include="Images\DB\btnConnect.png" />
     <Content Include="Images\DB\btnRefresh.png" />
     <Content Include="Images\DB\btnUnConnect.png" />
+    <Content Include="Images\DB\database--plus.png" />
     <Content Include="Images\DB\db.gif" />
     <Content Include="Images\DB\DBAdd.gif" />
     <Content Include="Images\DB\DBType.ico" />
@@ -226,6 +254,10 @@
     <ProjectReference Include="..\DBHelper\DBHelper.csproj">
       <Project>{0DA7747E-FE2D-4BE3-89D7-56CB1549180E}</Project>
       <Name>DBHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ICSharpCode.TextEditor\ICSharpCode.TextEditor.csproj">
+      <Project>{2D18BE89-D210-49EB-A9DD-2246FBB3DF6D}</Project>
+      <Name>ICSharpCode.TextEditor</Name>
     </ProjectReference>
     <ProjectReference Include="..\StaticConfigure\StaticConfigure.csproj">
       <Project>{9591E33E-B5A4-48D3-9DA5-B6268C8C624A}</Project>

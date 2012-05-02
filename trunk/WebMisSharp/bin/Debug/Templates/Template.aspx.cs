@@ -8,7 +8,12 @@ using Ext.Net;
 using Model;
 using BLL;
 using Tools;
-
+/**
+ * 作者：陈杰
+ * QQ  : 710782046
+ * Email:ovenjackchain@gmail.com
+ * Web :http://yj.ChinaCloudTech.com
+ */
 namespace Web.Admin
 {
     public partial class Template : WMS_UI

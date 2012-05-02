@@ -1,35 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <SQLSERVER2008>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=ITDC;</SQLSERVER2008>
+  <SQLSERVER2008>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=HisDemo;</SQLSERVER2008>
   <ORACLE>Server=[Oracle Service];Uid=[UserName];Pwd=[PassWord];</ORACLE>
-  <Project Name="PLM项目">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=192.168.0.73;Uid=sa;Pwd=ovenjackchain;DataBase=Plmass_Test;</DBConStr>
-    <Path>H:\WebMis</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
-  <Project Name="雅莹投票系统">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=nebula;</DBConStr>
-    <Path>C:\Users\CJ\Desktop\DRPSaleReport_1104</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
-  <Project Name="EP电子商务">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=xzsp;</DBConStr>
-    <Path>C:\Users\CJ\Desktop\EPMISReportPublish1104\images</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
   <Project Name="星云搜索">
     <DBType>SQLSERVER2008</DBType>
     <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=nebula;</DBConStr>
     <Path>H:\WebMis</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
-  <Project Name="F22">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=192.168.0.102;Uid=004;Pwd=JCXMV0XZ;DataBase=F22;</DBConStr>
-    <Path>F:\</Path>
     <Structure>SimpleThreeLayer</Structure>
   </Project>
   <Project Name="台华新材">
@@ -38,22 +14,16 @@
     <Path>E:\云极科技\云极外包\03台华纺织\台华首页-终结版\TaiHua</Path>
     <Structure>SimpleThreeLayer</Structure>
   </Project>
-  <Project Name="纳卉电子商务">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=192.168.2.254;Uid=sa;Pwd=ovenjackchain;DataBase=etrade;</DBConStr>
-    <Path>H:\WebMisDeveloper_ExtDotNet</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
   <Project Name="WEBMISSHARP">
     <DBType>SQLSERVER2008</DBType>
     <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=WebMisSharp;</DBConStr>
     <Path>E:\云极科技\创新研究\WebMis</Path>
     <Structure>SimpleThreeLayer</Structure>
   </Project>
-  <Project Name="ITDC">
+  <Project Name="TEST">
     <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=ITDC;</DBConStr>
-    <Path>H:\WebMis</Path>
-    <Structure>ASPNetMVC</Structure>
+    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=HisDemo;</DBConStr>
+    <Path>H:\HHH\WebMis</Path>
+    <Structure>SimpleThreeLayer</Structure>
   </Project>
 </Root>

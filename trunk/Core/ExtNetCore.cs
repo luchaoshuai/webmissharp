@@ -37,12 +37,28 @@ namespace Core
                                + "\t\t<DependentUpon>{1}</DependentUpon>"
                                + "\t</Compile>"
                                + "<!--CompilePOINT-->";
-
+        //创建BLL
+        public static string CreateBLL(string Path, string BllName)
+        {
+            try
+            {
+                string BllContent = FileHelper.ReadFile(".\\Templates\\BLL.cs");
+                string Content = BllContent.Replace("{TABLENAME}", BllName);
+                FileHelper.WriteFile(Path + "\\BLL\\Business\\" + BllName + ".cs", Content);
+                FileHelper.WriteFile(Path + "\\BLL\\BLL.csproj", FileHelper.ReadFile(Path + "\\BLL\\BLL.csproj").Replace("<!--DHELPERBLL-->", "<Compile Include=\"Business\\" + BllName + ".cs\" />\r\n\t<!--DHELPERBLL-->"));
+                return "BLL单独逻辑文件创建成功";
+            }
+            catch (Exception error)
+            {
+                return "ERROR：Model生成错误-" + error.Message;
+            }
+        }
         //获取项目的Path
         public static string GetPath(string ProjectName)
         {
             return XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + ProjectName + "']/Path", "");
         }
+        //生成Model
         public static string CreateModelContent(DataTable dt)
         {
             //读取配置表
@@ -62,7 +78,7 @@ namespace Core
             }
             return sb.ToString();
         }
-
+        
         public static string WriteModelFile(string ModelContent, string TableName, string ModelName, string AutoID, string Path)
         {
             try
@@ -81,15 +97,15 @@ namespace Core
             }
         }
         //更新BLL的工厂
-        public static string UpdateBLLMWSFactory(string Path, string ModelName)
+        public static string UpdateBLLMWSFactory(string Path, string ModelName,string ArgName)
         {
             try
             {
                 string WMSFactory = FileHelper.ReadFile(Path + "\\BLL\\WMSFactory.cs");
                 if (WMSFactory.Contains("WMS_Mgr<" + ModelName + ">"))
                     return "BLL逻辑工厂已配置，本次忽略";
-                string Mgr = "public static WMS_Mgr<{0}> {0} { get { return new WMS_Mgr<{0}>(); } }";
-                Mgr = Mgr.Replace("{0}", ModelName) + "\r\n\t\t/*WMSPOINT*/";
+                string Mgr = "public static WMS_Mgr<{0}> {1} { get { return new WMS_Mgr<{0}>(); } }";
+                Mgr = Mgr.Replace("{0}", ModelName).Replace("{1}",ArgName) + "\r\n\t\t/*WMSPOINT*/";
                 FileHelper.WriteFile(Path + "\\BLL\\WMSFactory.cs", WMSFactory.Replace("/*WMSPOINT*/", Mgr));
                 return "BLL逻辑工厂配置成功";
             }
@@ -284,6 +300,13 @@ namespace Core
             {
                 return "ERROR：WebUI生成异常-" + error.Message;
             }
+        }
+        //更新webconfig的数据库连接串
+        public static void UpdateDbConnectStr(string ProName)
+        {
+            string Path = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + ProName + "']/Path", "") + "\\Web\\Web.config";
+            string DBConStr = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + ProName + "']/DBConStr", "");
+            FileHelper.WriteFile(Path, FileHelper.ReadFile(Path).Replace("{DBCONNECTSTRING}", DBConStr));
         }
     }
 }
