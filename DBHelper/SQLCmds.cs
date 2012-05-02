@@ -43,5 +43,37 @@ namespace DBHelper
                                              + " EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'{4}' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'{2}', @level2type=N'COLUMN',@level2name=N'{3}' ";
         public static string S_GETTableAndViews = "select name TableName from dbo.sysobjects where (xtype='U' or xtype='V') and category=0 order by xtype,name";
         public static string S_GETTableViewStruct = "Select a.name FROM syscolumns a inner join sysobjects d on (a.id=d.id) where d.name='{0}' order by a.id,a.colorder;";
+
+        public static string S_CreatePageProc = ""
+                                        + ("if exists( select 1 from sys.all_objects where [type]='p' and [name]='P_FindByPage') ")
+                                        + ("drop proc [P_FindByPage] ;");
+        public static string S_CreatePageProc2 = ("create proc [P_FindByPage] ")
+                                        + ("( ")
+                                        + ("	@tablename varchar(100),")
+                                        + ("	@id varchar(50) , ")
+                                        + ("	@start varchar(10), ")
+                                        + ("	@limit varchar(10), ")
+                                        + ("	@conditions varchar(1000), ")
+                                        + ("	@orderby int ")
+                                        + (") ")
+                                        + ("as ")
+                                        + ("begin ")
+                                        + ("	declare @strsql varchar(6000); ")
+                                        + ("	")
+                                        + ("	if(@orderby=0) ")
+                                        + ("		begin ")
+                                        + ("			set @strsql='select top '+@limit+' * from '+@tablename+' where '+@id+'>( select isnull(MAX('+@id+'),0) from (select top '+@start+' ' + @id + ' from ' + @tablename + ' order by '+@id+' asc) as Temp ) order by '+@id+' asc'; ")
+                                        + ("			if(@conditions!='') ")
+                                        + ("				set @strsql='select top ' + @limit + ' * from ' + @tablename + ' where ' + @id+ '>( select isnull(MAX(' + @id + '),0) from (select top ' + @start + ' ' + @id + ' from ' + @tablename + '  where ' + @conditions + ' order by ' + @id + ' asc) as Temp ) and ' + @conditions + ' order by ' + @id + ' asc'; ")
+                                        + ("		end ")
+                                        + ("	")
+                                        + ("	if(@orderby=1) ")
+                                        + ("		begin ")
+                                        + ("			set @strsql='select top ' + @limit + ' * from ' + @tablename + ' where ' + @id + '<( select isnull(MIN(' + @id + '),(select max(' + @id + ')+1 from ' + @tablename + ')) from (select top ' + @start + ' ' + @id + ' from ' + @tablename + ' order by ' + @id + ' desc) as Temp ) order by ' + @id + ' desc'; ")
+                                        + ("			if(@conditions!='') ")
+                                        + ("				set @strsql='select top ' + @limit + ' * from ' + @tablename + ' where ' + @id + ' <( select isnull(MIN(' + @id + '),(select max(' + @id + ')+1 from ' + @tablename + ')) from (select top ' + @start + ' ' + @id + ' from ' + @tablename + '  where ' + @conditions + ' order by ' + @id + ' desc) as Temp ) and (' + @conditions + ') order by ' + @id + ' desc'; ")
+                                        + ("		end ")
+                                        + ("	exec (@strsql); ")
+                                        + ("end ");
     }
 }

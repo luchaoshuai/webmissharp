@@ -175,9 +175,9 @@
             this.radioAspnetMVC.AutoSize = true;
             this.radioAspnetMVC.Location = new System.Drawing.Point(13, 61);
             this.radioAspnetMVC.Name = "radioAspnetMVC";
-            this.radioAspnetMVC.Size = new System.Drawing.Size(107, 16);
+            this.radioAspnetMVC.Size = new System.Drawing.Size(119, 16);
             this.radioAspnetMVC.TabIndex = 2;
-            this.radioAspnetMVC.Text = "MVC3.0[JQuery]";
+            this.radioAspnetMVC.Text = "MVC_Rest[JQuery]";
             this.radioAspnetMVC.UseVisualStyleBackColor = true;
             // 
             // radioSimpleThreeLayer

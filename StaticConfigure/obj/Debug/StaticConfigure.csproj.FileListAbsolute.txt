@@ -18,3 +18,8 @@ H:\WebMisSharp_SVN\StaticConfigure\bin\Debug\StaticConfigure.pdb
 H:\WebMisSharp_SVN\StaticConfigure\obj\Debug\ResolveAssemblyReference.cache
 H:\WebMisSharp_SVN\StaticConfigure\obj\Debug\StaticConfigure.dll
 H:\WebMisSharp_SVN\StaticConfigure\obj\Debug\StaticConfigure.pdb
+E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\bin\Debug\StaticConfigure.dll
+E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\bin\Debug\StaticConfigure.pdb
+E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\obj\Debug\ResolveAssemblyReference.cache
+E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\obj\Debug\StaticConfigure.dll
+E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\obj\Debug\StaticConfigure.pdb

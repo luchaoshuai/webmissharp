@@ -39,6 +39,7 @@
             this.RightMenuProTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ImgList = new System.Windows.Forms.ImageList(this.components);
             this.backgroundWorkDBLoad = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerUnZip = new System.ComponentModel.BackgroundWorker();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +139,7 @@
             this.ImgList.Images.SetKeyName(21, "blog.png");
             this.ImgList.Images.SetKeyName(22, "plus-shield.png");
             this.ImgList.Images.SetKeyName(23, "tick-shield.png");
+            this.ImgList.Images.SetKeyName(24, "database--plus.png");
             // 
             // backgroundWorkDBLoad
             // 
@@ -146,6 +148,11 @@
             this.backgroundWorkDBLoad.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ReflashDB);
             this.backgroundWorkDBLoad.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorkDBLoad_ProgressChanged);
             this.backgroundWorkDBLoad.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkDBLoad_RunWorkerCompleted);
+            // 
+            // backgroundWorkerUnZip
+            // 
+            this.backgroundWorkerUnZip.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerUnZip_DoWork);
+            this.backgroundWorkerUnZip.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerUnZip_RunWorkerCompleted);
             // 
             // Project
             // 
@@ -180,5 +187,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton ProToolBarAtt;
         public System.ComponentModel.BackgroundWorker backgroundWorkDBLoad;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerUnZip;
     }
 }

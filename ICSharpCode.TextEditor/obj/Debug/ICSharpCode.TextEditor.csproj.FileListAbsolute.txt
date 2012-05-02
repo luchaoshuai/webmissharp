@@ -1,0 +1,10 @@
+H:\DOWNLOAD\ICSharpCode.TextEditor\bin\Debug\ICSharpCode.TextEditor.dll
+H:\DOWNLOAD\ICSharpCode.TextEditor\bin\Debug\ICSharpCode.TextEditor.pdb
+H:\DOWNLOAD\ICSharpCode.TextEditor\obj\Debug\ResolveAssemblyReference.cache
+H:\DOWNLOAD\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.dll
+H:\DOWNLOAD\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.pdb
+E:\云极科技\创新研究\WebMisSharp_Google\ICSharpCode.TextEditor\bin\Debug\ICSharpCode.TextEditor.dll
+E:\云极科技\创新研究\WebMisSharp_Google\ICSharpCode.TextEditor\bin\Debug\ICSharpCode.TextEditor.pdb
+E:\云极科技\创新研究\WebMisSharp_Google\ICSharpCode.TextEditor\obj\Debug\ResolveAssemblyReference.cache
+E:\云极科技\创新研究\WebMisSharp_Google\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.dll
+E:\云极科技\创新研究\WebMisSharp_Google\ICSharpCode.TextEditor\obj\Debug\ICSharpCode.TextEditor.pdb

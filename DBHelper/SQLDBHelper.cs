@@ -12,6 +12,17 @@ namespace DBHelper
 {
     public class SQLDBHelper
     {
+        //创建基础数据表，数据
+        public static int CreateBasicTableAndData(string ProName)
+        {
+            CJ_DevelopHelper.SqlConn_Str = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + ProName + "']/DBConStr", "");
+            CJ_DevelopHelper.SqlStr = FileHelper.ReadFile(".\\CFG\\BasicData.sql");
+            int i = CJ_DevelopHelper.SQL_ExecuteNonQuery;
+            CJ_DevelopHelper.SqlStr = SQLCmds.S_CreatePageProc;
+            i += CJ_DevelopHelper.SQL_ExecuteNonQuery;
+            CJ_DevelopHelper.SqlStr = SQLCmds.S_CreatePageProc2;
+            return i + CJ_DevelopHelper.SQL_ExecuteNonQuery;
+        }
         //获取所有的表、视图、存储过程
         public static DataTable GetTableViewProc(string ProName)
         {

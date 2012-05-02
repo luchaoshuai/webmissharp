@@ -33,7 +33,7 @@ namespace WebMisSharp
             if (dr.Count() > 0)
                 TxtDBAutoID.Text = dr[0]["字段名"].ToString();
         }
-
+        //保存字段描述信息
         private void BtnSaveFieldRemark_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow r in DGridTableStruct.Rows)
@@ -48,11 +48,35 @@ namespace WebMisSharp
             }
             MessageBox.Show("自动描述写入完毕！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        //窗体显示
         private void TableInfo_Load(object sender, EventArgs e)
         {
             BindTableStruct();
             this.TxtModelName.Text = GlobalForm.LbGlobalTable.Text;
+            this.TxtBLLName.Text = "BLL_" + GlobalForm.LbGlobalTable.Text;
+        }
+        private void AttShowControl(object sender, EventArgs e)
+        {
+            if (CBBLL.Checked)
+                this.TxtBLLName.Enabled = true;
+            else
+                this.TxtBLLName.Enabled = false;
+
+            if (CBModel.Checked)
+                this.TxtModelName.Enabled = true;
+            else
+                this.TxtModelName.Enabled = false;
+
+            if (CBWeb.Checked)
+            {
+                this.NUDColumns.Enabled = true;
+                this.TxtAspxName.Enabled = true;
+            }
+            else
+            {
+                this.NUDColumns.Enabled = false;
+                this.TxtAspxName.Enabled = false;
+            }
         }
         //配置下拉列表的Store
         List<Core.ComBoxStore> COMStoreList = new List<Core.ComBoxStore>();
@@ -79,9 +103,9 @@ namespace WebMisSharp
         //生成代码到项目中
         /****声明******/
         DataTable ColumnsDT = null;
-        string Path,ModelName,TableName,AutoID,UIPath;
+        string Path,ModelName,TableName,AutoID,UIPath,BLLName;
         int Cols = 2;
-        bool MC = false, WC = false;
+        bool MC = false, WC = false, BC = false;
         private void BtnCreateCode2Proj_Click(object sender, EventArgs e)
         {
             log = ((Console)Application.OpenForms["Console"]);
@@ -91,11 +115,28 @@ namespace WebMisSharp
             Path = ExtNetCore.GetPath(GlobalForm.LbGlobalProject.Text);
             ModelName = TxtModelName.Text.Trim();
             TableName = GlobalForm.LbGlobalTable.Text;
+            BLLName = TxtBLLName.Text.Trim();
             AutoID = TxtDBAutoID.Text.Trim();
             UIPath = TxtAspxName.Text.Trim();
             Cols = (int)NUDColumns.Value;
             MC = CBModel.Checked;
             WC = CBWeb.Checked;
+            BC = CBBLL.Checked;
+            if (AutoID.Length <= 0 || ModelName.Length <= 0)
+            {
+                MessageBox.Show("自增ID和Model名称不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            if (BC && BLLName.Length <= 0)
+            {
+                MessageBox.Show("BLL类名不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            if (WC && UIPath.Length <= 0)
+            {
+                MessageBox.Show("UI文件名不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             //End
             Thread threadcore = new Thread(new ThreadStart(Create2Proj));//定义一个线程
             threadcore.Start();//启动一个线程
@@ -114,11 +155,22 @@ namespace WebMisSharp
                 PrintLine(ExtNetCore.WriteModelFile(ModelColumns, TableName, ModelName, AutoID, Path));
                 PrintLine("成功创建Model文件...40%");
                 PrintLine("配置BLL逻辑工厂...");
-                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName));
+                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, ModelName));
                 PrintLine("成功配置BLL逻辑工厂...50%");
             }
             else
                 PrintLine("跳过Model生成...");
+            if (BC)
+            {
+                PrintLine("生成BLL文件...");
+                PrintLine(ExtNetCore.CreateBLL(Path, BLLName));
+                PrintLine("成功创建了BLL文件...60%");
+                PrintLine("配置BLL逻辑工厂...");
+                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, BLLName));
+                PrintLine("成功配置BLL逻辑工厂...62%");
+            }
+            else
+                PrintLine("跳过BLL生成...");
             if (WC)
             {
                 PrintLine("开始生成WebUI...");
@@ -155,5 +207,12 @@ namespace WebMisSharp
             }
         }
         #endregion
+
+        private void BtnCreateCodeNeWin_Click(object sender, EventArgs e)
+        {
+            YJCode ti = new YJCode("abc public", "C#", "");
+            ti.Show(GlobalForm.MainDockPanel);
+        }
+
     }
 }

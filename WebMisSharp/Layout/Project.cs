@@ -24,13 +24,15 @@ namespace WebMisSharp
         string CurrentProj = "";
         TreeNode CurrentNode = null;
         TreeNode GlobalDBNodes = null;
+        //Loading
+        Waiting Loading = new Waiting();
         //END
         public Project()
         {
             InitializeComponent();
             LoadProjectFromXml();//加载已有项目
         }
-
+        
         //窗体呈现的同时从xml中加载已有项目
         private void LoadProjectFromXml(string ProName = null)
         {
@@ -53,13 +55,13 @@ namespace WebMisSharp
                 DBnode.ImageIndex = 0;
                 DBnode.SelectedImageIndex = 0;
                 DBnode.Tag = ObjectProperty.ObjectList.DataBase.ToString();
-                TreeNode MenuNode = new TreeNode();
-                MenuNode.Text = "功能菜单";
-                MenuNode.ImageIndex = 21;
-                MenuNode.SelectedImageIndex = 22;
-                MenuNode.Tag = ObjectProperty.ObjectList.Menu.ToString();
+                //TreeNode MenuNode = new TreeNode();
+                //MenuNode.Text = "功能菜单";
+                //MenuNode.ImageIndex = 21;
+                //MenuNode.SelectedImageIndex = 22;
+                //MenuNode.Tag = ObjectProperty.ObjectList.Menu.ToString();
                 Node.Nodes.Add(DBnode);
-                Node.Nodes.Add(MenuNode);
+                //Node.Nodes.Add(MenuNode);
                 Tree_Project.Nodes.Add(Node);
             }
         }
@@ -94,13 +96,38 @@ namespace WebMisSharp
                 DBnode.Tag = ObjectProperty.ObjectList.DataBase.ToString();
                 Node.Nodes.Add(DBnode);
                 Tree_Project.Nodes.Add(Node);
+                if (MessageBox.Show("是否自动拷贝基础架构到项目目录？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    //开始拷贝
+                    this.backgroundWorkerUnZip.RunWorkerAsync(Node.Name);
+                    SendLog("正在拷贝基础框架到项目目录...");
+                    Loading.WaitingMsg.Text = "正在解压缩基础框架，请稍后...";
+                    Loading.ShowDialog();
+                }
+                if (MessageBox.Show("是否自动创建基础表到项目数据库？\r\n将创建WebMis必备表和基础数据(严重注意：若存在则删除)", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (DBHelper.SQLDBHelper.CreateBasicTableAndData(Node.Name) > 0)
+                    {
+                        SendLog("恭喜您，自动创建基础表和数据成功！");
+                        MessageBox.Show("恭喜您，自动创建基础表和数据成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        SendLog("很抱歉，自动创建基础数据失败！您可手动执行文件.\\CFG\\BasicData.sql");
+                        MessageBox.Show("很抱歉，自动创建基础数据失败！\r\n您可手动执行文件.\\CFG\\BasicData.sql", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
             }
         }
-
         //加载对象属性
         private void GetProjectDetail()
         {
             TreeNode Node = this.Tree_Project.SelectedNode;
+            if (Node == null)
+            {
+                MessageBox.Show("请先选择要查看的项目！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             string NodeType = Node.Tag.ToString();
             while (Node.Tag.ToString() != ObjectProperty.ObjectList.Project.ToString())
                 Node = Node.Parent;//循环找到根节点
@@ -348,6 +375,12 @@ namespace WebMisSharp
                 ToolStripSeparator S1 = new ToolStripSeparator();
                 S1.Name = "S1";
 
+                ToolStripMenuItem RM_CreateBaseTab = new ToolStripMenuItem();
+                RM_CreateBaseTab.Name = "RM_CreateBaseTab";
+                RM_CreateBaseTab.Text = "创建必备表和数据";
+                RM_CreateBaseTab.ImageIndex = 24;
+                RM_CreateBaseTab.Click += new EventHandler(RM_CreateBaseTab_Click);
+
                 ToolStripMenuItem RM_DBCode = new ToolStripMenuItem();
                 RM_DBCode.Name = "RM_DBCode";
                 RM_DBCode.Text = "批量代码生成";
@@ -381,7 +414,7 @@ namespace WebMisSharp
 
                 RightMenuProTree.Items.AddRange(
                             new System.Windows.Forms.ToolStripItem[] { 
-                                RM_DBLoad,RM_DBQuery,S1,RM_DBCode,S2,
+                                RM_DBLoad,RM_DBQuery,S1,RM_CreateBaseTab,RM_DBCode,S2,
                                 RM_DBCreateSQL,RM_DBDOC,S3,RM_DBAtt
                             });
             }
@@ -537,6 +570,27 @@ namespace WebMisSharp
         private void RM_DBQuery_Click(object sender, EventArgs e)
         {
         }
+
+        private void RM_CreateBaseTab_Click(object sender, EventArgs e)
+        {
+            TreeNode Node = this.Tree_Project.SelectedNode;
+            while (Node.Tag.ToString() != ObjectProperty.ObjectList.Project.ToString())
+                Node = Node.Parent;//循环找到根节点
+            CurrentProj = Node.Text;//获取选中的项目
+            if (MessageBox.Show("是否自动创建基础表到项目数据库？\r\n将创建WebMis必备表和基础数据(严重注意：若存在则删除)", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    if (DBHelper.SQLDBHelper.CreateBasicTableAndData(CurrentProj) > 0)
+                    {
+                        SendLog("恭喜您，自动创建基础表和数据成功！");
+                        MessageBox.Show("恭喜您，自动创建基础表和数据成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        SendLog("很抱歉，自动创建基础数据失败！您可手动执行文件.\\CFG\\BasicData.sql");
+                        MessageBox.Show("很抱歉，自动创建基础数据失败！\r\n您可手动执行文件.\\CFG\\BasicData.sql", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+        }
         //批量代码
         private void RM_DBCode_Click(object sender, EventArgs e)
         {
@@ -585,7 +639,8 @@ namespace WebMisSharp
         //生成SQL
         private void RM_Select_Click(object sender, EventArgs e)
         {
-
+            RunSQL rs = new RunSQL();
+            rs.Show(GlobalForm.MainDockPanel);
         }
         private void RM_Update_Click(object sender, EventArgs e)
         {
@@ -672,14 +727,46 @@ namespace WebMisSharp
             GlobalForm.GlobalLbinfo.Text = "就绪";
             GlobalForm.GlobalPBar.Visible = false;
             GlobalForm.GlobalPBar.Value = 0;
-            ((Console)Application.OpenForms["Console"]).Show();
-            ((Console)Application.OpenForms["Console"]).RTLog(CurrentProj + "数据库加载成功，找到表：" + CurrentNode.Nodes[0].GetNodeCount(true).ToString() +
+            SendLog(CurrentProj + "数据库加载成功，找到表：" + CurrentNode.Nodes[0].GetNodeCount(true).ToString() +
                                                               "     视图：" + CurrentNode.Nodes[1].GetNodeCount(true) +
                                                               "     存储过程：" + CurrentNode.Nodes[2].GetNodeCount(true));
             CurrentNode = null;
         }
+
+        //显示日志
+        private void SendLog(string Msg)
+        {
+            ((Console)Application.OpenForms["Console"]).Show();
+            ((Console)Application.OpenForms["Console"]).RTLog(Msg);
+        }
+             
+
+        public void backgroundWorkerUnZip_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (e.Argument.ToString() != "")
+            {
+                string Path = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + e.Argument.ToString() + "']/Path", "");
+                e.Result=ZipHelper.UnZipFile(".\\Templates\\WebMis.zip", Path);
+                XMLHelper.Update(XMLPaths.ProjectXml, "/Root/Project[@Name='" + e.Argument.ToString() + "']/Path", "", Path + "\\WebMis");
+                Core.ExtNetCore.UpdateDbConnectStr(e.Argument.ToString());
+            }
+        }
+
+        public void backgroundWorkerUnZip_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Loading.Close();
+            if (e.Result.ToString() == "")
+            {
+                SendLog("恭喜您，拷贝基础框架成功！");
+                MessageBox.Show("恭喜您，拷贝基础框架成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                SendLog("很抱歉，拷贝基础框架失败！您可手动解压缩.\\Templates\\WebMis.zip文件到项目文件，并注意修改路径！");
+                MessageBox.Show("很抱歉，拷贝基础框架失败！\r\n您可手动解压缩.\\Templates\\WebMis.zip文件到项目文件，并注意修改路径！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+        
         #endregion
-
-
     }
 }

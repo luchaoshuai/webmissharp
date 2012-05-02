@@ -61,6 +61,11 @@ namespace WebMisSharp
         //保存项目到XML中
         private void BtnSaveProject_Click(object sender, EventArgs e)
         {
+            if (!radioSimpleThreeLayer.Checked)
+            {
+                MessageBox.Show("很抱歉，目前仅支持简单三层[Ext.net]框架\r\n后续将推出其他框架模式，敬请等待！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             string Name=TxtProjectName.Text.Trim().ToUpper();
             if (Name.Length <= 0 || TxtProjectPath.Text.Trim().Length <= 0 || TxtProDBConStr.Text.Trim().Length <= 0)
             {

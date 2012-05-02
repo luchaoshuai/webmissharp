@@ -2134,4 +2134,369 @@ Stack Trace:
 [Footer] [Header] 2012-03-19 23:32:33,074 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
 [Footer] [Header] 2012-03-20 08:58:29,706 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
 [Footer] [Header] 2012-03-20 09:03:43,895 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
-[Footer] 
+[Footer] [Header] 2012-04-30 14:59:52,970 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 15:08:28,321 [11] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 15:12:51,354 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 15:25:11,554 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-04-30 15:25:17,067 [10] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+未将对象引用设置到对象的实例。
+
+System.NullReferenceException
+
+Stack Trace:
+   在 WebMisSharp.Project.UnZip(String zipFile, String destFolder) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 105
+   在 WebMisSharp.Project.ProToolBarProjectAttribute_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 81
+   在 System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   在 System.Windows.Forms.ToolStripButton.OnClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-04-30 15:39:35,611 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:17:58,765 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 16:20:49,997 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:24:50,634 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:28:11,183 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:30:45,243 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:35:21,839 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:36:13,907 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:41:42,443 [11] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:43:26,263 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:47:40,616 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 16:55:18,584 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 17:03:55,157 [8] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 17:06:16,657 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 17:41:12,367 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 17:52:19,314 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 18:03:26,104 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 18:07:28,335 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 18:10:16,592 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 18:15:02,267 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 18:17:44,600 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 18:25:12,521 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 18:35:07,821 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 18:36:40,786 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-04-30 18:39:20,164 [9] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+未将对象引用设置到对象的实例。
+
+System.NullReferenceException
+
+Stack Trace:
+   在 WebMisSharp.Project.GetProjectDetail() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 126
+   在 WebMisSharp.Project.ProToolBarAtt_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 525
+   在 System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   在 System.Windows.Forms.ToolStripButton.OnClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-04-30 18:41:18,596 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-04-30 18:41:22,789 [9] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+未将对象引用设置到对象的实例。
+
+System.NullReferenceException
+
+Stack Trace:
+   在 WebMisSharp.Project.GetProjectDetail() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 127
+   在 WebMisSharp.Project.ProToolBarAtt_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 534
+   在 System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   在 System.Windows.Forms.ToolStripButton.OnClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-04-30 18:43:28,716 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 18:46:58,677 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 22:00:20,289 [8] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 22:53:24,151 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 22:56:31,226 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-04-30 23:00:01,012 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-04-30 23:07:09,020 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:05:11,615 [8] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:08:10,637 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:11:51,876 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:16:44,813 [11] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:31:33,624 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:34:07,871 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:40:32,746 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:44:14,348 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:48:50,491 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:50:26,854 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:51:32,731 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:52:13,787 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:53:52,596 [11] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:54:58,082 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:55:28,231 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 00:55:49,289 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-01 00:56:06,831 [10] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+创建窗口句柄时出错。
+
+System.OutOfMemoryException
+
+Stack Trace:
+   在 System.Windows.Forms.NativeWindow.CreateHandle(CreateParams cp)
+   在 System.Windows.Forms.Control.CreateHandle()
+   在 System.Windows.Forms.Form.CreateHandle()
+   在 System.Windows.Forms.Control.get_Handle()
+   在 System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.set_Visible(Boolean value)
+   在 DockPanelUI.Docking.DockContentHandler.SetVisible()
+   在 DockPanelUI.Docking.DockContentHandler.SetPaneAndVisible(DockPane pane)
+   在 DockPanelUI.Docking.DockContentHandler.SetDockState(Boolean isHidden, DockState visibleState, DockPane oldPane)
+   在 DockPanelUI.Docking.DockContentHandler.set_DockState(DockState value)
+   在 DockPanelUI.Docking.DockContentHandler.Show(DockPanel dockPanel, DockState dockState)
+   在 DockPanelUI.Docking.DockContentHandler.Show(DockPanel dockPanel)
+   在 DockPanelUI.Docking.DockContent.Show(DockPanel dockPanel)
+   在 WebMisSharp.WebMisSharp.newToolStripButton_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\WebMisSharp.cs:行号 134
+   在 System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   在 System.Windows.Forms.ToolStripButton.OnClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-01 01:31:25,516 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-01 01:34:59,536 [9] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+调用的目标发生了异常。
+
+System.Reflection.TargetInvocationException
+
+Stack Trace:
+   在 System.RuntimeMethodHandle._InvokeMethodFast(Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeTypeHandle typeOwner)
+   在 System.RuntimeMethodHandle.InvokeMethodFast(Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeTypeHandle typeOwner)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   在 System.Delegate.DynamicInvokeImpl(Object[] args)
+   在 System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   在 System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   在 System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.RunDialog(Form form)
+   在 System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   在 System.Windows.Forms.Form.ShowDialog()
+   在 WebMisSharp.Project.ProToolBarProjectAttribute_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 105
+   在 System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   在 System.Windows.Forms.ToolStripButton.OnClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-01 01:35:56,584 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-01 01:54:03,591 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 00:00:08,565 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-02 00:01:43,435 [9] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+未将对象引用设置到对象的实例。
+
+System.NullReferenceException
+
+Stack Trace:
+   在 WebMisSharp.YJCode..ctor(String strCode, String FileType, String temp) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\YJCode.cs:行号 63
+   在 WebMisSharp.TableInfo.BtnCreateCodeNeWin_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\TableInfo.cs:行号 213
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-02 00:07:36,560 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-02 00:07:45,752 [9] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+未将对象引用设置到对象的实例。
+
+System.NullReferenceException
+
+Stack Trace:
+   在 WebMisSharp.YJCode..ctor(String strCode, String FileType, String temp) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\YJCode.cs:行号 63
+   在 WebMisSharp.TableInfo.BtnCreateCodeNeWin_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\TableInfo.cs:行号 213
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-02 00:22:59,830 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 00:26:26,954 [11] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 10:05:10,841 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 11:18:43,974 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 11:29:37,414 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 11:31:47,242 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 11:37:40,999 [8] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 11:53:20,661 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 13:16:29,341 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 13:18:55,214 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 13:27:34,063 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Header] 2012-05-02 13:29:06,280 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 13:34:35,375 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-02 13:35:47,542 [10] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+The dock state is invalid.
+
+System.InvalidOperationException
+
+Stack Trace:
+   在 DockPanelUI.Docking.DockContentHandler.SetDockState(Boolean isHidden, DockState visibleState, DockPane oldPane)
+   在 DockPanelUI.Docking.DockContentHandler.set_PanelPane(DockPane value)
+   在 DockPanelUI.Docking.DockPane.InternalConstruct(IDockContent content, DockState dockState, Boolean flagBounds, Rectangle floatWindowBounds, DockPane prevPane, DockAlignment alignment, Double proportion, Boolean show)
+   在 DockPanelUI.Docking.DockPane..ctor(IDockContent content, DockState visibleState, Boolean show)
+   在 DockPanelUI.Docking.DockPanelExtender.DefaultDockPaneFactory.CreateDockPane(IDockContent content, DockState visibleState, Boolean show)
+   在 DockPanelUI.Docking.DockPanel.Persistor.LoadFromXml(DockPanel dockPanel, Stream stream, DeserializeDockContent deserializeContent, Boolean closeStream)
+   在 DockPanelUI.Docking.DockPanel.Persistor.LoadFromXml(DockPanel dockPanel, Stream stream, DeserializeDockContent deserializeContent)
+   在 DockPanelUI.Docking.DockPanel.Persistor.LoadFromXml(DockPanel dockPanel, String fileName, DeserializeDockContent deserializeContent)
+   在 DockPanelUI.Docking.DockPanel.LoadFromXml(String fileName, DeserializeDockContent deserializeContent)
+   在 WebMisSharp.WebMisSharp..ctor() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\WebMisSharp.cs:行号 37
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 19
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-02 13:36:17,230 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
