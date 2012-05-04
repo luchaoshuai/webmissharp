@@ -566,6 +566,7 @@ namespace WebMisSharp
         private void RM_DBQuery_Click(object sender, EventArgs e)
         {
             RunSQL rs = new RunSQL();
+            if (GlobalForm == null) return;
             rs.Show(GlobalForm.MainDockPanel);
             SendLog("您打开新建查询");
         }
@@ -634,7 +635,21 @@ namespace WebMisSharp
         //生成SQL
         private void RM_Select_Click(object sender, EventArgs e)
         {
-            RunSQL rs = new RunSQL(GlobalForm.LbGlobalTable.ToString(), "select * from " + GlobalForm.LbGlobalTable.ToString());
+            StringBuilder sb = new StringBuilder(" select top 10 \r\n");
+            DataTable dt = DBHelper.SQLDBHelper.GetColumnsDesc(GlobalForm.LbGlobalProject.Text, GlobalForm.LbGlobalTable.Text);
+            int temp=dt.Rows.Count;
+            if (temp > 0)
+            {
+                for (int i = 0; i < temp; i++)
+                {
+                    sb.AppendLine(" " + String.Format("{0,-15}", dt.Rows[i][0].ToString() + ((i == temp - 1) ? "" : ",")) + "--" + dt.Rows[i][1].ToString());
+                }
+                sb.AppendLine(" from " + GlobalForm.LbGlobalTable.ToString());
+            }
+            else
+                sb.Append("* from " + GlobalForm.LbGlobalTable.ToString());
+
+            RunSQL rs = new RunSQL(sb.ToString());
             rs.Show(GlobalForm.MainDockPanel);
             SendLog("您生成了SQL查询");
         }
