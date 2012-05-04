@@ -19,10 +19,9 @@ namespace WebMisSharp
     {
         WebMisSharp GlobalForm = null;
         string TableName = "";
-        public RunSQL(string TableName="",string SQL="")
+        public RunSQL(string SQL="")
         {
             InitializeComponent();
-            this.TableName = TableName;
             GlobalForm = (WebMisSharp)Application.OpenForms["WebMisSharp"];
             txtSQL.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("TSQL");
             txtSQL.ShowInvalidLines = false;
@@ -56,6 +55,9 @@ namespace WebMisSharp
                     dataGridResult.DataSource = dt;
                     this.txtMsgs.Text = dt.Rows.Count.ToString() + " 条数据";
                     tabControl.SelectedIndex = 0;
+                    //获取TableName
+                    TableName = SQLstring.ToLower().Substring(SQLstring.ToLower().IndexOf("from ") + 5).Trim();
+                    TableName = TableName.Contains(" ") ? TableName.Substring(0,TableName.IndexOf(" ")).Trim() : TableName;
                     ReLoadColunmsName();
                 }
                 catch(Exception error)
@@ -97,10 +99,10 @@ namespace WebMisSharp
         {
             if (TableName != "")
             {
-                DataTable dt = DBHelper.SQLDBHelper.GetColumnsDesc(GlobalForm.LbGlobalProject.Text, GlobalForm.LbGlobalTable.Text);
+                DataTable dt = DBHelper.SQLDBHelper.GetColumnsDesc(GlobalForm.LbGlobalProject.Text, TableName);
                 for (int i = 0; i < dataGridResult.Columns.Count; i++)
                 {
-                    DataRow[] dr = dt.Select("FieldName='" + dataGridResult.Columns[i].HeaderCell.Value.ToString() + "'");
+                    DataRow[] dr = dt.Select("FieldName='" + dataGridResult.Columns[i].HeaderCell.Value.ToString().ToLower() + "'");
                     if (dr.Count() > 0)
                     {
                          dataGridResult.Columns[i].HeaderCell.Value += "\r\n" + dr[0][1].ToString();
@@ -148,6 +150,15 @@ namespace WebMisSharp
         private void 执行SQLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExecSQL();
+        }
+
+        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sf = new SaveFileDialog();
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                FileHelper.WriteFile(sf.FileName, txtSQL.Text);
+            }
         }
     }
 }

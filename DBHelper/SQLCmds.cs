@@ -78,7 +78,7 @@ namespace DBHelper
 
         public static string S_GetTableColumnsDesc = ""
                                                 + ("Select  ")
-                                                + ("  'FieldName'=a.name, ")
+                                                + ("  'FieldName'=lower(a.name), ")
                                                 + ("  'FieldDesc'=isnull(g.[value],'') ")
                                                 + ("FROM syscolumns a ")
                                                 + ("inner join sysobjects d on (a.id=d.id) and(d.name<>'dtproperties') ")
