@@ -73,6 +73,13 @@
     <Compile Include="ConfigComBoxStore.Designer.cs">
       <DependentUpon>ConfigComBoxStore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\ConsoleHelper.cs" />
+    <Compile Include="DBToSQLScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBToSQLScript.Designer.cs">
+      <DependentUpon>DBToSQLScript.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigComBoxStore.resx">
       <DependentUpon>ConfigComBoxStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DBToSQLScript.resx">
+      <DependentUpon>DBToSQLScript.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GlobalConfig.resx">
       <DependentUpon>GlobalConfig.cs</DependentUpon>

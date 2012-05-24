@@ -46,6 +46,8 @@
             <Load Handler="#{PagingToolBar}.pageSize=parseInt(getCookie('PageSize'));" />
         </Listeners>
     </ext:Store>
+	<!--下拉列表数据源-->
+	<!--CBOSTORE-->
     <!--WMS_NOTICE页面主表格-->
     <ext:Viewport ID="MainViewPort" runat="server">
         <Items>

@@ -2615,3 +2615,297 @@ Stack Trace:
    在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
 [Header] 2012-05-04 09:34:25,878 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
 [Footer] [Header] 2012-05-04 11:22:28,379 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-04 16:19:02,474 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-04 23:41:10,069 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-04 23:48:22,943 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-04 23:49:44,382 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-04 23:49:48,010 [9] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+调用的目标发生了异常。
+
+System.Reflection.TargetInvocationException
+
+Stack Trace:
+   在 System.RuntimeMethodHandle._InvokeMethodFast(Object target, Object[] arguments, SignatureStruct& sig, MethodAttributes methodAttributes, RuntimeTypeHandle typeOwner)
+   在 System.RuntimeMethodHandle.InvokeMethodFast(Object target, Object[] arguments, Signature sig, MethodAttributes methodAttributes, RuntimeTypeHandle typeOwner)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture, Boolean skipVisibilityChecks)
+   在 System.Delegate.DynamicInvokeImpl(Object[] args)
+   在 System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   在 System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   在 System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-04 23:52:11,874 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2012-05-05 00:43:34,604 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 00:44:14,067 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - TEST数据库加载成功，找到表：15     视图：0     存储过程：1
+[Footer] [Header] 2012-05-05 00:46:58,018 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 00:47:10,627 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - TEST数据库加载成功，找到表：15     视图：0     存储过程：1
+[Footer] [Header] 2012-05-05 00:49:34,971 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 00:49:39,036 [10] INFO  WebMisSharp.ConsoleHelper [(null)] - TEST数据库加载成功，找到表：15     视图：0     存储过程：1
+[Footer] [Header] 2012-05-05 09:37:54,266 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 09:37:59,475 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - TEST数据库加载成功，找到表：15     视图：0     存储过程：1
+[Header] 2012-05-05 09:45:59,131 [11] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 10:01:09,040 [11] INFO  WebMisSharp.ConsoleHelper [(null)] - TEST数据库加载成功，找到表：15     视图：0     存储过程：1
+[Footer] [Header] 2012-05-05 10:07:48,801 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 10:07:54,421 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - TEST数据库加载成功，找到表：15     视图：0     存储过程：1
+2012-05-05 10:08:00,528 [9] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+设置 DataSource 属性后无法修改项集合。
+
+System.ArgumentException
+
+Stack Trace:
+   在 System.Windows.Forms.ListBox.CheckNoDataSource()
+   在 System.Windows.Forms.ListBox.ObjectCollection.Clear()
+   在 WebMisSharp.DBToSQLScript.btnAll_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\DBToSQLScript.cs:行号 36
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.RunDialog(Form form)
+   在 System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   在 System.Windows.Forms.Form.ShowDialog()
+   在 WebMisSharp.Project.RM_DBCreateSQL_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 606
+   在 System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   在 System.Windows.Forms.ToolStripMenuItem.OnClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.ToolStripDropDown.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStripDropDown.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-05 10:13:26,783 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 10:13:31,910 [10] INFO  WebMisSharp.ConsoleHelper [(null)] - TEST数据库加载成功，找到表：15     视图：0     存储过程：1
+2012-05-05 10:13:36,957 [10] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+设置 DataSource 属性后无法修改项集合。
+
+System.ArgumentException
+
+Stack Trace:
+   在 System.Windows.Forms.ListBox.CheckNoDataSource()
+   在 System.Windows.Forms.ListBox.ObjectCollection.Clear()
+   在 WebMisSharp.DBToSQLScript.btnAll_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\DBToSQLScript.cs:行号 40
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnClick(EventArgs e)
+   在 System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   在 System.Windows.Forms.Button.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.RunDialog(Form form)
+   在 System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   在 System.Windows.Forms.Form.ShowDialog()
+   在 WebMisSharp.Project.RM_DBCreateSQL_Click(Object sender, EventArgs e) 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Layout\Project.cs:行号 606
+   在 System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   在 System.Windows.Forms.ToolStripMenuItem.OnClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   在 System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   在 System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.ToolStripDropDown.OnMouseUp(MouseEventArgs mea)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   在 System.Windows.Forms.ToolStripDropDown.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(ApplicationContext context)
+   在 WebMisSharp.Program.Main() 位置 E:\云极科技\创新研究\WebMisSharp_Google\WebMisSharp\Program.cs:行号 21
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+[Header] 2012-05-05 10:15:01,107 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 10:15:04,627 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - TEST数据库加载成功，找到表：15     视图：0     存储过程：1
+2012-05-05 10:15:25,109 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：67     视图：21     存储过程：22
+[Footer] [Header] 2012-05-05 10:17:19,940 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 10:17:25,168 [10] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：67     视图：21     存储过程：22
+[Footer] [Header] 2012-05-05 10:21:53,608 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-05 10:22:17,653 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：67     视图：21     存储过程：22
+[Header] 2012-05-07 13:25:33,658 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-07 13:26:15,862 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - WEBMISSHARP数据库加载成功，找到表：6     视图：0     存储过程：1
+2012-05-07 13:26:56,047 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 您生成了SQL查询
+[Footer] [Header] 2012-05-07 14:16:10,578 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-07 14:16:48,212 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：68     视图：21     存储过程：22
+2012-05-07 14:17:17,276 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 您生成了SQL查询
+2012-05-07 16:06:43,563 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：68     视图：22     存储过程：22
+2012-05-07 16:09:41,089 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+2012-05-07 16:23:28,574 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功修改了属性Path:H:\WebMis
+2012-05-07 16:23:56,699 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功修改了属性Path:H:\HHH\WebMis
+2012-05-07 16:24:45,990 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 开始生成...0%
+2012-05-07 16:24:45,991 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 获取项目路径...5%
+2012-05-07 16:24:45,991 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - H:\HHH\WebMis
+2012-05-07 16:24:46,094 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功生成Model的get;set;...25%
+2012-05-07 16:24:46,095 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 生成Model文件...
+2012-05-07 16:24:46,232 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - Model创建成功
+2012-05-07 16:24:46,233 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功创建Model文件...40%
+2012-05-07 16:24:46,233 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 配置BLL逻辑工厂...
+2012-05-07 16:24:46,237 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL逻辑工厂配置成功
+2012-05-07 16:24:46,237 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功配置BLL逻辑工厂...50%
+2012-05-07 16:24:46,238 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 生成BLL文件...
+2012-05-07 16:24:46,311 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL单独逻辑文件创建成功
+2012-05-07 16:24:46,312 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功创建了BLL文件...60%
+2012-05-07 16:24:46,312 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 配置BLL逻辑工厂...
+2012-05-07 16:24:46,313 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL逻辑工厂已配置，本次忽略
+2012-05-07 16:24:46,313 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功配置BLL逻辑工厂...62%
+2012-05-07 16:24:46,314 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 开始生成WebUI...
+2012-05-07 16:24:46,334 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功获取WebUI元素...90%
+2012-05-07 16:24:46,474 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - WebUI生成成功...100%
+2012-05-07 16:24:46,474 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 恭喜您，生成成功！
+[Footer] [Header] 2012-05-09 14:07:06,875 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-09 14:07:14,151 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：70     视图：22     存储过程：22
+2012-05-09 14:07:25,713 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 您生成了SQL查询
+2012-05-09 14:21:57,525 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 开始生成...0%
+2012-05-09 14:21:57,543 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 获取项目路径...5%
+2012-05-09 14:21:57,546 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - H:\HHH\WebMis
+2012-05-09 14:21:57,627 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功生成Model的get;set;...25%
+2012-05-09 14:21:57,634 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 生成Model文件...
+2012-05-09 14:21:57,701 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - Model创建成功
+2012-05-09 14:21:57,706 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功创建Model文件...40%
+2012-05-09 14:21:57,710 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 配置BLL逻辑工厂...
+2012-05-09 14:21:57,715 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL逻辑工厂已配置，本次忽略
+2012-05-09 14:21:57,720 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功配置BLL逻辑工厂...50%
+2012-05-09 14:21:57,723 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 生成BLL文件...
+2012-05-09 14:21:57,756 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL单独逻辑文件创建成功
+2012-05-09 14:21:57,760 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功创建了BLL文件...60%
+2012-05-09 14:21:57,764 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 配置BLL逻辑工厂...
+2012-05-09 14:21:57,768 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL逻辑工厂已配置，本次忽略
+2012-05-09 14:21:57,771 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功配置BLL逻辑工厂...62%
+2012-05-09 14:21:57,776 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 开始生成WebUI...
+2012-05-09 14:21:57,801 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功获取WebUI元素...90%
+2012-05-09 14:21:57,945 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - WebUI生成成功...100%
+2012-05-09 14:21:57,950 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 恭喜您，生成成功！
+2012-05-09 14:23:44,215 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 开始生成...0%
+2012-05-09 14:23:44,233 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 获取项目路径...5%
+2012-05-09 14:23:44,237 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - H:\HHH\WebMis
+2012-05-09 14:23:44,243 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功生成Model的get;set;...25%
+2012-05-09 14:23:44,246 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 生成Model文件...
+2012-05-09 14:23:44,259 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - Model创建成功
+2012-05-09 14:23:44,262 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功创建Model文件...40%
+2012-05-09 14:23:44,265 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 配置BLL逻辑工厂...
+2012-05-09 14:23:44,271 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL逻辑工厂已配置，本次忽略
+2012-05-09 14:23:44,275 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功配置BLL逻辑工厂...50%
+2012-05-09 14:23:44,278 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 生成BLL文件...
+2012-05-09 14:23:44,286 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL单独逻辑文件创建成功
+2012-05-09 14:23:44,290 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功创建了BLL文件...60%
+2012-05-09 14:23:44,293 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 配置BLL逻辑工厂...
+2012-05-09 14:23:44,297 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL逻辑工厂已配置，本次忽略
+2012-05-09 14:23:44,301 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功配置BLL逻辑工厂...62%
+2012-05-09 14:23:44,304 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 开始生成WebUI...
+2012-05-09 14:23:44,333 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功获取WebUI元素...90%
+2012-05-09 14:23:44,431 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - WebUI生成成功...100%
+2012-05-09 14:23:44,435 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 恭喜您，生成成功！
+[Footer] [Header] 2012-05-10 09:52:27,646 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-10 09:52:38,130 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+[Footer] [Header] 2012-05-10 09:57:26,799 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-10 09:57:33,402 [10] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+2012-05-10 09:58:54,434 [10] INFO  WebMisSharp.ConsoleHelper [(null)] - 您生成了SQL查询
+[Footer] [Header] 2012-05-10 10:14:51,060 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-10 10:15:01,970 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+2012-05-10 10:15:44,805 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - 您打开新建查询
+[Footer] [Header] 2012-05-10 10:45:03,927 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-10 10:45:16,695 [10] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+[Header] 2012-05-10 10:46:57,342 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-10 10:47:01,317 [10] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+[Header] 2012-05-10 11:01:10,547 [10] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-10 11:01:14,900 [10] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+[Header] 2012-05-10 11:04:02,450 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-10 11:04:05,699 [9] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功加载新建项目窗体！
+[Footer] [Header] 2012-05-10 14:50:48,058 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-10 14:51:06,676 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+2012-05-10 14:51:20,747 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 您生成了SQL查询
+2012-05-10 15:03:28,886 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 您生成了SQL查询
+[Footer] [Header] 2012-05-11 10:57:29,769 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-11 10:57:36,062 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：22     存储过程：22
+2012-05-11 10:57:49,696 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 您生成了SQL查询
+2012-05-11 13:35:36,037 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：23     存储过程：22
+2012-05-11 13:45:17,569 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 开始生成...0%
+2012-05-11 13:45:17,587 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 获取项目路径...5%
+2012-05-11 13:45:17,590 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - H:\HHH\WebMis
+2012-05-11 13:45:17,960 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功生成Model的get;set;...25%
+2012-05-11 13:45:17,965 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 生成Model文件...
+2012-05-11 13:45:18,156 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - Model创建成功
+2012-05-11 13:45:18,161 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功创建Model文件...40%
+2012-05-11 13:45:18,165 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 配置BLL逻辑工厂...
+2012-05-11 13:45:18,180 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL逻辑工厂配置成功
+2012-05-11 13:45:18,185 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功配置BLL逻辑工厂...50%
+2012-05-11 13:45:18,189 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 生成BLL文件...
+2012-05-11 13:45:18,251 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL单独逻辑文件创建成功
+2012-05-11 13:45:18,255 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功创建了BLL文件...60%
+2012-05-11 13:45:18,259 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 配置BLL逻辑工厂...
+2012-05-11 13:45:18,263 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - BLL逻辑工厂已配置，本次忽略
+2012-05-11 13:45:18,267 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功配置BLL逻辑工厂...62%
+2012-05-11 13:45:18,271 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 开始生成WebUI...
+2012-05-11 13:45:18,329 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 成功获取WebUI元素...90%
+2012-05-11 13:45:18,587 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - WebUI生成成功...100%
+2012-05-11 13:45:18,593 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 恭喜您，生成成功！
+[Footer] [Header] 2012-05-15 16:00:12,746 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+2012-05-15 16:00:20,829 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - PLMASS数据库加载成功，找到表：69     视图：23     存储过程：23
+2012-05-15 16:03:24,877 [1] INFO  WebMisSharp.ConsoleHelper [(null)] - 您生成了SQL查询
+[Footer] 
