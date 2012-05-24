@@ -11,13 +11,14 @@ using DBHelper;
 using Core;
 using System.Threading;
 using System.Collections;
+using StaticConfigure;
 
 namespace WebMisSharp
 {
     public partial class TableInfo : DockContent
     {
         WebMisSharp GlobalForm = null;
-        Console log = null;
+        //Console log = null;
         public TableInfo()
         {
             InitializeComponent();
@@ -26,8 +27,13 @@ namespace WebMisSharp
         //绑定表结构
         public void BindTableStruct()
         {
-            this.Text = GlobalForm.LbGlobalTable.Text + "-表结构";
-            DataTable dt = SQLDBHelper.GetTableStructs(GlobalForm.LbGlobalProject.Text, GlobalForm.LbGlobalTable.Text);
+            this.Text = GlobalForm.LbGlobalTable.Text + "-结构";
+            DataTable dt = new DataTable();
+            if (ObjectProperty.ObjectList.Table.ToString() == GlobalForm.LbGlobalTable.Text)
+                dt = SQLDBHelper.GetTableStructs(GlobalForm.LbGlobalProject.Text, GlobalForm.LbGlobalTable.Text);
+            else
+                dt = SQLDBHelper.GetViewStructs(GlobalForm.LbGlobalProject.Text, GlobalForm.LbGlobalTable.Text);
+
             DGridTableStruct.DataSource = dt;
             DataRow[] dr = dt.Select("标识='√'");
             if (dr.Count() > 0)
@@ -39,12 +45,20 @@ namespace WebMisSharp
             foreach (DataGridViewRow r in DGridTableStruct.Rows)
             {
                 if (r.Cells["FieldDesc"].Value.ToString().Trim().Length <= 0) continue;
-                SQLDBHelper.SetTableFieldRemark(GlobalForm.LbGlobalProject.Text,
-                                                r.Cells["Tid"].Value.ToString().Trim(),
-                                                r.Cells["Cid"].Value.ToString().Trim(),
-                                                GlobalForm.LbGlobalTable.Text,
-                                                r.Cells["FieldName"].Value.ToString().Trim(),
-                                                r.Cells["FieldDesc"].Value.ToString().Trim());
+                if (ObjectProperty.ObjectList.Table.ToString() == GlobalForm.LbGlobalTable.Text)
+                    SQLDBHelper.SetTableFieldRemark(GlobalForm.LbGlobalProject.Text,
+                                                    r.Cells["Tid"].Value.ToString().Trim(),
+                                                    r.Cells["Cid"].Value.ToString().Trim(),
+                                                    GlobalForm.LbGlobalTable.Text,
+                                                    r.Cells["FieldName"].Value.ToString().Trim(),
+                                                    r.Cells["FieldDesc"].Value.ToString().Trim());
+                else
+                    SQLDBHelper.SetViewFieldRemark(GlobalForm.LbGlobalProject.Text,
+                                               r.Cells["Tid"].Value.ToString().Trim(),
+                                               r.Cells["Cid"].Value.ToString().Trim(),
+                                               GlobalForm.LbGlobalTable.Text,
+                                               r.Cells["FieldName"].Value.ToString().Trim(),
+                                               r.Cells["FieldDesc"].Value.ToString().Trim());
             }
             MessageBox.Show("自动描述写入完毕！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -103,13 +117,11 @@ namespace WebMisSharp
         //生成代码到项目中
         /****声明******/
         DataTable ColumnsDT = null;
-        string Path,ModelName,TableName,AutoID,UIPath,BLLName;
+        string Path, ModelName, TableName, AutoID, UIPath, BLLName;
         int Cols = 2;
         bool MC = false, WC = false, BC = false;
         private void BtnCreateCode2Proj_Click(object sender, EventArgs e)
         {
-            log = ((Console)Application.OpenForms["Console"]);
-            log.Show();
             ColumnsDT = DGridTableStruct.DataSource as DataTable;
             //配置线程参数
             Path = ExtNetCore.GetPath(GlobalForm.LbGlobalProject.Text);
@@ -142,7 +154,7 @@ namespace WebMisSharp
             threadcore.Start();//启动一个线程
         }
         #region 生成配置线程
-        private void Create2Proj() 
+        private void Create2Proj()
         {
             PrintLine("开始生成...0%");
             PrintLine("获取项目路径...5%");
@@ -199,10 +211,10 @@ namespace WebMisSharp
             else
             {
                 if (msg.Contains("ERROR："))
-                    log.LogPreView.SelectionColor = Color.Red;
+                    ConsoleHelper.SetLineColor(Color.Red);
                 else
-                    log.LogPreView.SelectionColor = Color.Lime;
-                log.RTLog(msg);
+                    ConsoleHelper.SetLineColor(Color.Lime);
+                ConsoleHelper.ShowConsole(msg);
                 Application.DoEvents();
             }
         }

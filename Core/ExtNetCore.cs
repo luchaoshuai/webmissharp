@@ -13,20 +13,20 @@ namespace Core
     public class ExtNetCore
     {
         //生成Combox的store的模版
-        static string CboStoreTemplate = "\t<ext:Store runat=\"server\" ID=\"{0}_Store\" >"
-                              + "\t\t<Reader>"
-                              + "\t\t\t<ext:JsonReader>"
-                              + "\t\t\t\t<Fields>"
-                              + "\t\t\t\t\t<ext:RecordField Name=\"{1}\" />"
-                              + "\t\t\t\t\t<ext:RecordField Name=\"{2}\" />"
-                              + "\t\t\t\t</Fields>"
-                              + "\t\t\t</ext:JsonReader>"
-                              + "\t\t</Reader>"
+        static string CboStoreTemplate = "\t<ext:Store runat=\"server\" ID=\"{0}_Store\" >"+"\r\n"
+                              + "\t\t<Reader>" + "\r\n"
+                              + "\t\t\t<ext:JsonReader>" + "\r\n"
+                              + "\t\t\t\t<Fields>" + "\r\n"
+                              + "\t\t\t\t\t<ext:RecordField Name=\"{1}\" />" + "\r\n"
+                              + "\t\t\t\t\t<ext:RecordField Name=\"{2}\" />" + "\r\n"
+                              + "\t\t\t\t</Fields>" + "\r\n"
+                              + "\t\t\t</ext:JsonReader>" + "\r\n"
+                              + "\t\t</Reader>" + "\r\n"
                               + "\t</ext:Store>";
-        static string AspxCboStoreBindTemplate = "\t\tprivate void BindCboData_{0}()"
-                               + "\t\t{"
-                               + "\t\t\t{0}_Store.DataSource = WMSFactory.{0}.{1};"
-                               + "\t\t\t{0}_Store.DataBind();"
+        static string AspxCboStoreBindTemplate = "\t\tprivate void BindCboData_{0}()" + "\r\n"
+                               + "\t\t{" + "\r\n"
+                               + "\t\t\t{0}_Store.DataSource = WMSFactory.{TABLENAME}.{1};" + "\r\n"
+                               + "\t\t\t{0}_Store.DataBind();" + "\r\n"
                                + "\t\t}";
 
         static string WebCSPROJ = "\t<Compile Include=\"Admin\\{0}\">"
@@ -185,12 +185,12 @@ namespace Core
                                 if (cbo == null || cbo.TableName == null || cbo.TableName.Trim().Length <= 0
                                    || cbo.Display == null || cbo.Display.Trim().Length <= 0
                                    || cbo.Value == null || cbo.Display.Trim().Length <= 0)
-                                    Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:ComboBox ID=\"Cbo" + dr["字段名"].ToString() + "\" Editable=\"false\"  Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DataIndex=\"" + dr["字段名"].ToString() + "\" />");
+                                    Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:ComboBox ID=\"Cbo" + dr["字段名"].ToString() + "\" StoreID=\""+dr["字段名"].ToString()+"_Store\" Editable=\"false\"  Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DataIndex=\"" + dr["字段名"].ToString() + "\" />");
                                 else
                                 {
-                                    Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:ComboBox ID=\"Cbo" + dr["字段名"].ToString() + "\" Editable=\"false\"  Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DisplayField=\"" + cbo.Display.Trim() + "\" ValueField=\"" + cbo.Value.Trim() + "\" DataIndex=\"" + dr["字段名"].ToString() + "\"  />");
+                                    Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:ComboBox ID=\"Cbo" + dr["字段名"].ToString() + "\" StoreID=\"" + dr["字段名"].ToString() + "_Store\" Editable=\"false\"  Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DisplayField=\"" + cbo.Display.Trim() + "\" ValueField=\"" + cbo.Value.Trim() + "\" DataIndex=\"" + dr["字段名"].ToString() + "\"  />");
                                     CboStores.AppendLine(string.Format(CboStoreTemplate, dr["字段名"].ToString(), cbo.Display.Trim(), cbo.Value.Trim()));
-                                    CboStoresBinds.AppendLine(AspxCboStoreBindTemplate.Replace("{0}", dr["字段名"].ToString()).Replace("{1}", ((cbo.Conditions == null || cbo.Conditions.Trim().Length <= 0) ? "FindAll()" : "FindByConditions(\"" + cbo.Conditions.Trim() + "\")")));
+                                    CboStoresBinds.AppendLine(AspxCboStoreBindTemplate.Replace("{0}", dr["字段名"].ToString()).Replace("{1}", ((cbo.Conditions == null || cbo.Conditions.Trim().Length <= 0) ? "FindAll()" : "FindByCondition(\"" + cbo.Conditions.Trim() + "\")")));
                                     PageLoadBinds.AppendLine("\t\t\t\tBindCboData_" + dr["字段名"].ToString() + "();");
                                 }
                                 Designer.AppendLine("\t\tprotected global::Ext.Net.ComboBox Cbo" + dr["字段名"].ToString() + ";");
@@ -203,12 +203,12 @@ namespace Core
                                 if (mcbo == null || mcbo.TableName == null || mcbo.TableName.Trim().Length <= 0
                                    || mcbo.Display == null || mcbo.Display.Trim().Length <= 0
                                    || mcbo.Value == null || mcbo.Display.Trim().Length <= 0)
-                                    Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:MultiCombo ID=\"MCbo" + dr["字段名"].ToString() + "\" Editable=\"false\"  Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DataIndex=\"" + dr["字段名"].ToString() + "\" />");
+                                    Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:MultiCombo ID=\"MCbo" + dr["字段名"].ToString() + "\" Editable=\"false\" StoreID=\"" + dr["字段名"].ToString() + "_Store\" Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DataIndex=\"" + dr["字段名"].ToString() + "\" />");
                                 else
                                 {
-                                    Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:MultiCombo ID=\"MCbo" + dr["字段名"].ToString() + "\" Editable=\"false\"  Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DisplayField=\"" + mcbo.Display.Trim() + "\" ValueField=\"" + mcbo.Value.Trim() + "\" DataIndex=\"" + dr["字段名"].ToString() + "\"  />");
+                                    Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:MultiCombo ID=\"MCbo" + dr["字段名"].ToString() + "\" Editable=\"false\" StoreID=\"" + dr["字段名"].ToString() + "_Store\" Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DisplayField=\"" + mcbo.Display.Trim() + "\" ValueField=\"" + mcbo.Value.Trim() + "\" DataIndex=\"" + dr["字段名"].ToString() + "\"  />");
                                     CboStores.AppendLine(string.Format(CboStoreTemplate, dr["字段名"].ToString(), mcbo.Display.Trim(), mcbo.Value.Trim()));
-                                    CboStoresBinds.AppendLine(AspxCboStoreBindTemplate.Replace("{0}", dr["字段名"].ToString()).Replace("{1}", ((mcbo.Conditions == null || mcbo.Conditions.Trim().Length <= 0) ? "FindAll()" : "FindByConditions(\"" + mcbo.Conditions.Trim() + "\")")));
+                                    CboStoresBinds.AppendLine(AspxCboStoreBindTemplate.Replace("{0}", dr["字段名"].ToString()).Replace("{1}", ((mcbo.Conditions == null || mcbo.Conditions.Trim().Length <= 0) ? "FindAll()" : "FindByCondition(\"" + mcbo.Conditions.Trim() + "\")")));
                                     PageLoadBinds.AppendLine("\t\t\t\tBindCboData_" + dr["字段名"].ToString() + ";");
                                 }
                                 Designer.AppendLine("\t\tprotected global::Ext.Net.MultiCombo MCbo" + dr["字段名"].ToString() + ";");
@@ -275,7 +275,7 @@ namespace Core
                 string AspxCS = FileHelper.ReadFile(".\\Templates\\Template.aspx.cs").Replace("Template", PageName);
                 AspxCS = AspxCS.Replace("{ModelSetValue}", list[6].ToString())
                     .Replace("//{CBOBIND}", list[8].ToString())
-                    .Replace("//{CBOBINDFun}", list[7].ToString())
+                    .Replace("//{CBOBINDFun}", list[7].ToString().Replace("{TABLENAME}",ModelName))
                     .Replace("{AutoID}", AutoID)
                     .Replace("{TABLENAME}", ModelName);
                 //创建Aspx.designer

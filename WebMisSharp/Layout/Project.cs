@@ -68,12 +68,12 @@ namespace WebMisSharp
         //当选择项目路径的时候
         private void Tree_Project_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            Console console = ((Console)Application.OpenForms["Console"]);
+            //Console console = ((Console)Application.OpenForms["Console"]);
             try
             {
                  GetProjectDetail();
             }
-            catch (Exception error) { console.RTLog("加载属性异常:" + error.Message); }
+            catch (Exception error) { SendLog("加载属性异常:" + error.Message); }
         }
 
         #region 工具栏按钮功能
@@ -158,7 +158,7 @@ namespace WebMisSharp
             }
             else if (NodeType == ObjectProperty.ObjectList.DataBase.ToString())
             {
-                MainGlobalProjectInfo(Node.Text, Tree_Project.SelectedNode.Text.Replace("数据库[", "").Replace("]", ""), "");
+                MainGlobalProjectInfo(Node.Text, Tree_Project.SelectedNode.Text.Replace("数据库[", "").Replace("]", ""), "", NodeType);
 
                 DataTable dtemp = DBHelper.SQLDBHelper.GetDBBasicInfo(Node.Text);
                 DataTable dfile = DBHelper.SQLDBHelper.GetDBFilesInfo(Node.Text);
@@ -222,7 +222,7 @@ namespace WebMisSharp
             else if (NodeType == ObjectProperty.ObjectList.Table.ToString())
             {
                 string CurrentTable = Tree_Project.SelectedNode.Text;
-                MainGlobalProjectInfo(Node.Text, Tree_Project.SelectedNode.Parent.Parent.Text.Replace("数据库[", "").Replace("]", ""), CurrentTable);
+                MainGlobalProjectInfo(Node.Text, Tree_Project.SelectedNode.Parent.Parent.Text.Replace("数据库[", "").Replace("]", ""), CurrentTable, NodeType);
                 DataTable dtemp = DBHelper.SQLDBHelper.GetTableBasic(Node.Text,CurrentTable);
                 DataTable dfile = DBHelper.SQLDBHelper.GetTableSize(Node.Text, CurrentTable);
                 PropertySpec TName = new PropertySpec("0.表名", typeof(String), "表", "表名称", dtemp.Rows[0]["name"].ToString());
@@ -254,17 +254,23 @@ namespace WebMisSharp
                 ProjectBag["5.已用空间"] = dfile.Rows[0]["data"].ToString();
                 ProjectBag["6.剩余空间"] = dfile.Rows[0]["unused"].ToString();
             }
+            else if (NodeType == ObjectProperty.ObjectList.View.ToString())
+            {
+                string CurrentTable = Tree_Project.SelectedNode.Text;
+                MainGlobalProjectInfo(Node.Text, Tree_Project.SelectedNode.Parent.Parent.Text.Replace("数据库[", "").Replace("]", ""), CurrentTable, NodeType);
+            }
             Atts.PropertyGrid.SelectedObject = ProjectBag;
             Atts.CboCurrentObject.Items.Clear();
             Atts.CboCurrentObject.Items.Add(NodeType);
             Atts.CboCurrentObject.SelectedIndex = 0;
         }
         //主窗体设置项目名称，数据库，表名称
-        private void MainGlobalProjectInfo(string ProjName,string DBName,String TableName)
+        private void MainGlobalProjectInfo(string ProjName,string DBName,String TableName,string Type)
         {
             GlobalForm.LbGlobalProject.Text = ProjName;
             GlobalForm.LbGlobalDB.Text = DBName;
             GlobalForm.LbGlobalTable.Text = TableName;
+            GlobalForm.LbGlobalViewTableProc.Text = Type;
             //if (((TableInfo)Application.OpenForms["TableInfo"]) != null)
             //    ((TableInfo)Application.OpenForms["TableInfo"]).BindTableStruct();
         }
@@ -276,7 +282,7 @@ namespace WebMisSharp
         //移除项目
         private void RemoveSelectedProject()
         {
-            Console console = ((Console)Application.OpenForms["Console"]);
+            //Console console = ((Console)Application.OpenForms["Console"]);
             try
             {
                 TreeNode Node = this.Tree_Project.SelectedNode;
@@ -286,12 +292,12 @@ namespace WebMisSharp
                 {
                     XMLHelper.Delete(XMLPaths.ProjectXml, "/Root/Project[@Name='" + Node.Text + "']", "");
                     Tree_Project.Nodes.Remove(Node);
-                    console.RTLog("您删除了项目：" + Node.Text);
+                    SendLog("您删除了项目：" + Node.Text);
                 }
             }
             catch (Exception error)
             {
-                console.RTLog("删除项目异常:" + error.Message);
+                SendLog("删除项目异常:" + error.Message);
                 MessageBox.Show("请先选择要移除的项目！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -302,7 +308,7 @@ namespace WebMisSharp
         private void Tree_Project_MouseUp(object sender, MouseEventArgs e)
         {
             RightMenuProTree.Hide();
-            Console console = ((Console)Application.OpenForms["Console"]);
+            //Console console = ((Console)Application.OpenForms["Console"]);
             try
             {
                 Point mpt = new Point(e.X, e.Y);
@@ -321,7 +327,7 @@ namespace WebMisSharp
             }
             catch (Exception error)
             {
-                console.RTLog("加载右键异常:" + error.Message);
+                SendLog("加载右键异常:" + error.Message);
             }
         }
 
@@ -391,12 +397,13 @@ namespace WebMisSharp
 
                 ToolStripSeparator S2 = new ToolStripSeparator();
                 S2.Name = "S2";
-
+                /*
                 ToolStripMenuItem RM_DBCreateSQL = new ToolStripMenuItem();
                 RM_DBCreateSQL.Name = "RM_DBCreateSQL";
                 RM_DBCreateSQL.Text = "生成数据库脚本";
                 RM_DBCreateSQL.ImageIndex = 20;
                 RM_DBCreateSQL.Click += new EventHandler(RM_DBCreateSQL_Click);
+                */
 
                 ToolStripMenuItem RM_DBDOC = new ToolStripMenuItem();
                 RM_DBDOC.Name = "RM_DBDOC";
@@ -417,7 +424,7 @@ namespace WebMisSharp
                 RightMenuProTree.Items.AddRange(
                             new System.Windows.Forms.ToolStripItem[] { 
                                 RM_DBLoad,RM_DBQuery,S1,RM_CreateBaseTab,RM_DBCode,S2,
-                                RM_DBCreateSQL,RM_DBDOC,S3,RM_DBAtt
+                                RM_DBDOC,S3,RM_DBAtt
                             });
             }
             else if (NodeType == ObjectProperty.ObjectList.TableRoot.ToString())
@@ -503,6 +510,25 @@ namespace WebMisSharp
                            new System.Windows.Forms.ToolStripItem[] { 
                                 RM_TabStruct,RM_TabSQL,RM_TabCode,
                                 RM_DBCode,RM_DBFCCode
+                            });
+            }
+            else if (NodeType == ObjectProperty.ObjectList.View.ToString())
+            {
+                ToolStripMenuItem RM_DBViewCode = new ToolStripMenuItem();
+                RM_DBViewCode.Name = "RM_DBViewCode";
+                RM_DBViewCode.Text = "查看视图结构";
+                RM_DBViewCode.ImageIndex = 19;
+                RM_DBViewCode.Click += new EventHandler(RM_TabDEV_Click);
+
+                ToolStripMenuItem RM_ViewSQL = new ToolStripMenuItem();
+                RM_ViewSQL.Name = "RM_ViewSQL";
+                RM_ViewSQL.Text = "生成SQL语句";
+                RM_ViewSQL.ImageIndex = 11;
+                RM_ViewSQL.Click += new EventHandler(RM_Select_Click);
+
+                RightMenuProTree.Items.AddRange(
+                            new System.Windows.Forms.ToolStripItem[] { 
+                                RM_DBViewCode,RM_ViewSQL
                             });
             }
         }
@@ -602,6 +628,8 @@ namespace WebMisSharp
         //生成数据脚本
         private void RM_DBCreateSQL_Click(object sender, EventArgs e)
         {
+            DBToSQLScript db = new DBToSQLScript();
+            db.ShowDialog();
         }
         //生成数据库文档
         private void RM_DBDOC_Click(object sender, EventArgs e)
@@ -729,7 +757,7 @@ namespace WebMisSharp
         }
         private void backgroundWorkDBLoad_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MainGlobalProjectInfo(CurrentNode.Parent.Text, Tree_Project.SelectedNode.Text.Replace("数据库[", "").Replace("]", ""), "");
+            MainGlobalProjectInfo(CurrentNode.Parent.Text, Tree_Project.SelectedNode.Text.Replace("数据库[", "").Replace("]", ""), "",ObjectProperty.ObjectList.DataBase.ToString());
 
             CurrentNode.Nodes.Clear();//清除
             CurrentNode.Nodes.Add(GlobalDBNodes.Nodes[0]);
@@ -749,8 +777,9 @@ namespace WebMisSharp
         //显示日志
         private void SendLog(string Msg)
         {
-            ((Console)Application.OpenForms["Console"]).Show();
-            ((Console)Application.OpenForms["Console"]).RTLog(Msg);
+            ConsoleHelper.ShowConsole(Msg);
+           // ((Console)Application.OpenForms["Console"]).Show();
+           // ((Console)Application.OpenForms["Console"]).RTLog(Msg);
         }
              
 

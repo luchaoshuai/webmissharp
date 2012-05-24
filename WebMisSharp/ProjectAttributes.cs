@@ -14,14 +14,14 @@ namespace WebMisSharp
     public partial class ProjectAttributes : Form
     {
         string XMLPath = "";//Project.xml的路径
-        Console ConsoleLog;
+        //Console ConsoleLog;
         public ProjectAttributes()
         {
             XMLPath = XMLPaths.ProjectXml;
-            ConsoleLog = (Console)Application.OpenForms["Console"];
+            //ConsoleLog = (Console)Application.OpenForms["Console"];
             InitializeComponent();
             BindDataBaseType();
-            ConsoleLog.RTLog("成功加载新建项目窗体！");
+            ConsoleHelper.ShowConsole("成功加载新建项目窗体！");
         }
         //根据枚举绑定数据库类型
         private void BindDataBaseType()
@@ -69,19 +69,19 @@ namespace WebMisSharp
             string Name=TxtProjectName.Text.Trim().ToUpper();
             if (Name.Length <= 0 || TxtProjectPath.Text.Trim().Length <= 0 || TxtProDBConStr.Text.Trim().Length <= 0)
             {
-                ConsoleLog.RTLog("信息不完整，无法保存！");
+                ConsoleHelper.ShowConsole("信息不完整，无法保存！");
                 MessageBox.Show("信息不完整，无法保存！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
             if (!TryConnect())
             {
-                ConsoleLog.RTLog("连接失败！请认真检查连接串！");
+                ConsoleHelper.ShowConsole("连接失败！请认真检查连接串！");
                 MessageBox.Show("连接失败！请认真检查连接串！", "失败", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
             if (XMLHelper.Read(XMLPath, "/Root/Project[@Name='" + Name + "']", "Name") != "")
             {
-                ConsoleLog.RTLog("该项目名称已被使用，请更换名称！");
+                ConsoleHelper.ShowConsole("该项目名称已被使用，请更换名称！");
                 MessageBox.Show("该项目名称已被使用，请更换名称！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
@@ -95,7 +95,7 @@ namespace WebMisSharp
             XMLHelper.Insert(XMLPath, "/Root/Project[@Name='" + Name + "']", "Path", "", TxtProjectPath.Text);
             XMLHelper.Insert(XMLPath, "/Root/Project[@Name='" + Name + "']", "Structure", "", Struct);
             XMLHelper.Update(XMLPath, "/Root/" + CboProjectDB.Text, "", TxtProDBConStr.Text.Trim());
-            ConsoleLog.RTLog("项目保存成功 名称：" + Name + "  数据库：" + CboProjectDB.Text + "  " + TxtProDBConStr.Text.Trim() + " 路径：" + TxtProjectPath.Text);
+            ConsoleHelper.ShowConsole("项目保存成功 名称：" + Name + "  数据库：" + CboProjectDB.Text + "  " + TxtProDBConStr.Text.Trim() + " 路径：" + TxtProjectPath.Text);
             this.DialogResult = DialogResult.OK;
         }
         //返回
