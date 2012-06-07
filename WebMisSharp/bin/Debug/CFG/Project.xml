@@ -1,35 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <SQLSERVER2008>Server=192.168.0.73;Uid=sa;Pwd=ovenjackchain;DataBase=PLMASS_Test;</SQLSERVER2008>
+  <SQLSERVER2008>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=Nebula;</SQLSERVER2008>
   <ORACLE>Server=[Oracle Service];Uid=[UserName];Pwd=[PassWord];</ORACLE>
-  <Project Name="星云搜索">
+  <Project Name="WMSTEST">
     <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=nebula;</DBConStr>
-    <Path>H:\WebMis</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
-  <Project Name="台华新材">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=TaiHua;</DBConStr>
-    <Path>E:\云极科技\云极外包\03台华纺织\台华首页-终结版\TaiHua</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
-  <Project Name="WEBMISSHARP">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=WebMisSharp;</DBConStr>
-    <Path>E:\云极科技\创新研究\WebMis</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
-  <Project Name="TEST">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=HisDemo;</DBConStr>
-    <Path>H:\HHH\WebMis</Path>
-    <Structure>SimpleThreeLayer</Structure>
-  </Project>
-  <Project Name="PLMASS">
-    <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=192.168.0.73;Uid=sa;Pwd=ovenjackchain;DataBase=PLMASS_Test;</DBConStr>
-    <Path>H:\HHH\WebMis</Path>
+    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=ITDC;</DBConStr>
+    <Path>H:\WMSTest\WebMis</Path>
     <Structure>SimpleThreeLayer</Structure>
   </Project>
 </Root>

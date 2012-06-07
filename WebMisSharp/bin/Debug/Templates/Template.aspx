@@ -133,7 +133,7 @@
     </ext:Viewport>
     <!--WMS_NOTICE表修改，添加主窗体-->
     <ext:Window ID="{TABLENAME}_Win" Collapsible="true" Hidden="true" Modal="true" Maximizable="true"
-        runat="server" Border="false" Title="编辑记录" Icon="Pencil" Width="630" AutoHeight="true"
+        runat="server" Border="false" Title="编辑记录" Icon="Pencil" Width="{WIDTH}" AutoHeight="true"
         Resizable="true">
         <Items>
             <ext:FormPanel ID="{TABLENAME}_MainForm" Padding="10" Border="false" AutoHeight="true"

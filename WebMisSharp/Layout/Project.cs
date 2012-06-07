@@ -651,7 +651,7 @@ namespace WebMisSharp
         {
             //if (((TableInfo)Application.OpenForms["TableInfo"]) == null)
             //{
-                TableInfo ti = new TableInfo();
+                TableInfo ti = new TableInfo(GlobalForm.LbGlobalTable.Text);
                 ti.Show(GlobalForm.MainDockPanel);
             //}
             //else
