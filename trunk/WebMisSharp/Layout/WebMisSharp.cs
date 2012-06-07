@@ -35,6 +35,9 @@ namespace WebMisSharp
             string configFile = ".\\CFG\\Layout.config";
             if (File.Exists(configFile))
                 MainDockPanel.LoadFromXml(configFile, m_deserializeDockContent);
+
+            Welcome wc = new Welcome();
+            wc.Show(this.MainDockPanel);
         }
 
         private IDockContent GetContentFromPersistString(string persistString)
@@ -128,16 +131,15 @@ namespace WebMisSharp
 
         }
 
-        private void newToolStripButton_Click(object sender, EventArgs e)
-        {
-            TableInfo t = new TableInfo();
-            t.Show(MainDockPanel);
-        }
-
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GlobalConfig cfg = new GlobalConfig();
             cfg.ShowDialog();
+        }
+
+        private void toolStripStatusLabel_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"http://yj.chinacloudtech.com"); 
         }
 
     }

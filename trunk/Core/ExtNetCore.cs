@@ -38,12 +38,12 @@ namespace Core
                                + "\t</Compile>"
                                + "<!--CompilePOINT-->";
         //创建BLL
-        public static string CreateBLL(string Path, string BllName)
+        public static string CreateBLL(string Path, string BllName,string ModelName)
         {
             try
             {
                 string BllContent = FileHelper.ReadFile(".\\Templates\\BLL.cs");
-                string Content = BllContent.Replace("{TABLENAME}", BllName);
+                string Content = BllContent.Replace("{TABLENAME}", BllName).Replace("{MODELNAME}", ModelName);
                 FileHelper.WriteFile(Path + "\\BLL\\Business\\" + BllName + ".cs", Content);
                 FileHelper.WriteFile(Path + "\\BLL\\BLL.csproj", FileHelper.ReadFile(Path + "\\BLL\\BLL.csproj").Replace("<!--DHELPERBLL-->", "<Compile Include=\"Business\\" + BllName + ".cs\" />\r\n\t<!--DHELPERBLL-->"));
                 return "BLL单独逻辑文件创建成功";
@@ -97,15 +97,22 @@ namespace Core
             }
         }
         //更新BLL的工厂
-        public static string UpdateBLLMWSFactory(string Path, string ModelName,string ArgName)
+        public static string UpdateBLLMWSFactory(string Path, string ModelName,string ArgName,bool isRef=true)
         {
             try
             {
                 string WMSFactory = FileHelper.ReadFile(Path + "\\BLL\\WMSFactory.cs");
-                if (WMSFactory.Contains("WMS_Mgr<" + ModelName + ">"))
+                if (WMSFactory.Contains("WMS_Mgr<" + ModelName + ">") || WMSFactory.Contains(ArgName))
                     return "BLL逻辑工厂已配置，本次忽略";
-                string Mgr = "public static WMS_Mgr<{0}> {1} { get { return new WMS_Mgr<{0}>(); } }";
-                Mgr = Mgr.Replace("{0}", ModelName).Replace("{1}",ArgName) + "\r\n\t\t/*WMSPOINT*/";
+                string Mgr = "public static WMS_Mgr<{0}> {1} { get { return new WMS_Mgr<{0}>(); } }";                
+                if (isRef == false)//如果不是泛型
+                {
+                    Mgr = "public static {0} {1} {get { return new {0}(); } }";
+                    Mgr = Mgr.Replace("{0}", ArgName).Replace("{1}", ModelName) + "\r\n\t\t/*WMSPOINT*/";
+                }
+                else
+                    Mgr = Mgr.Replace("{0}", ModelName).Replace("{1}", ArgName) + "\r\n\t\t/*WMSPOINT*/";
+
                 FileHelper.WriteFile(Path + "\\BLL\\WMSFactory.cs", WMSFactory.Replace("/*WMSPOINT*/", Mgr));
                 return "BLL逻辑工厂配置成功";
             }
@@ -146,7 +153,7 @@ namespace Core
                     string CSharpType = TypeDt.Select("key='" + dr["字段类型"].ToString() + "'")[0][1].ToString();
                     if (CSharpType == "string")
                         Filters.AppendLine("\t\t\t\t\t\t\t\t\t<ext:StringFilter DataIndex=\"" + dr["字段名"].ToString() + "\" />");
-
+                    
                     if (dr[0].ToString() == "true" || dr["字段名"].ToString() != AutoID)
                     {
                         //后台Model赋值
@@ -156,22 +163,32 @@ namespace Core
                             Cells.AppendLine("\t\t\t\t\t\t\t<ext:Cell>");
                         Cells.AppendLine("\t\t\t\t\t\t\t\t<ext:Container Layout=\"Form\">");
                         Cells.AppendLine("\t\t\t\t\t\t\t\t\t<Items>");
+                        
                         switch (dr["Form"].ToString())
                         {
                             case "TextField":
                                 Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:TextField ID=\"Txt" + dr["字段名"].ToString() + "\" Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DataIndex=\"" + dr["字段名"].ToString() + "\" />");
                                 Designer.AppendLine("\t\tprotected global::Ext.Net.TextField Txt" + dr["字段名"].ToString() + ";");
-                                ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = Txt" + dr["字段名"].ToString() + ".Text; //" + dr["说明"].ToString());
+                                if (CSharpType == "int" || CSharpType == "decimal" || CSharpType == "long")
+                                    ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = " + CSharpType + ".Parse(Txt" + dr["字段名"].ToString() + ".Text); //" + dr["说明"].ToString());
+                                else 
+                                    ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = Txt" + dr["字段名"].ToString() + ".Text; //" + dr["说明"].ToString());
                                 break;
                             case "DateField":
                                 Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:DateField ID=\"DF" + dr["字段名"].ToString() + "\" Width=\"160\" Format=\"yyyy-MM-dd\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DataIndex=\"" + dr["字段名"].ToString() + "\" />");
                                 Designer.AppendLine("\t\tprotected global::Ext.Net.DateField DF" + dr["字段名"].ToString() + ";");
-                                ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = DateTime.Parse(DF" + dr["字段名"].ToString() + ".Text).ToString(\"yyyy-MM-dd\"); //" + dr["说明"].ToString());
+                                if (CSharpType == "int" || CSharpType == "decimal" || CSharpType == "long")
+                                    ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = " + CSharpType + ".Parse(DF" + dr["字段名"].ToString() + ".Text); //" + dr["说明"].ToString());
+                                else 
+                                    ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = DateTime.Parse(DF" + dr["字段名"].ToString() + ".Text).ToString(\"yyyy-MM-dd\"); //" + dr["说明"].ToString());
                                 break;
                             case "NumberField":
                                 Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:NumberField ID=\"NF" + dr["字段名"].ToString() + "\" Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DataIndex=\"" + dr["字段名"].ToString() + "\" />");
                                 Designer.AppendLine("\t\tprotected global::Ext.Net.NumberField NF" + dr["字段名"].ToString() + ";");
-                                ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = int.Parse(NF" + dr["字段名"].ToString() + ".Text); //" + dr["说明"].ToString());
+                                if (CSharpType == "int" || CSharpType == "decimal" || CSharpType == "long")
+                                    ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = " + CSharpType + ".Parse(NF" + dr["字段名"].ToString() + ".Text); //" + dr["说明"].ToString());
+                                else 
+                                    ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = int.Parse(NF" + dr["字段名"].ToString() + ".Text); //" + dr["说明"].ToString());
                                 break;
                             case "TextArea":
                                 Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:TextArea ID=\"TA" + dr["字段名"].ToString() + "\" Width=\"" + (165 * cols).ToString() + "\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DataIndex=\"" + dr["字段名"].ToString() + "\" />");
@@ -268,7 +285,7 @@ namespace Core
                          .Replace("{StringFilter}", list[2].ToString())
                          .Replace("{Cells}", list[3].ToString())
                          .Replace("{TableColumns}", cols.ToString())
-                         .Replace("{WIDTH}", (cols * 310).ToString())
+                         .Replace("{WIDTH}", (cols * 260).ToString())
                          .Replace("<!--CBOSTORE-->", list[4].ToString());
 
                 //创建Aspx.cs

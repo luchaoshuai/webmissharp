@@ -19,17 +19,21 @@ namespace WebMisSharp
     {
         WebMisSharp GlobalForm = null;
         //Console log = null;
-        public TableInfo()
+        public TableInfo(string ModelName)
         {
             InitializeComponent();
+            this.TableName=ModelName;
             GlobalForm = (WebMisSharp)Application.OpenForms["WebMisSharp"];
+            BindTableStruct();
+            this.TxtModelName.Text = GlobalForm.LbGlobalTable.Text;
+            this.TxtBLLName.Text = "BLL_" + GlobalForm.LbGlobalTable.Text;
         }
         //绑定表结构
         public void BindTableStruct()
         {
             this.Text = GlobalForm.LbGlobalTable.Text + "-结构";
             DataTable dt = new DataTable();
-            if (ObjectProperty.ObjectList.Table.ToString() == GlobalForm.LbGlobalTable.Text)
+            if (ObjectProperty.ObjectList.Table.ToString() == GlobalForm.LbGlobalViewTableProc.Text)
                 dt = SQLDBHelper.GetTableStructs(GlobalForm.LbGlobalProject.Text, GlobalForm.LbGlobalTable.Text);
             else
                 dt = SQLDBHelper.GetViewStructs(GlobalForm.LbGlobalProject.Text, GlobalForm.LbGlobalTable.Text);
@@ -62,13 +66,7 @@ namespace WebMisSharp
             }
             MessageBox.Show("自动描述写入完毕！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        //窗体显示
-        private void TableInfo_Load(object sender, EventArgs e)
-        {
-            BindTableStruct();
-            this.TxtModelName.Text = GlobalForm.LbGlobalTable.Text;
-            this.TxtBLLName.Text = "BLL_" + GlobalForm.LbGlobalTable.Text;
-        }
+        
         private void AttShowControl(object sender, EventArgs e)
         {
             if (CBBLL.Checked)
@@ -126,7 +124,6 @@ namespace WebMisSharp
             //配置线程参数
             Path = ExtNetCore.GetPath(GlobalForm.LbGlobalProject.Text);
             ModelName = TxtModelName.Text.Trim();
-            TableName = GlobalForm.LbGlobalTable.Text;
             BLLName = TxtBLLName.Text.Trim();
             AutoID = TxtDBAutoID.Text.Trim();
             UIPath = TxtAspxName.Text.Trim();
@@ -166,23 +163,26 @@ namespace WebMisSharp
                 PrintLine("生成Model文件...");
                 PrintLine(ExtNetCore.WriteModelFile(ModelColumns, TableName, ModelName, AutoID, Path));
                 PrintLine("成功创建Model文件...40%");
-                PrintLine("配置BLL逻辑工厂...");
-                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, ModelName));
-                PrintLine("成功配置BLL逻辑工厂...50%");
             }
             else
                 PrintLine("跳过Model生成...");
             if (BC)
             {
                 PrintLine("生成BLL文件...");
-                PrintLine(ExtNetCore.CreateBLL(Path, BLLName));
+                PrintLine(ExtNetCore.CreateBLL(Path, BLLName, ModelName));
                 PrintLine("成功创建了BLL文件...60%");
                 PrintLine("配置BLL逻辑工厂...");
-                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, BLLName));
+                //生成单独的bll实体类，则不需要生成泛型工厂
+                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, BLLName, false));
                 PrintLine("成功配置BLL逻辑工厂...62%");
             }
             else
+            {
                 PrintLine("跳过BLL生成...");
+                PrintLine("配置BLL逻辑工厂...");
+                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, ModelName));
+                PrintLine("成功配置BLL逻辑工厂...50%");
+            }
             if (WC)
             {
                 PrintLine("开始生成WebUI...");

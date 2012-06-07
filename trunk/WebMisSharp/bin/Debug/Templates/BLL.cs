@@ -11,7 +11,7 @@ using System.Text;
  */
 namespace BLL
 {
-    public class {TABLENAME}:WMS_Mgr<{TABLENAME}>
+    public class {TABLENAME}:WMS_Mgr<{MODELNAME}>
     {
         //TODO 定义自己的方法，系统API不能完成的功能
         

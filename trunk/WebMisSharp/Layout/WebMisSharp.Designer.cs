@@ -69,20 +69,22 @@
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.LbGlobalProject = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.LbGlobalDB = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.GlobalLbinfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.GlobalPBar = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LbGlobalProject = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LbGlobalDB = new System.Windows.Forms.ToolStripStatusLabel();
             this.LbGlobalTable = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LbGlobalViewTableProc = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.MainDockPanel = new DockPanelUI.Docking.DockPanel();
-            this.LbGlobalViewTableProc = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -289,28 +291,49 @@
             this.toolStrip.AutoSize = false;
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripButton,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.LbGlobalProject,
+            this.toolStripLabel2,
+            this.LbGlobalDB,
+            this.toolStripSeparator2});
             this.toolStrip.Location = new System.Drawing.Point(0, 25);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(838, 45);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
-            // newToolStripButton
-            // 
-            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
-            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(23, 42);
-            this.newToolStripButton.Text = "新建";
-            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripButton_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 45);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(68, 42);
+            this.toolStripLabel1.Text = "当前项目：";
+            // 
+            // LbGlobalProject
+            // 
+            this.LbGlobalProject.Name = "LbGlobalProject";
+            this.LbGlobalProject.Size = new System.Drawing.Size(0, 42);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(56, 42);
+            this.toolStripLabel2.Text = "数据库：";
+            // 
+            // LbGlobalDB
+            // 
+            this.LbGlobalDB.Name = "LbGlobalDB";
+            this.LbGlobalDB.Size = new System.Drawing.Size(0, 42);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 45);
             // 
             // statusStrip
             // 
@@ -320,8 +343,6 @@
             this.GlobalLbinfo,
             this.GlobalPBar,
             this.toolStripStatusLabel2,
-            this.LbGlobalProject,
-            this.LbGlobalDB,
             this.LbGlobalTable,
             this.LbGlobalViewTableProc});
             this.statusStrip.Location = new System.Drawing.Point(0, 400);
@@ -332,15 +353,18 @@
             // 
             // toolStripStatusLabel
             // 
+            this.toolStripStatusLabel.IsLink = true;
+            this.toolStripStatusLabel.LinkColor = System.Drawing.Color.Maroon;
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(32, 17);
-            this.toolStripStatusLabel.Text = "就绪";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(286, 17);
+            this.toolStripStatusLabel.Text = "云极科技 版权所有 http://YJ.ChinaCloudTech.Com";
             this.toolStripStatusLabel.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolStripStatusLabel.Click += new System.EventHandler(this.toolStripStatusLabel_Click);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(565, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(494, 17);
             this.toolStripStatusLabel1.Spring = true;
             this.toolStripStatusLabel1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
@@ -363,20 +387,15 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(11, 17);
             this.toolStripStatusLabel2.Text = "|";
             // 
-            // LbGlobalProject
-            // 
-            this.LbGlobalProject.Name = "LbGlobalProject";
-            this.LbGlobalProject.Size = new System.Drawing.Size(0, 17);
-            // 
-            // LbGlobalDB
-            // 
-            this.LbGlobalDB.Name = "LbGlobalDB";
-            this.LbGlobalDB.Size = new System.Drawing.Size(0, 17);
-            // 
             // LbGlobalTable
             // 
             this.LbGlobalTable.Name = "LbGlobalTable";
             this.LbGlobalTable.Size = new System.Drawing.Size(0, 17);
+            // 
+            // LbGlobalViewTableProc
+            // 
+            this.LbGlobalViewTableProc.Name = "LbGlobalViewTableProc";
+            this.LbGlobalViewTableProc.Size = new System.Drawing.Size(0, 17);
             // 
             // MainDockPanel
             // 
@@ -435,11 +454,6 @@
             this.MainDockPanel.Skin = dockPanelSkin1;
             this.MainDockPanel.TabIndex = 4;
             // 
-            // LbGlobalViewTableProc
-            // 
-            this.LbGlobalViewTableProc.Name = "LbGlobalViewTableProc";
-            this.LbGlobalViewTableProc.Size = new System.Drawing.Size(0, 17);
-            // 
             // WebMisSharp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -492,7 +506,6 @@
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip;
         public DockPanelUI.Docking.DockPanel MainDockPanel;
-        private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripMenuItem helpMenu;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
@@ -504,10 +517,13 @@
         public System.Windows.Forms.ToolStripProgressBar GlobalPBar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        public System.Windows.Forms.ToolStripStatusLabel LbGlobalProject;
-        public System.Windows.Forms.ToolStripStatusLabel LbGlobalDB;
         public System.Windows.Forms.ToolStripStatusLabel LbGlobalTable;
         public System.Windows.Forms.ToolStripStatusLabel LbGlobalViewTableProc;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        public System.Windows.Forms.ToolStripLabel LbGlobalProject;
+        public System.Windows.Forms.ToolStripLabel LbGlobalDB;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
     }
 }
 

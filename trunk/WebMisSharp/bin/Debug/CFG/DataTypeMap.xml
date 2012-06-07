@@ -2,20 +2,20 @@
 <Map>
   <SQLSERVER>
     <SQLSERVER2008 key="nchar" value="string" />
-    <SQLSERVER2008 key="date" value="DateTime" />
+    <SQLSERVER2008 key="date" value="string" />
     <SQLSERVER2008 key="uniqueide" value="Guid" />
     <SQLSERVER2008 key="numeric" value="decimal" />
     <SQLSERVER2008 key="varchar" value="string" />
     <SQLSERVER2008 key="nvarchar" value="string" />
     <SQLSERVER2008 key="integer" value="int" />
-    <SQLSERVER2008 key="datetime" value="DateTime" />
+    <SQLSERVER2008 key="datetime" value="string" />
     <SQLSERVER2008 key="uniqueidentifier" value="Guid" />
     <SQLSERVER2008 key="raw" value="byte[]" />
-    <SQLSERVER2008 key="smalldatetime" value="DateTime" />
+    <SQLSERVER2008 key="smalldatetime" value="string" />
     <SQLSERVER2008 key="string" value="string" />
     <SQLSERVER2008 key="money" value="decimal" />
     <SQLSERVER2008 key="real" value="decimal" />
-    <SQLSERVER2008 key="timestamp" value="DateTime" />
+    <SQLSERVER2008 key="timestamp" value="string" />
     <SQLSERVER2008 key="bit" value="bool" />
     <SQLSERVER2008 key="smallint" value="int" />
     <SQLSERVER2008 key="tinyint" value="int" />
@@ -30,7 +30,7 @@
     <SQLSERVER2008 key="char" value="string" />
     <SQLSERVER2008 key="number" value="decimal" />
     <SQLSERVER2008 key="image" value="byte[]" />
-    <SQLSERVER2008 key="time" value="DateTime" />
+    <SQLSERVER2008 key="time" value="string" />
     <SQLSERVER2008 key="varbinary" value="byte[]" />
     <SQLSERVER2008 key="bigint" value="long" />
   </SQLSERVER>
