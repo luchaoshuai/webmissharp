@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+//添加model引用，否则会报错。edit by zk
+using Model;
 /**
  * 作者：陈杰
  * QQ  : 710782046
