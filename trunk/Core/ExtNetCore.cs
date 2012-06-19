@@ -42,10 +42,14 @@ namespace Core
         {
             try
             {
-                string BllContent = FileHelper.ReadFile(".\\Templates\\BLL.cs");
-                string Content = BllContent.Replace("{TABLENAME}", BllName).Replace("{MODELNAME}", ModelName);
-                FileHelper.WriteFile(Path + "\\BLL\\Business\\" + BllName + ".cs", Content);
-                FileHelper.WriteFile(Path + "\\BLL\\BLL.csproj", FileHelper.ReadFile(Path + "\\BLL\\BLL.csproj").Replace("<!--DHELPERBLL-->", "<Compile Include=\"Business\\" + BllName + ".cs\" />\r\n\t<!--DHELPERBLL-->"));
+                string ModelCSProj = FileHelper.ReadFile(Path + "\\BLL\\BLL.csproj");
+                if (!ModelCSProj.Contains("Business\\" + BllName + ".cs"))
+                {
+                    string BllContent = FileHelper.ReadFile(".\\Templates\\BLL.cs");
+                    string Content = BllContent.Replace("{TABLENAME}", BllName).Replace("{MODELNAME}", ModelName);
+                    FileHelper.WriteFile(Path + "\\BLL\\Business\\" + BllName + ".cs", Content);
+                    FileHelper.WriteFile(Path + "\\BLL\\BLL.csproj", FileHelper.ReadFile(Path + "\\BLL\\BLL.csproj").Replace("<!--DHELPERBLL-->", "<Compile Include=\"Business\\" + BllName + ".cs\" />\r\n\t<!--DHELPERBLL-->"));
+                }
                 return "BLL单独逻辑文件创建成功";
             }
             catch (Exception error)
@@ -83,12 +87,14 @@ namespace Core
         {
             try
             {
-                string ModelTemplate = FileHelper.ReadFile(".\\Templates\\Model.cs");
-                ModelTemplate = ModelTemplate.Replace("{0}", TableName).Replace("{1}", AutoID).Replace("{2}", ModelContent);
-                FileHelper.WriteFile(Path + "\\Model\\Entities\\" + ModelName + ".cs", ModelTemplate);
                 string ModelCSProj = FileHelper.ReadFile(Path + "\\Model\\Model.csproj");
                 if (!ModelCSProj.Contains("Entities\\" + ModelName + ".cs"))
+                {
+                    string ModelTemplate = FileHelper.ReadFile(".\\Templates\\Model.cs");
+                    ModelTemplate = ModelTemplate.Replace("{0}", TableName).Replace("{1}", AutoID).Replace("{2}", ModelContent);
+                    FileHelper.WriteFile(Path + "\\Model\\Entities\\" + ModelName + ".cs", ModelTemplate);
                     FileHelper.WriteFile(Path + "\\Model\\Model.csproj", ModelCSProj.Replace("<!--MODELPOINT-->", "<Compile Include=\"Entities\\" + ModelName + ".cs\" />\r\n\t<!--MODELPOINT-->"));
+                }
                 return "Model创建成功";
             }
             catch (Exception error)
@@ -207,11 +213,17 @@ namespace Core
                                 {
                                     Cells.AppendLine("\t\t\t\t\t\t\t\t\t<ext:ComboBox ID=\"Cbo" + dr["字段名"].ToString() + "\" StoreID=\"" + dr["字段名"].ToString() + "_Store\" Editable=\"false\"  Width=\"160\" FieldLabel=\"" + dr["说明"].ToString() + "\" runat=\"server\" DisplayField=\"" + cbo.Display.Trim() + "\" ValueField=\"" + cbo.Value.Trim() + "\" DataIndex=\"" + dr["字段名"].ToString() + "\"  />");
                                     CboStores.AppendLine(string.Format(CboStoreTemplate, dr["字段名"].ToString(), cbo.Display.Trim(), cbo.Value.Trim()));
-                                    CboStoresBinds.AppendLine(AspxCboStoreBindTemplate.Replace("{0}", dr["字段名"].ToString()).Replace("{1}", ((cbo.Conditions == null || cbo.Conditions.Trim().Length <= 0) ? "FindAll()" : "FindByCondition(\"" + cbo.Conditions.Trim() + "\")")));
+                                    CboStoresBinds.AppendLine(AspxCboStoreBindTemplate.Replace("{TABLENAME}", cbo.TableName.ToString()).Replace("{0}", dr["字段名"].ToString()).Replace("{1}", ((cbo.Conditions == null || cbo.Conditions.Trim().Length <= 0) ? "FindAll()" : "FindByCondition(\"" + cbo.Conditions.Trim() + "\")")));
                                     PageLoadBinds.AppendLine("\t\t\t\tBindCboData_" + dr["字段名"].ToString() + "();");
                                 }
                                 Designer.AppendLine("\t\tprotected global::Ext.Net.ComboBox Cbo" + dr["字段名"].ToString() + ";");
-                                ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = Cbo" + dr["字段名"].ToString() + ".Text; //" + dr["说明"].ToString());
+                                Designer.AppendLine("\t\tprotected global::Ext.Net.Store " + dr["字段名"].ToString() + "_Store;");
+                                if (CSharpType == "string")
+                                    ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = Cbo" + dr["字段名"].ToString() + ".Text; //" + dr["说明"].ToString());
+                                else
+                                {
+                                    ModelSet.AppendLine("\t\t\t_{TABLENAME}." + dr["字段名"].ToString() + " = " + CSharpType + ".Parse(Cbo" + dr["字段名"].ToString() + ".Text); //" + dr["说明"].ToString());
+                                }
                                 break;
                             case "MultiCombo":
                                 ComBoxStore mcbo = null;

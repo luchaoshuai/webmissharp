@@ -14,6 +14,11 @@ using Tools;
  * Email:ovenjackchain@gmail.com
  * Web :http://yj.ChinaCloudTech.com
  */
+ /**
+ * 修改者：zk
+ * QQ  : 77148918
+ * 修改了model下的类名称与aspx类名称相同时出现的找不到正确类的错误
+ */
 namespace Web.Admin
 {
     public partial class Template : WMS_UI
@@ -30,7 +35,7 @@ namespace Web.Admin
         protected void {TABLENAME}_DataBind(object sender, StoreRefreshDataEventArgs e)
         {
             e.Total = int.Parse(WMSFactory.{TABLENAME}.GetTotalCount(e.Parameters[{TABLENAME}_Filter.ParamPrefix], ""));
-            IList<{TABLENAME}> list = WMSFactory.{TABLENAME}.FindAllByPage(e.Start, e.Limit, 11, e.Parameters[{TABLENAME}_Filter.ParamPrefix], "");
+            IList<Model.{TABLENAME}> list = WMSFactory.{TABLENAME}.FindAllByPage(e.Start, e.Limit, 11, e.Parameters[{TABLENAME}_Filter.ParamPrefix], "");
             {TABLENAME}_MainStore.DataSource = list;
             {TABLENAME}_MainStore.DataBind();
         }
@@ -41,7 +46,7 @@ namespace Web.Admin
             RowSelectionModel sm = {TABLENAME}_Grid.SelectionModel.Primary as RowSelectionModel;
             foreach (SelectedRow row in sm.SelectedRows)
             {
-                {TABLENAME} _{TABLENAME} = new {TABLENAME}();
+                Model.{TABLENAME} _{TABLENAME} = new Model.{TABLENAME}();
                 _{TABLENAME}.{AutoID} = int.Parse(row.RecordID);
                 if (WMSFactory.{TABLENAME}.Del(_{TABLENAME})) Success++;
                 else Failed++;
@@ -54,7 +59,7 @@ namespace Web.Admin
         }
         protected void BtnSave_Click(object sender, DirectEventArgs e)
         {
-            {TABLENAME} _{TABLENAME} = new {TABLENAME}();
+            Model.{TABLENAME} _{TABLENAME} = new Model.{TABLENAME}();
             if (Hid.Text.Length > 0)
                 _{TABLENAME} = WMSFactory.{TABLENAME}.FindById(Hid.Text);
                 

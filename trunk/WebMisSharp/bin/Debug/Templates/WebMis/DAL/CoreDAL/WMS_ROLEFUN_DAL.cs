@@ -17,7 +17,7 @@ namespace DAL
         public IList<WMS_USERFUN> FindMyMenu(string roleid)
         {
             string sql = "select F.funid,F.funno,F.funname,F.fatherid from WMS_USERFUN F,WMS_ROLEFUN where WMS_ROLEFUN.funid=F.funid and roleid=" + roleid;
-            if (roleid == "-1") sql = "select * from WMS_USERFUN";
+            if (roleid == "-1") sql = "select F.* from WMS_USERFUN F";
             sql += " order by F.funid";
             return Common<WMS_USERFUN>.Dt2List(DbHelperSQL.Query(sql).Tables[0]);
         }

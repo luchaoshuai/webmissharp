@@ -166,6 +166,20 @@ namespace WebMisSharp
             }
             else
                 PrintLine("跳过Model生成...");
+            if (COMStoreList.Count > 0)
+            {
+                PrintLine("成功生成关联Model的get;set;...45%");
+                PrintLine("生成关联Model文件...");
+                foreach (Core.ComBoxStore comstore in COMStoreList)
+                {
+                    DataTable dt = SQLDBHelper.GetTableStructs(GlobalForm.LbGlobalProject.Text, comstore.TableName);
+                    string ModelColumns = ExtNetCore.CreateModelContent(dt);
+                    PrintLine(ExtNetCore.WriteModelFile(ModelColumns, comstore.TableName, comstore.TableName, AutoID, Path));
+                    PrintLine(ExtNetCore.CreateBLL(Path,"BLL_"+comstore.TableName, comstore.TableName));
+                    PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, comstore.TableName, "BLL_" + comstore.TableName, false));
+                }
+                PrintLine("成功创建关联Model文件...55%");
+            }
             if (BC)
             {
                 PrintLine("生成BLL文件...");
