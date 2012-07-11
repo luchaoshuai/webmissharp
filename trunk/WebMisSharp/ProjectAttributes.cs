@@ -56,6 +56,8 @@ namespace WebMisSharp
                 return TryDBConnect.TryMSSQLConnect(TxtProDBConStr.Text.Trim());
             else if (CboProjectDB.Text == ProjectDBType.DataBaseType.ORACLE.ToString())
                 return TryDBConnect.TryOracleConnect(TxtProDBConStr.Text.Trim());
+            else if (CboProjectDB.Text == ProjectDBType.DataBaseType.SQLSERVER2005.ToString())
+                return TryDBConnect.TryMSSQLConnect(TxtProDBConStr.Text.Trim());
             return false;
         }
         //保存项目到XML中

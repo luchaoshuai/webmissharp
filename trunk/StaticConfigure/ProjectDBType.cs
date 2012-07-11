@@ -9,6 +9,7 @@ namespace StaticConfigure
     {
         public enum DataBaseType
         {
+            SQLSERVER2005,
             SQLSERVER2008,
             ORACLE
         }

@@ -39,17 +39,17 @@
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpResult = new System.Windows.Forms.TabPage();
+            this.dataGridResult = new System.Windows.Forms.DataGridView();
             this.tpMsgs = new System.Windows.Forms.TabPage();
             this.txtMsgs = new System.Windows.Forms.TextBox();
-            this.dataGridResult = new System.Windows.Forms.DataGridView();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpResult.SuspendLayout();
-            this.tpMsgs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResult)).BeginInit();
+            this.tpMsgs.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -129,34 +129,13 @@
             // 
             this.tpResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tpResult.Controls.Add(this.dataGridResult);
-            this.tpResult.Location = new System.Drawing.Point(4, 22);
+            this.tpResult.Location = new System.Drawing.Point(4, 21);
             this.tpResult.Name = "tpResult";
             this.tpResult.Padding = new System.Windows.Forms.Padding(3);
-            this.tpResult.Size = new System.Drawing.Size(772, 209);
+            this.tpResult.Size = new System.Drawing.Size(772, 210);
             this.tpResult.TabIndex = 0;
             this.tpResult.Text = "结果";
             this.tpResult.UseVisualStyleBackColor = true;
-            // 
-            // tpMsgs
-            // 
-            this.tpMsgs.Controls.Add(this.txtMsgs);
-            this.tpMsgs.Location = new System.Drawing.Point(4, 22);
-            this.tpMsgs.Name = "tpMsgs";
-            this.tpMsgs.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMsgs.Size = new System.Drawing.Size(772, 209);
-            this.tpMsgs.TabIndex = 1;
-            this.tpMsgs.Text = "消息";
-            this.tpMsgs.UseVisualStyleBackColor = true;
-            // 
-            // txtMsgs
-            // 
-            this.txtMsgs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMsgs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMsgs.Location = new System.Drawing.Point(3, 3);
-            this.txtMsgs.Multiline = true;
-            this.txtMsgs.Name = "txtMsgs";
-            this.txtMsgs.Size = new System.Drawing.Size(766, 203);
-            this.txtMsgs.TabIndex = 0;
             // 
             // dataGridResult
             // 
@@ -176,8 +155,29 @@
             this.dataGridResult.Name = "dataGridResult";
             this.dataGridResult.ReadOnly = true;
             this.dataGridResult.RowTemplate.Height = 23;
-            this.dataGridResult.Size = new System.Drawing.Size(766, 203);
+            this.dataGridResult.Size = new System.Drawing.Size(766, 204);
             this.dataGridResult.TabIndex = 0;
+            // 
+            // tpMsgs
+            // 
+            this.tpMsgs.Controls.Add(this.txtMsgs);
+            this.tpMsgs.Location = new System.Drawing.Point(4, 21);
+            this.tpMsgs.Name = "tpMsgs";
+            this.tpMsgs.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMsgs.Size = new System.Drawing.Size(772, 210);
+            this.tpMsgs.TabIndex = 1;
+            this.tpMsgs.Text = "消息";
+            this.tpMsgs.UseVisualStyleBackColor = true;
+            // 
+            // txtMsgs
+            // 
+            this.txtMsgs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMsgs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMsgs.Location = new System.Drawing.Point(3, 3);
+            this.txtMsgs.Multiline = true;
+            this.txtMsgs.Name = "txtMsgs";
+            this.txtMsgs.Size = new System.Drawing.Size(766, 203);
+            this.txtMsgs.TabIndex = 0;
             // 
             // RunSQL
             // 
@@ -195,9 +195,9 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tpResult.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridResult)).EndInit();
             this.tpMsgs.ResumeLayout(false);
             this.tpMsgs.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridResult)).EndInit();
             this.ResumeLayout(false);
 
         }
