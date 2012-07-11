@@ -51,6 +51,7 @@ namespace Web.Admin
         //退出系统
         protected void BtnExit_Click(object sender, DirectEventArgs e)
         {
+	    CookieHelper.ClearCookie(CookieHelper.GetCookie("username"));
             CookieHelper.ClearCookie("username");
             CookieHelper.ClearCookie("role");
             Response.Redirect("Login.aspx");
