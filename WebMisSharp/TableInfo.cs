@@ -27,6 +27,7 @@ namespace WebMisSharp
             BindTableStruct();
             this.TxtModelName.Text = GlobalForm.LbGlobalTable.Text;
             this.TxtBLLName.Text = "BLL_" + GlobalForm.LbGlobalTable.Text;
+            this.TxtAspxName.Text = GlobalForm.LbGlobalTable.Text;
         }
         //绑定表结构
         public void BindTableStruct()
