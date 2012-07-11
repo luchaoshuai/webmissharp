@@ -92,6 +92,7 @@ namespace Web.Admin
         {
             Response.Cookies["theme"].Value = cbTheme.SelectedItem.Value.ToString();
             Response.Cookies["theme"].Expires = DateTime.Now.AddDays(100d);
+            Response.Redirect(Request.Url.ToString());
         }
         /// <summary>
         /// 皮肤切换后保存到cookie中，下次登录加载皮肤

@@ -132,9 +132,9 @@
                                             <ext:ListItem Text="Access" Value="access" />
                                             <ext:ListItem Text="Slate" Value="slate" />
                                         </Items>
-                                        <Listeners>
+                                        <%--<Listeners>
                                             <Select Handler="Ext.net.ResourceMgr.setTheme('/extjs/resources/css/xtheme-' + item.getValue() + '-embedded-css/ext.axd');" />
-                                        </Listeners>
+                                        </Listeners>--%>
                                         <DirectEvents>
                                             <Select OnEvent="cbTheme_changed">
                                                 <EventMask ShowMask="true" Msg="正在更换皮肤,请稍后..." MinDelay="200" />

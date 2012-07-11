@@ -440,7 +440,9 @@
     <Content Include="bin\Debug\Templates\WebMis\Web\Admin\Core\UserMgr.aspx" />
     <Content Include="bin\Debug\Templates\WebMis\Web\Admin\Core\UserSelfInfo.aspx" />
     <Content Include="bin\Debug\Templates\WebMis\Web\Admin\CSS\BackStyle.css" />
-    <Content Include="bin\Debug\Templates\WebMis\Web\Admin\Default.aspx" />
+    <Content Include="bin\Debug\Templates\WebMis\Web\Admin\Default.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="bin\Debug\Templates\WebMis\Web\Admin\DeskTop.aspx" />
     <Content Include="bin\Debug\Templates\WebMis\Web\Admin\Error.htm" />
     <Content Include="bin\Debug\Templates\WebMis\Web\Admin\images\404.jpg" />
