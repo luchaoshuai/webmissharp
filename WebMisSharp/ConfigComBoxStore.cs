@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using DBHelper;
 using Core;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     public partial class ConfigComBoxStore : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace WebMisSharp
+﻿namespace MisSharp
 {
     partial class RunSQL
     {
@@ -129,10 +129,10 @@
             // 
             this.tpResult.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tpResult.Controls.Add(this.dataGridResult);
-            this.tpResult.Location = new System.Drawing.Point(4, 21);
+            this.tpResult.Location = new System.Drawing.Point(4, 22);
             this.tpResult.Name = "tpResult";
             this.tpResult.Padding = new System.Windows.Forms.Padding(3);
-            this.tpResult.Size = new System.Drawing.Size(772, 210);
+            this.tpResult.Size = new System.Drawing.Size(772, 209);
             this.tpResult.TabIndex = 0;
             this.tpResult.Text = "结果";
             this.tpResult.UseVisualStyleBackColor = true;
@@ -155,16 +155,16 @@
             this.dataGridResult.Name = "dataGridResult";
             this.dataGridResult.ReadOnly = true;
             this.dataGridResult.RowTemplate.Height = 23;
-            this.dataGridResult.Size = new System.Drawing.Size(766, 204);
+            this.dataGridResult.Size = new System.Drawing.Size(766, 203);
             this.dataGridResult.TabIndex = 0;
             // 
             // tpMsgs
             // 
             this.tpMsgs.Controls.Add(this.txtMsgs);
-            this.tpMsgs.Location = new System.Drawing.Point(4, 21);
+            this.tpMsgs.Location = new System.Drawing.Point(4, 22);
             this.tpMsgs.Name = "tpMsgs";
             this.tpMsgs.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMsgs.Size = new System.Drawing.Size(772, 210);
+            this.tpMsgs.Size = new System.Drawing.Size(772, 209);
             this.tpMsgs.TabIndex = 1;
             this.tpMsgs.Text = "消息";
             this.tpMsgs.UseVisualStyleBackColor = true;
@@ -176,7 +176,7 @@
             this.txtMsgs.Location = new System.Drawing.Point(3, 3);
             this.txtMsgs.Multiline = true;
             this.txtMsgs.Name = "txtMsgs";
-            this.txtMsgs.Size = new System.Drawing.Size(766, 203);
+            this.txtMsgs.Size = new System.Drawing.Size(766, 204);
             this.txtMsgs.TabIndex = 0;
             // 
             // RunSQL

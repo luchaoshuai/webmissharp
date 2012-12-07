@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BaseLibs;
-using StaticConfigure;
+using BaseLibs;
 
-namespace WebMisSharp.UserCtrls
+namespace MisSharp.UserCtrls
 {
     public partial class FieldSettings : UserControl
     {

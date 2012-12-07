@@ -5,7 +5,7 @@ using System.Text;
 using CJ;
 using System.Data;
 using BaseLibs;
-using StaticConfigure;
+using BaseLibs;
 using System.Data.SqlClient;
 
 namespace DBHelper

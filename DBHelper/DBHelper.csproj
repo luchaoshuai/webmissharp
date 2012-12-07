@@ -51,10 +51,6 @@
       <Project>{DD497C52-DBD1-47E3-9D08-DD160DC2147F}</Project>
       <Name>BaseLibs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StaticConfigure\StaticConfigure.csproj">
-      <Project>{9591E33E-B5A4-48D3-9DA5-B6268C8C624A}</Project>
-      <Name>StaticConfigure</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

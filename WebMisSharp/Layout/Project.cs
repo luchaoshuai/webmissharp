@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
-using StaticConfigure;
+using BaseLibs;
 using BaseLibs;
 using DBHelper;
 using System.Threading;
 using System.Collections;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     public partial class Project : DockPanelUI.Docking.DockContent
     {
         Attributes Atts;
         ProjectProperty ProPro = new ProjectProperty();
-        WebMisSharp GlobalForm;
+        MisSharp GlobalForm;
         //线程参数
         string CurrentProj = "";
         TreeNode CurrentNode = null;
@@ -571,7 +571,7 @@ namespace WebMisSharp
                     return;
                 }
                 GlobalDBNodes = new TreeNode();
-                GlobalForm = (WebMisSharp)Application.OpenForms["WebMisSharp"];
+                GlobalForm = (MisSharp)Application.OpenForms["MisSharp"];
                 GlobalForm.GlobalPBar.Visible = true;
                 TreeNode Node = CurrentNode = this.Tree_Project.SelectedNode;
                 while (Node.Tag.ToString() != ObjectProperty.ObjectList.Project.ToString())
@@ -764,7 +764,7 @@ namespace WebMisSharp
             CurrentNode.Nodes.Add(GlobalDBNodes.Nodes[1]);
             CurrentNode.Nodes.Add(GlobalDBNodes.Nodes[2]);
             CurrentNode.Expand();
-            GlobalForm = (WebMisSharp)Application.OpenForms["WebMisSharp"];
+            GlobalForm = (MisSharp)Application.OpenForms["MisSharp"];
             GlobalForm.GlobalLbinfo.Text = "就绪";
             GlobalForm.GlobalPBar.Visible = false;
             GlobalForm.GlobalPBar.Value = 0;

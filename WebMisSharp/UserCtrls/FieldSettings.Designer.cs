@@ -1,4 +1,4 @@
-﻿namespace WebMisSharp.UserCtrls
+﻿namespace MisSharp.UserCtrls
 {
     partial class FieldSettings
     {

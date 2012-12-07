@@ -1,4 +1,4 @@
-﻿namespace WebMisSharp
+﻿namespace MisSharp
 {
     partial class TableInfo
     {
@@ -55,6 +55,12 @@
             this.CBWeb = new System.Windows.Forms.CheckBox();
             this.CBModel = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TxtNamespace = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtDalName = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtBLLName = new System.Windows.Forms.TextBox();
@@ -298,6 +304,8 @@
             // CBBLL
             // 
             this.CBBLL.AutoSize = true;
+            this.CBBLL.Checked = true;
+            this.CBBLL.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CBBLL.Location = new System.Drawing.Point(189, 30);
             this.CBBLL.Name = "CBBLL";
             this.CBBLL.Size = new System.Drawing.Size(138, 16);
@@ -316,6 +324,7 @@
             this.BtnCreateCodeNeWin.TabIndex = 5;
             this.BtnCreateCodeNeWin.Text = "生成到新窗口";
             this.BtnCreateCodeNeWin.UseVisualStyleBackColor = true;
+            this.BtnCreateCodeNeWin.Visible = false;
             this.BtnCreateCodeNeWin.Click += new System.EventHandler(this.BtnCreateCodeNeWin_Click);
             // 
             // BtnCreateCode2Proj
@@ -360,6 +369,12 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.TxtNamespace);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.TxtDalName);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.TxtBLLName);
@@ -382,6 +397,56 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本配置";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(387, 69);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(23, 12);
+            this.label9.TabIndex = 21;
+            this.label9.Text = ".cs";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(387, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(23, 12);
+            this.label10.TabIndex = 20;
+            this.label10.Text = ".cs";
+            // 
+            // TxtNamespace
+            // 
+            this.TxtNamespace.Location = new System.Drawing.Point(289, 32);
+            this.TxtNamespace.Name = "TxtNamespace";
+            this.TxtNamespace.Size = new System.Drawing.Size(96, 21);
+            this.TxtNamespace.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(211, 35);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "命名空间：";
+            // 
+            // TxtDalName
+            // 
+            this.TxtDalName.Location = new System.Drawing.Point(289, 65);
+            this.TxtDalName.Name = "TxtDalName";
+            this.TxtDalName.Size = new System.Drawing.Size(96, 21);
+            this.TxtDalName.TabIndex = 17;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(211, 68);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 12);
+            this.label12.TabIndex = 16;
+            this.label12.Text = "Dal实体名：";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -402,7 +467,6 @@
             // 
             // TxtBLLName
             // 
-            this.TxtBLLName.Enabled = false;
             this.TxtBLLName.Location = new System.Drawing.Point(84, 96);
             this.TxtBLLName.Name = "TxtBLLName";
             this.TxtBLLName.Size = new System.Drawing.Size(96, 21);
@@ -420,7 +484,7 @@
             // BtnConfigCbo
             // 
             this.BtnConfigCbo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnConfigCbo.Location = new System.Drawing.Point(598, 35);
+            this.BtnConfigCbo.Location = new System.Drawing.Point(690, 36);
             this.BtnConfigCbo.Name = "BtnConfigCbo";
             this.BtnConfigCbo.Size = new System.Drawing.Size(147, 29);
             this.BtnConfigCbo.TabIndex = 9;
@@ -438,7 +502,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(483, 67);
+            this.label3.Location = new System.Drawing.Point(664, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 12);
             this.label3.TabIndex = 8;
@@ -455,7 +519,7 @@
             // 
             // TxtAspxName
             // 
-            this.TxtAspxName.Location = new System.Drawing.Point(311, 64);
+            this.TxtAspxName.Location = new System.Drawing.Point(492, 68);
             this.TxtAspxName.Name = "TxtAspxName";
             this.TxtAspxName.Size = new System.Drawing.Size(166, 21);
             this.TxtAspxName.TabIndex = 6;
@@ -463,7 +527,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(236, 68);
+            this.label4.Location = new System.Drawing.Point(417, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 12);
             this.label4.TabIndex = 5;
@@ -473,7 +537,7 @@
             // 
             this.BtnSaveFieldRemark.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnSaveFieldRemark.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnSaveFieldRemark.Location = new System.Drawing.Point(598, 82);
+            this.BtnSaveFieldRemark.Location = new System.Drawing.Point(690, 91);
             this.BtnSaveFieldRemark.Name = "BtnSaveFieldRemark";
             this.BtnSaveFieldRemark.Size = new System.Drawing.Size(147, 29);
             this.BtnSaveFieldRemark.TabIndex = 2;
@@ -483,7 +547,7 @@
             // 
             // NUDColumns
             // 
-            this.NUDColumns.Location = new System.Drawing.Point(311, 32);
+            this.NUDColumns.Location = new System.Drawing.Point(501, 34);
             this.NUDColumns.Maximum = new decimal(new int[] {
             5,
             0,
@@ -506,7 +570,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(226, 35);
+            this.label2.Location = new System.Drawing.Point(416, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 12);
             this.label2.TabIndex = 0;
@@ -592,6 +656,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cid;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox TxtNamespace;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox TxtDalName;
+        private System.Windows.Forms.Label label12;
 
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace WebMisSharp.Common
+﻿namespace MisSharp.Common
 {
     partial class ErrorReport
     {

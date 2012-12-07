@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     public class ConsoleHelper
     {
