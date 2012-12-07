@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     public partial class DBToSQLScript : Form
     {
-        WebMisSharp GlobalForm;
+        MisSharp GlobalForm;
         public DBToSQLScript()
         {
             InitializeComponent();
             //加载所选项目基本信息
-            GlobalForm = (WebMisSharp)Application.OpenForms["WebMisSharp"];
+            GlobalForm = (MisSharp)Application.OpenForms["WebMisSharp"];
             GBTable.Text = "项目：" + GlobalForm.LbGlobalProject.Text + "   数据库:" + GlobalForm.LbGlobalDB.Text;
             LoadTables();
         }

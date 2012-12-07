@@ -2,7 +2,7 @@
 using System.Threading;
 using System;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     public abstract class SplashScreenApplicationContext : ApplicationContext
     {

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7072927C-0581-4E52-8E7D-82E921AB0432}</ProjectGuid>
+    <ProjectGuid>{8E518F25-00D0-4D31-A65A-83574C574381}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core</RootNamespace>
-    <AssemblyName>Core</AssemblyName>
+    <RootNamespace>TestPro</RootNamespace>
+    <AssemblyName>TestPro</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonFunction">
+      <HintPath>..\..\vss\epgd\CommonFunction\bin\Debug\CommonFunction.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,20 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComBoxStore.cs" />
-    <Compile Include="CreatBll.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CreatDal.cs" />
-    <Compile Include="CreatModel.cs" />
-    <Compile Include="ExtNetCore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BaseLibs\BaseLibs.csproj">
-      <Project>{DD497C52-DBD1-47E3-9D08-DD160DC2147F}</Project>
-      <Name>BaseLibs</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

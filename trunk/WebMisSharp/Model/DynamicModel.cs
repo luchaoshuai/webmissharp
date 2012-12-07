@@ -3,7 +3,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Drawing.Design;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     /// <summary>
     /// Represents a single property in a PropertySpec.

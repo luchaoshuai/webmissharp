@@ -11,18 +11,18 @@ using ICSharpCode.TextEditor;
 using ICSharpCode.TextEditor.Document;
 using System.Data.SqlClient;
 using BaseLibs;
-using StaticConfigure;
+using BaseLibs;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     public partial class RunSQL : DockContent
     {
-        WebMisSharp GlobalForm = null;
+        MisSharp GlobalForm = null;
         string TableName = "";
         public RunSQL(string SQL="")
         {
             InitializeComponent();
-            GlobalForm = (WebMisSharp)Application.OpenForms["WebMisSharp"];
+            GlobalForm = (MisSharp)Application.OpenForms["WebMisSharp"];
             txtSQL.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("TSQL");
             txtSQL.ShowInvalidLines = false;
             txtSQL.Text = SQL;

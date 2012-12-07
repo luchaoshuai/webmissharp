@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     static class Program
     {
@@ -16,9 +16,9 @@ namespace WebMisSharp
             AppDomain.CurrentDomain.UnhandledException += new System.UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            WebMisSharp app = new WebMisSharp();
+            MisSharp app = new MisSharp();
             if (app.isRunning != null)//只允许一个实例
-                Application.Run(new WebMisSharpContext());
+                Application.Run(new MisSharpContext());
             else
                 MessageBox.Show(app, "您已经开启了一个实例，系统不允许多实例运行！", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -37,7 +37,7 @@ namespace WebMisSharp
             }
         }
     }
-    class WebMisSharpContext : SplashScreenApplicationContext
+    class MisSharpContext : SplashScreenApplicationContext
     {
         protected override void OnCreateSplashScreenForm()
         {
@@ -45,7 +45,7 @@ namespace WebMisSharp
         }
         protected override void OnCreateMainForm()
         {
-            this.PrimaryForm = new WebMisSharp();//主窗体 
+            this.PrimaryForm = new MisSharp();//主窗体 
         }
         protected override void SetSeconds()
         {

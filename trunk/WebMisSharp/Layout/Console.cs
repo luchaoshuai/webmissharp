@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using BaseLibs;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     public partial class Console : DockPanelUI.Docking.DockContent
     {

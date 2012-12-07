@@ -1,4 +1,4 @@
-﻿namespace WebMisSharp
+﻿namespace MisSharp
 {
     partial class Console
     {

@@ -6,29 +6,34 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BaseLibs;
 using DockPanelUI.Docking;
 using DBHelper;
 using Core;
 using System.Threading;
 using System.Collections;
-using StaticConfigure;
 
-namespace WebMisSharp
+namespace MisSharp
 {
     public partial class TableInfo : DockContent
     {
-        WebMisSharp GlobalForm = null;
+        MisSharp GlobalForm = null;
+        private CreatBll creatBll = new CreatBll();
+        private CreatDal creatDal = new CreatDal();
         //Console log = null;
         public TableInfo(string ModelName)
         {
             InitializeComponent();
             this.TableName=ModelName;
-            GlobalForm = (WebMisSharp)Application.OpenForms["WebMisSharp"];
+            GlobalForm = (MisSharp)Application.OpenForms["MisSharp"];
             BindTableStruct();
-            this.TxtModelName.Text = GlobalForm.LbGlobalTable.Text;
+            this.TxtNamespace.Text =  GlobalForm.LbGlobalDB.Text;
+            this.TxtModelName.Text = "MODEL_"+ GlobalForm.LbGlobalTable.Text;
             this.TxtBLLName.Text = "BLL_" + GlobalForm.LbGlobalTable.Text;
+            this.TxtDalName.Text = "DAL_" + GlobalForm.LbGlobalTable.Text;
             this.TxtAspxName.Text = GlobalForm.LbGlobalTable.Text;
         }
+        DataTable dt = new DataTable();
         //绑定表结构
         public void BindTableStruct()
         {
@@ -116,14 +121,15 @@ namespace WebMisSharp
         //生成代码到项目中
         /****声明******/
         DataTable ColumnsDT = null;
-        string Path, ModelName, TableName, AutoID, UIPath, BLLName;
+        string Path, ModelName, TableName, AutoID,AutoIDType, UIPath, BLLName;
         int Cols = 2;
         bool MC = false, WC = false, BC = false;
         private void BtnCreateCode2Proj_Click(object sender, EventArgs e)
         {
             ColumnsDT = DGridTableStruct.DataSource as DataTable;
+            
             //配置线程参数
-            Path = ExtNetCore.GetPath(GlobalForm.LbGlobalProject.Text);
+            Path = Tools.GetPath(GlobalForm.LbGlobalProject.Text);
             ModelName = TxtModelName.Text.Trim();
             BLLName = TxtBLLName.Text.Trim();
             AutoID = TxtDBAutoID.Text.Trim();
@@ -159,10 +165,10 @@ namespace WebMisSharp
             PrintLine(Path);
             if (MC)
             {
-                string ModelColumns = ExtNetCore.CreateModelContent(ColumnsDT);
+                string ModelColumns = CreatModel.CreateModelContent(ColumnsDT);
                 PrintLine("成功生成Model的get;set;...25%");
                 PrintLine("生成Model文件...");
-                PrintLine(ExtNetCore.WriteModelFile(ModelColumns, TableName, ModelName, AutoID, Path));
+                PrintLine(CreatModel.WriteModelFile(ModelColumns, TableName, ModelName, AutoID, Path));
                 PrintLine("成功创建Model文件...40%");
             }
             else
@@ -171,25 +177,112 @@ namespace WebMisSharp
             {
                 PrintLine("成功生成关联Model的get;set;...45%");
                 PrintLine("生成关联Model文件...");
+                
                 foreach (Core.ComBoxStore comstore in COMStoreList)
                 {
+                    //生成combox中对应表的model
                     DataTable dt = SQLDBHelper.GetTableStructs(GlobalForm.LbGlobalProject.Text, comstore.TableName);
-                    string ModelColumns = ExtNetCore.CreateModelContent(dt);
-                    PrintLine(ExtNetCore.WriteModelFile(ModelColumns, comstore.TableName, comstore.TableName, AutoID, Path));
-                    PrintLine(ExtNetCore.CreateBLL(Path,"BLL_"+comstore.TableName, comstore.TableName));
-                    PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, comstore.TableName, "BLL_" + comstore.TableName, false));
+                    string ModelColumns = CreatModel.CreateModelContent(dt);
+                    PrintLine(CreatModel.WriteModelFile(ModelColumns, "MODEL_" + comstore.TableName, "MODEL_" + comstore.TableName, AutoID,
+                                                        Path));
+                    //生成combox中对应表的BLL
+                    creatBll.BLLName = "BLL_" + comstore.TableName + "combox";
+                    creatBll.BLLNameSpace = "BLL";
+                    creatBll.DataTable = dt;
+                    creatBll.DALName = "DAL_" + comstore.TableName+"combox";
+                    creatBll.DbType = "2005";
+                    creatBll.ModelName = comstore.TableName;
+                    creatBll.ModelSpace = "Model";
+                    creatBll.DalNameSpace = "DAL";
+                    string BllContent = creatBll.CreatBllCode();
+                    creatBll.WriteBllFile(BllContent, Path);
+                    //PrintLine("成功创建关联BLL文件...50%");
+                    //生成combox中对应表的DAL
+                    creatDal.DALName = "DAL_" + comstore.TableName + "combox";
+                    creatDal.DALNameSpace = "DAL";
+                    creatDal.DataTable = dt;
+                    creatDal.DbHelperName = "SQLHelper";
+                    creatDal.DbType = "2005";
+                    creatDal.ModelSpace = "Model";
+                    creatDal.TableName = comstore.TableName;
+                    string fieldstrlist = creatDal.Fieldstrlist;
+                    fieldstrlist = TableName + "." + fieldstrlist;
+                    fieldstrlist = fieldstrlist.Replace(",", "," + TableName + ".");
+                    string fromtable = "";
+                    string wherestr = "";
+                    int i = 0;
+                    fromtable += this.TableName;
+                    string selecttablename = this.TableName + " ";
+                    if (wherestr.Length > 0)
+                    {
+                        wherestr = wherestr.Substring(5);
+                        selecttablename = "(select " + fieldstrlist + " from " + fromtable + " where " + wherestr + ") a";
+                    }
+                    creatDal.SelectTableName = selecttablename;
+                    creatDal.ModelName = ModelName;
+                    string DalContent = creatDal.CreatDalCode();
+                    creatDal.WriteDalFile(DalContent, Path);
                 }
                 PrintLine("成功创建关联Model文件...55%");
             }
             if (BC)
             {
                 PrintLine("生成BLL文件...");
-                PrintLine(ExtNetCore.CreateBLL(Path, BLLName, ModelName));
+                creatBll.BLLName = BLLName;
+                creatBll.BLLNameSpace = "BLL";
+                creatBll.DataTable = ColumnsDT;
+                creatBll.DALName = TxtDalName.Text;
+                creatBll.DbType = "2005";
+                creatBll.ModelName =ModelName;
+                creatBll.ModelSpace = "Model";
+                creatBll.DalNameSpace = "DAL";
+                string BllContent = creatBll.CreatBllCode();
+                creatBll.WriteBllFile(BllContent, Path);
                 PrintLine("成功创建了BLL文件...60%");
-                PrintLine("配置BLL逻辑工厂...");
-                //生成单独的bll实体类，则不需要生成泛型工厂
-                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, BLLName, false));
-                PrintLine("成功配置BLL逻辑工厂...62%");
+
+                creatDal.DALName = TxtDalName.Text;
+                creatDal.DALNameSpace = "DAL";
+                creatDal.DataTable = ColumnsDT;
+                creatDal.DbHelperName = "SQLHelper";
+                creatDal.DbType = "2005";
+                creatDal.ModelSpace = "Model";
+                creatDal.TableName = this.TableName;
+
+                string fieldstrlist = creatDal.Fieldstrlist;
+                fieldstrlist = TableName + "." + fieldstrlist;
+                fieldstrlist = fieldstrlist.Replace(",", "," + TableName+".");
+                string fromtable = "";
+                string wherestr = "";
+                int i = 0;
+                foreach (Core.ComBoxStore comstore in COMStoreList)
+                {
+
+                    //根据combox中配置的信息，将字段替换为显示字段，并且列名不变
+                    fieldstrlist = fieldstrlist.Replace(TableName + "." + comstore.FieldName,
+                                                        TableName + "." + comstore.FieldName+","+comstore.TableName + i.ToString() + "." + comstore.Display + " as " +
+                                                        comstore.FieldName + "Display");
+                    if (comstore.Conditions.Length > 0)
+                        wherestr += " and " + comstore.TableName + i.ToString() + "." + comstore.Conditions;
+
+                    fromtable += comstore.TableName + " as " + comstore.TableName + i.ToString() + ",";
+                    wherestr += " and " + TableName + "." + comstore.FieldName + " = " + comstore.TableName + i.ToString() + "." +
+                                    comstore.Value;
+                    i++;
+                }
+
+                fromtable += this.TableName;
+
+                string selecttablename = this.TableName + " ";
+                if (wherestr.Length > 0)
+                {
+                    wherestr = wherestr.Substring(5);
+
+                    selecttablename = "(select " + fieldstrlist + " from " + fromtable + " where " + wherestr + ") a";
+                }
+                creatDal.SelectTableName = selecttablename;
+                creatDal.ModelName = ModelName;
+                string DalContent = creatDal.CreatDalCode();
+                creatDal.WriteDalFile(DalContent, Path);
             }
             else
             {
@@ -201,14 +294,14 @@ namespace WebMisSharp
             if (WC)
             {
                 PrintLine("开始生成WebUI...");
-                ArrayList stringList = ExtNetCore.CreateUIElement(ColumnsDT, COMStoreList, AutoID, Cols);
+                ArrayList stringList = ExtNetCore.CreateUIElement(ColumnsDT, COMStoreList, AutoID, Cols, BLLName);
                 if (stringList == null)
                 {
                     PrintLine("WebUI元素获取失败，生成无法继续！");
                     return;
                 }
                 PrintLine("成功获取WebUI元素...90%");
-                PrintLine(ExtNetCore.CreateAspx(stringList, Path, UIPath, ModelName, AutoID, Cols));
+                PrintLine(ExtNetCore.CreateAspx(stringList, Path, UIPath, ModelName,BLLName, AutoID, Cols));
             }
             else
                 PrintLine("跳过WebUI生成...");
@@ -237,7 +330,7 @@ namespace WebMisSharp
 
         private void BtnCreateCodeNeWin_Click(object sender, EventArgs e)
         {
-            YJCode ti = new YJCode("abc public", "C#", "");
+            Codes ti = new Codes("abc public", "C#", "");
             ti.Show(GlobalForm.MainDockPanel);
         }
 
