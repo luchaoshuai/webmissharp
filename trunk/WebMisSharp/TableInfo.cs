@@ -191,7 +191,7 @@ namespace MisSharp
                     creatBll.DataTable = dt;
                     creatBll.DALName = "DAL_" + comstore.TableName+"combox";
                     creatBll.DbType = "2005";
-                    creatBll.ModelName = "Model_"+comstore.TableName;
+                    creatBll.ModelName = "MODEL_" + comstore.TableName;
                     creatBll.ModelSpace = "Model";
                     creatBll.DalNameSpace = "DAL";
                     string BllContent = creatBll.CreatBllCode();
