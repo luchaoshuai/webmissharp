@@ -194,7 +194,7 @@ namespace MisSharp
                     creatBll.ModelName = "MODEL_" + comstore.TableName;
                     creatBll.ModelSpace = "Model";
                     creatBll.DalNameSpace = "DAL";
-                    string BllContent = creatBll.CreatBllCode();
+                    string BllContent = creatBll.CreatBllCodeCombox();
                     creatBll.WriteBllFile(BllContent, Path);
                     //PrintLine("成功创建关联BLL文件...50%");
                     //生成combox中对应表的DAL
@@ -205,22 +205,12 @@ namespace MisSharp
                     creatDal.DbType = "2005";
                     creatDal.ModelSpace = "Model";
                     creatDal.TableName = comstore.TableName;
-                    string fieldstrlist = creatDal.Fieldstrlist;
-                    fieldstrlist = TableName + "." + fieldstrlist;
-                    fieldstrlist = fieldstrlist.Replace(",", "," + TableName + ".");
                     string fromtable = "";
-                    string wherestr = "";
                     int i = 0;
-                    fromtable += this.TableName;
-                    string selecttablename = this.TableName + " ";
-                    if (wherestr.Length > 0)
-                    {
-                        wherestr = wherestr.Substring(5);
-                        selecttablename = "(select " + fieldstrlist + " from " + fromtable + " where " + wherestr + ") a";
-                    }
+                    string selecttablename = comstore.TableName + " ";
                     creatDal.SelectTableName = selecttablename;
-                    creatDal.ModelName = ModelName;
-                    string DalContent = creatDal.CreatDalCode();
+                    creatDal.ModelName = "MODEL_" + comstore.TableName;
+                    string DalContent = creatDal.CreatDalCodeCombox();
                     creatDal.WriteDalFile(DalContent, Path);
                 }
                 PrintLine("成功创建关联Model文件...55%");
