@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <SQLSERVER2008>Server=.;Uid=sa;Pwd=ovenjackchain;DataBase=WMSharp;</SQLSERVER2008>
+  <ORACLE>Server=[Oracle Service];Uid=[UserName];Pwd=[PassWord];</ORACLE>
+  <Project Name="WMSTEST">
+    <DBType>SQLSERVER2008</DBType>
+    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=WMSharp;</DBConStr>
+    <Path>H:\WMSTest\WebMis</Path>
+    <Structure>SimpleThreeLayer</Structure>
+  </Project>
+  <Project Name="PLMASS">
+    <DBType>SQLSERVER2008</DBType>
+    <DBConStr>Server=172.16.205.102;Uid=sa;Pwd=ovenjackchain;DataBase=PLMASS_TEST;</DBConStr>
+    <Path>H:\WMSTest\WebMis</Path>
+    <Structure>SimpleThreeLayer</Structure>
+  </Project>
+  <Project Name="EPOS">
+    <DBType>SQLSERVER2008</DBType>
+    <DBConStr>Server=localhost;Uid=sa;Pwd=ovenjackchain;DataBase=EPOS;</DBConStr>
+    <Path>H:\WMSTest\WebMis</Path>
+    <Structure>SimpleThreeLayer</Structure>
+  </Project>
+  <Project Name="DRP">
+    <DBType>SQLSERVER2008</DBType>
+    <DBConStr>Server=192.168.0.105;Uid=sa;Pwd=yalan;DataBase=DRP_REPORT;</DBConStr>
+    <Path>H:\WMSTest\WebMis</Path>
+    <Structure>SimpleThreeLayer</Structure>
+  </Project>
+  <Project Name="ITDC">
+    <DBType>SQLSERVER2008</DBType>
+    <DBConStr>Server=.;Uid=sa;Pwd=ovenjackchain;DataBase=WMSharp;</DBConStr>
+    <Path>H:\WMSTest\WebMis</Path>
+    <Structure>SimpleThreeLayer</Structure>
+  </Project>
+</Root>
