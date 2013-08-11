@@ -100,7 +100,7 @@ CREATE TABLE [WMS_USERINFO] (
 ALTER TABLE [WMS_USERINFO] WITH NOCHECK ADD  CONSTRAINT [PK_WMS_USERINFO] PRIMARY KEY  NONCLUSTERED ( [username] )
 SET IDENTITY_INSERT [WMS_USERINFO] ON
 
-INSERT [WMS_USERINFO] ([userid],[username],[cn_name],[userdept],[password],[telephone],[usersex],[address],[email],[logintime],[createtime],[roleid]) VALUES ( 1,N'admin',N'陈杰',N'云极',N'F=8C9;J:E=49GGH46C76=F4EC768EG8G',N'15988381281',N'男',N'山东日照',N'ovenjackchain@gmail.com',N'2012/4/29 21:47:09',N'2012/4/30 0:00:00',1)
+INSERT [WMS_USERINFO] ([userid],[username],[cn_name],[userdept],[password],[telephone],[usersex],[address],[email],[logintime],[createtime],[roleid]) VALUES ( 1,N'admin',N'陈杰',N'云极',N'I7CCJ46J;94I:9IFFE=9EF=8=7GHE45I',N'15988381281',N'男',N'山东日照',N'ovenjackchain@gmail.com',N'2012/4/29 21:47:09',N'2012/4/30 0:00:00',1)
 
 SET IDENTITY_INSERT [WMS_USERINFO] OFF
 
