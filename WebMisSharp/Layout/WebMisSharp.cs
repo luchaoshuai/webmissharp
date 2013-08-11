@@ -139,7 +139,7 @@ namespace WebMisSharp
 
         private void toolStripStatusLabel_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(@"http://yj.chinacloudtech.com"); 
+            System.Diagnostics.Process.Start(@"http://www.chinacloudtech.com"); 
         }
 
     }
