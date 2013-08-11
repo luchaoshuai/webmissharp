@@ -12,7 +12,7 @@ using Tools;
  * 作者：陈杰
  * QQ  : 710782046
  * Email:ovenjackchain@gmail.com
- * Web :http://yj.ChinaCloudTech.com
+ * Web :http://www.ChinaCloudTech.com
  */
 namespace Web.Admin
 {
