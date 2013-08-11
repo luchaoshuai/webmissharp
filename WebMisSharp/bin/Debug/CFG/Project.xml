@@ -28,7 +28,7 @@
   </Project>
   <Project Name="ITDC">
     <DBType>SQLSERVER2008</DBType>
-    <DBConStr>Server=.;Uid=sa;Pwd=ovenjackchain;DataBase=WMSharp;</DBConStr>
+    <DBConStr>Server=.;Uid=sa;Pwd=ovenjackchain;DataBase=ITDC;</DBConStr>
     <Path>H:\WMSTest\WebMis</Path>
     <Structure>SimpleThreeLayer</Structure>
   </Project>
