@@ -26,3 +26,13 @@ E:\云极科技\创新研究\WebMisSharp_Google\Core\obj\Debug\Core.dll
 E:\云极科技\创新研究\WebMisSharp_Google\Core\obj\Debug\Core.pdb
 E:\云极科技\创新研究\WebMisSharp_Google\Core\bin\Debug\ICSharpCode.SharpZipLib.dll
 E:\云极科技\创新研究\WebMisSharp_Google\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+E:\云极科技\创新研究\WMSTestGoogle\Core\bin\Debug\Core.dll
+E:\云极科技\创新研究\WMSTestGoogle\Core\bin\Debug\Core.pdb
+E:\云极科技\创新研究\WMSTestGoogle\Core\bin\Debug\BaseLibs.dll
+E:\云极科技\创新研究\WMSTestGoogle\Core\bin\Debug\StaticConfigure.dll
+E:\云极科技\创新研究\WMSTestGoogle\Core\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\云极科技\创新研究\WMSTestGoogle\Core\bin\Debug\BaseLibs.pdb
+E:\云极科技\创新研究\WMSTestGoogle\Core\bin\Debug\StaticConfigure.pdb
+E:\云极科技\创新研究\WMSTestGoogle\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+E:\云极科技\创新研究\WMSTestGoogle\Core\obj\Debug\Core.dll
+E:\云极科技\创新研究\WMSTestGoogle\Core\obj\Debug\Core.pdb

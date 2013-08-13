@@ -31,6 +31,25 @@
           <s:element minOccurs="1" maxOccurs="1" name="hits" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetWSInfoObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWSInfoObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWSInfoObjectResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="SoftUsingStat">
         <s:complexType>
           <s:sequence>
@@ -51,6 +70,12 @@
   <wsdl:message name="GetWSInfoSoapOut">
     <wsdl:part name="parameters" element="tns:GetWSInfoResponse" />
   </wsdl:message>
+  <wsdl:message name="GetWSInfoObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWSInfoObject" />
+  </wsdl:message>
+  <wsdl:message name="GetWSInfoObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWSInfoObjectResponse" />
+  </wsdl:message>
   <wsdl:message name="SoftUsingStatSoapIn">
     <wsdl:part name="parameters" element="tns:SoftUsingStat" />
   </wsdl:message>
@@ -62,6 +87,10 @@
       <wsdl:input message="tns:GetWSInfoSoapIn" />
       <wsdl:output message="tns:GetWSInfoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetWSInfoObject">
+      <wsdl:input message="tns:GetWSInfoObjectSoapIn" />
+      <wsdl:output message="tns:GetWSInfoObjectSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SoftUsingStat">
       <wsdl:input message="tns:SoftUsingStatSoapIn" />
       <wsdl:output message="tns:SoftUsingStatSoapOut" />
@@ -71,6 +100,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetWSInfo">
       <soap:operation soapAction="http://www.ChinaCloudTech.com/GetWSInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWSInfoObject">
+      <soap:operation soapAction="http://www.ChinaCloudTech.com/GetWSInfoObject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -99,6 +137,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetWSInfoObject">
+      <soap12:operation soapAction="http://www.ChinaCloudTech.com/GetWSInfoObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SoftUsingStat">
       <soap12:operation soapAction="http://www.ChinaCloudTech.com/SoftUsingStat" style="document" />
       <wsdl:input>
@@ -111,10 +158,10 @@
   </wsdl:binding>
   <wsdl:service name="ChinaCloudTechWS">
     <wsdl:port name="ChinaCloudTechWSSoap" binding="tns:ChinaCloudTechWSSoap">
-      <soap:address location="http://yj.chinacloudtech.com/ChinaCloudTechWS.asmx" />
+      <soap:address location="http://www.chinacloudtech.com/ChinaCloudTechWS.asmx" />
     </wsdl:port>
     <wsdl:port name="ChinaCloudTechWSSoap12" binding="tns:ChinaCloudTechWSSoap12">
-      <soap12:address location="http://yj.chinacloudtech.com/ChinaCloudTechWS.asmx" />
+      <soap12:address location="http://www.chinacloudtech.com/ChinaCloudTechWS.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

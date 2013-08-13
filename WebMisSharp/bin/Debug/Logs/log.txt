@@ -3660,4 +3660,92 @@ Stack Trace:
 [Footer] [Header] 2013-08-12 00:20:43,922 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
 [Footer] [Header] 2013-08-12 00:22:14,136 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
 [Footer] [Header] 2013-08-12 00:23:08,743 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2013-08-13 17:13:58,760 [1] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+没有终结点在侦听可以接受消息的 http://www.chinacloudtech.com/ChinaCloudTechWS.asmx。这通常是由于不正确的地址或者 SOAP 操作导致的。如果存在此情况，请参阅 InnerException 以了解详细信息。
+
+System.ServiceModel.EndpointNotFoundException
+
+Stack Trace:
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   在 System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   在 System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WebMisSharp.CCTWS.ChinaCloudTechWSSoap.GetWSInfo(GetWSInfoRequest request)
+   在 WebMisSharp.CCTWS.ChinaCloudTechWSSoapClient.WebMisSharp.CCTWS.ChinaCloudTechWSSoap.GetWSInfo(GetWSInfoRequest request) 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Service References\CCTWS\Reference.cs:行号 318
+   在 WebMisSharp.CCTWS.ChinaCloudTechWSSoapClient.GetWSInfo(String type) 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Service References\CCTWS\Reference.cs:行号 325
+   在 WebMisSharp.Welcome.Welcome_Load(Object sender, EventArgs e) 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Welcome.cs:行号 23
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.OnVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.Control.OnParentVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.Control.OnVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.ScrollableControl.OnVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.Form.OnVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.Show()
+   在 WebMisSharp.SplashScreenApplicationContext.MainFormLoad() 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Common\SplashScreenApplicationContext.cs:行号 74
+   在 WebMisSharp.SplashScreenApplicationContext..ctor() 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Common\SplashScreenApplicationContext.cs:行号 18
+   在 WebMisSharp.WebMisSharpContext..ctor()
+   在 WebMisSharp.Program.Main() 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Program.cs:行号 21
+[Header] 2013-08-13 19:36:14,960 [1] ERROR WebMisSharp.Common.ErrorReport [(null)] - 错误信息：
+
+没有终结点在侦听可以接受消息的 http://www.chinacloudtech.com/ChinaCloudTechWS.asmx。这通常是由于不正确的地址或者 SOAP 操作导致的。如果存在此情况，请参阅 InnerException 以了解详细信息。
+
+System.ServiceModel.EndpointNotFoundException
+
+Stack Trace:
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   在 System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   在 System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 WebMisSharp.CCTWS.ChinaCloudTechWSSoap.GetWSInfo(GetWSInfoRequest request)
+   在 WebMisSharp.CCTWS.ChinaCloudTechWSSoapClient.WebMisSharp.CCTWS.ChinaCloudTechWSSoap.GetWSInfo(GetWSInfoRequest request) 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Service References\CCTWS\Reference.cs:行号 318
+   在 WebMisSharp.CCTWS.ChinaCloudTechWSSoapClient.GetWSInfo(String type) 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Service References\CCTWS\Reference.cs:行号 325
+   在 WebMisSharp.Welcome.Welcome_Load(Object sender, EventArgs e) 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Welcome.cs:行号 23
+   在 System.Windows.Forms.Form.OnLoad(EventArgs e)
+   在 System.Windows.Forms.Form.OnCreateControl()
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
+   在 System.Windows.Forms.Control.CreateControl()
+   在 System.Windows.Forms.Control.OnVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.Control.OnParentVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.Control.OnVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.ScrollableControl.OnVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.Form.OnVisibleChanged(EventArgs e)
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.Show()
+   在 WebMisSharp.SplashScreenApplicationContext.MainFormLoad() 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Common\SplashScreenApplicationContext.cs:行号 74
+   在 WebMisSharp.SplashScreenApplicationContext..ctor() 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Common\SplashScreenApplicationContext.cs:行号 18
+   在 WebMisSharp.WebMisSharpContext..ctor()
+   在 WebMisSharp.Program.Main() 位置 e:\云极科技\创新研究\WMSTestGoogle\WebMisSharp\Program.cs:行号 21
+[Header] 2013-08-13 19:49:00,651 [9] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
+[Footer] [Header] 2013-08-13 19:49:18,902 [1] DEBUG WebMisSharp.WebMisSharp [(null)] - 程序启动了
 [Footer] 
