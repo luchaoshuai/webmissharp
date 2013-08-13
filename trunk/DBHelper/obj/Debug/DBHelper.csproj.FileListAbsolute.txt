@@ -31,3 +31,15 @@ E:\云极科技\创新研究\WebMisSharp_Google\DBHelper\obj\Debug\DBHelper.dll
 E:\云极科技\创新研究\WebMisSharp_Google\DBHelper\obj\Debug\DBHelper.pdb
 E:\云极科技\创新研究\WebMisSharp_Google\DBHelper\bin\Debug\ICSharpCode.SharpZipLib.dll
 E:\云极科技\创新研究\WebMisSharp_Google\DBHelper\obj\Debug\DBHelper.csprojResolveAssemblyReference.cache
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\DBHelper.dll
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\DBHelper.pdb
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\BaseLibs.dll
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\CJ_DevelopHelper.dll
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\StaticConfigure.dll
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\BaseLibs.pdb
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\StaticConfigure.pdb
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\bin\Debug\CJ_DevelopHelper.pdb
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\obj\Debug\DBHelper.csprojResolveAssemblyReference.cache
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\obj\Debug\DBHelper.dll
+E:\云极科技\创新研究\WMSTestGoogle\DBHelper\obj\Debug\DBHelper.pdb

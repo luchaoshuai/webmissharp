@@ -23,3 +23,8 @@ E:\云极科技\创新研究\WebMisSharp_Google\BaseLibs\bin\Debug\BaseLibs.pdb
 E:\云极科技\创新研究\WebMisSharp_Google\BaseLibs\obj\Debug\BaseLibs.dll
 E:\云极科技\创新研究\WebMisSharp_Google\BaseLibs\obj\Debug\BaseLibs.pdb
 E:\云极科技\创新研究\WebMisSharp_Google\BaseLibs\obj\Debug\BaseLibs.csprojResolveAssemblyReference.cache
+E:\云极科技\创新研究\WMSTestGoogle\BaseLibs\bin\Debug\BaseLibs.dll
+E:\云极科技\创新研究\WMSTestGoogle\BaseLibs\bin\Debug\BaseLibs.pdb
+E:\云极科技\创新研究\WMSTestGoogle\BaseLibs\obj\Debug\BaseLibs.csprojResolveAssemblyReference.cache
+E:\云极科技\创新研究\WMSTestGoogle\BaseLibs\obj\Debug\BaseLibs.dll
+E:\云极科技\创新研究\WMSTestGoogle\BaseLibs\obj\Debug\BaseLibs.pdb

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="http://yj.chinacloudtech.com/ChinaCloudTechWS.asmx?wsdl" docRef="http://yj.chinacloudtech.com/ChinaCloudTechWS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <soap address="http://yj.chinacloudtech.com/ChinaCloudTechWS.asmx" xmlns:q1="http://www.ChinaCloudTech.com/" binding="q1:ChinaCloudTechWSSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-  <soap address="http://yj.chinacloudtech.com/ChinaCloudTechWS.asmx" xmlns:q2="http://www.ChinaCloudTech.com/" binding="q2:ChinaCloudTechWSSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-</discovery>

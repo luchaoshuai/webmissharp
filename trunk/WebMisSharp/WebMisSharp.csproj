@@ -52,8 +52,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -122,11 +124,6 @@
     <Compile Include="RunSQL.Designer.cs">
       <DependentUpon>RunSQL.cs</DependentUpon>
     </Compile>
-    <Compile Include="Service References\CCTWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +154,11 @@
     </Compile>
     <Compile Include="Waiting.Designer.cs">
       <DependentUpon>Waiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CCTWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
@@ -238,9 +240,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\CCTWS\ChinaCloudTechWS.wsdl" />
-    <None Include="Service References\CCTWS\WebMisSharp.CCTWS.WebServiceInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\CCTWS\ChinaCloudTechWS.wsdl" />
+    <None Include="Web References\CCTWS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CCTWS\WebServiceInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -275,13 +281,7 @@
     <Content Include="Images\DB\table.gif" />
     <Content Include="Images\DB\view.gif" />
     <Content Include="logo.ico" />
-    <None Include="Service References\CCTWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\CCTWS\configuration.svcinfo" />
-    <None Include="Service References\CCTWS\configuration91.svcinfo" />
-    <None Include="Service References\CCTWS\ChinaCloudTechWS.disco" />
+    <None Include="Web References\CCTWS\ChinaCloudTechWS.disco" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseLibs\BaseLibs.csproj">
@@ -313,10 +313,20 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\CCTWS\" />
+    <WebReferenceUrl Include="http://www.chinacloudtech.com/ChinaCloudTechWS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CCTWS\</RelPath>
+      <UpdateFromURL>http://www.chinacloudtech.com/ChinaCloudTechWS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebMisSharp_CCTWS_ChinaCloudTechWS</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

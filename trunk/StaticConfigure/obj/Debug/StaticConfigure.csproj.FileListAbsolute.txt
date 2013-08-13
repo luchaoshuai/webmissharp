@@ -22,3 +22,7 @@ E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\bin\Debug\Static
 E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\bin\Debug\StaticConfigure.pdb
 E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\obj\Debug\StaticConfigure.dll
 E:\云极科技\创新研究\WebMisSharp_Google\StaticConfigure\obj\Debug\StaticConfigure.pdb
+E:\云极科技\创新研究\WMSTestGoogle\StaticConfigure\bin\Debug\StaticConfigure.dll
+E:\云极科技\创新研究\WMSTestGoogle\StaticConfigure\bin\Debug\StaticConfigure.pdb
+E:\云极科技\创新研究\WMSTestGoogle\StaticConfigure\obj\Debug\StaticConfigure.dll
+E:\云极科技\创新研究\WMSTestGoogle\StaticConfigure\obj\Debug\StaticConfigure.pdb
