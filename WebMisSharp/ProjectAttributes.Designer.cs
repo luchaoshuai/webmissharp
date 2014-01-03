@@ -40,8 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioOther = new System.Windows.Forms.RadioButton();
-            this.radioAspnetMVC = new System.Windows.Forms.RadioButton();
+            this.radioEnterpriseExtjs = new System.Windows.Forms.RadioButton();
             this.radioSimpleThreeLayer = new System.Windows.Forms.RadioButton();
             this.BtnTryDBConnect = new System.Windows.Forms.Button();
             this.BtnSaveProject = new System.Windows.Forms.Button();
@@ -150,8 +149,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioOther);
-            this.groupBox2.Controls.Add(this.radioAspnetMVC);
+            this.groupBox2.Controls.Add(this.radioEnterpriseExtjs);
             this.groupBox2.Controls.Add(this.radioSimpleThreeLayer);
             this.groupBox2.Location = new System.Drawing.Point(331, 95);
             this.groupBox2.Name = "groupBox2";
@@ -160,25 +158,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "项目框架";
             // 
-            // radioOther
+            // radioEnterpriseExtjs
             // 
-            this.radioOther.AutoSize = true;
-            this.radioOther.Location = new System.Drawing.Point(13, 97);
-            this.radioOther.Name = "radioOther";
-            this.radioOther.Size = new System.Drawing.Size(65, 16);
-            this.radioOther.TabIndex = 3;
-            this.radioOther.Text = "其他...";
-            this.radioOther.UseVisualStyleBackColor = true;
-            // 
-            // radioAspnetMVC
-            // 
-            this.radioAspnetMVC.AutoSize = true;
-            this.radioAspnetMVC.Location = new System.Drawing.Point(13, 61);
-            this.radioAspnetMVC.Name = "radioAspnetMVC";
-            this.radioAspnetMVC.Size = new System.Drawing.Size(119, 16);
-            this.radioAspnetMVC.TabIndex = 2;
-            this.radioAspnetMVC.Text = "MVC_Rest[JQuery]";
-            this.radioAspnetMVC.UseVisualStyleBackColor = true;
+            this.radioEnterpriseExtjs.AutoSize = true;
+            this.radioEnterpriseExtjs.Location = new System.Drawing.Point(13, 61);
+            this.radioEnterpriseExtjs.Name = "radioEnterpriseExtjs";
+            this.radioEnterpriseExtjs.Size = new System.Drawing.Size(131, 16);
+            this.radioEnterpriseExtjs.TabIndex = 2;
+            this.radioEnterpriseExtjs.Text = "企业应用[Extjs4.x]";
+            this.radioEnterpriseExtjs.UseVisualStyleBackColor = true;
             // 
             // radioSimpleThreeLayer
             // 
@@ -251,8 +239,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioOther;
-        private System.Windows.Forms.RadioButton radioAspnetMVC;
+        private System.Windows.Forms.RadioButton radioEnterpriseExtjs;
         private System.Windows.Forms.RadioButton radioSimpleThreeLayer;
         private System.Windows.Forms.Button BtnTryDBConnect;
         private System.Windows.Forms.Button BtnSaveProject;

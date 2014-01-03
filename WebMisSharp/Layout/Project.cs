@@ -104,6 +104,14 @@ namespace WebMisSharp
                     Loading.WaitingMsg.Text = "正在解压缩基础框架，请稍后...";
                     Loading.ShowDialog();
                 }
+                //获取项目架构类型
+                string structure = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + patt.ProductName + "']/Structure", "");
+                
+                //如果是简单三层的那么是需要创建基础表的，企业应用不需要。
+                if (structure == Structures.ProjStructs.EnterpriseExtJs.ToString())
+                {
+                    return;
+                }
                 if (MessageBox.Show("是否自动创建基础表到项目数据库？\r\n将创建WebMis必备表和基础数据(严重注意：若存在则删除)", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     if (DBHelper.SQLDBHelper.CreateBasicTableAndData(Node.Name) > 0)
@@ -649,10 +657,19 @@ namespace WebMisSharp
         //表代码生成
         private void RM_TabDEV_Click(object sender, EventArgs e)
         {
+            string Struct = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + CurrentProj + "']/Structure", "");
             //if (((TableInfo)Application.OpenForms["TableInfo"]) == null)
             //{
+            if (Struct == Structures.ProjStructs.SimpleThreeLayer.ToString())
+            {
                 TableInfo ti = new TableInfo(GlobalForm.LbGlobalTable.Text);
                 ti.Show(GlobalForm.MainDockPanel);
+            }
+            if (Struct == Structures.ProjStructs.EnterpriseExtJs.ToString())
+            {
+                TableInfo4Extjs ti = new TableInfo4Extjs(GlobalForm.LbGlobalTable.Text);
+                ti.Show(GlobalForm.MainDockPanel);
+            }
             //}
             //else
             //{
@@ -788,9 +805,19 @@ namespace WebMisSharp
             if (e.Argument.ToString() != "")
             {
                 string Path = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + e.Argument.ToString() + "']/Path", "");
-                e.Result=ZipHelper.UnZipFile(".\\Templates\\WebMis.zip", Path);
-                XMLHelper.Update(XMLPaths.ProjectXml, "/Root/Project[@Name='" + e.Argument.ToString() + "']/Path", "", Path + "\\WebMis");
-                Core.ExtNetCore.UpdateDbConnectStr(e.Argument.ToString());
+                string Struct = XMLHelper.Read(XMLPaths.ProjectXml, "/Root/Project[@Name='" + e.Argument.ToString() + "']/Structure", "");
+                if (Struct == Structures.ProjStructs.SimpleThreeLayer.ToString())
+                {
+                    e.Result = ZipHelper.UnZipFile(".\\Templates\\" + Struct + "\\WebMis.zip", Path);
+                    XMLHelper.Update(XMLPaths.ProjectXml, "/Root/Project[@Name='" + e.Argument.ToString() + "']/Path", "", Path + "\\WebMis");
+                    Core.ExtNetCore.UpdateDbConnectStr(e.Argument.ToString());
+                }
+                else if (Struct == Structures.ProjStructs.EnterpriseExtJs.ToString())
+                {
+                    e.Result = ZipHelper.UnZipFile(".\\Templates\\" + Struct + "\\WMC2.0-Client.zip", Path);
+                    XMLHelper.Update(XMLPaths.ProjectXml, "/Root/Project[@Name='" + e.Argument.ToString() + "']/Path", "", Path + "\\WMC2.0-Client");
+                    Core.Extjs4Core.UpdateDbConnectStr(e.Argument.ToString());
+                }
             }
         }
 
@@ -804,8 +831,8 @@ namespace WebMisSharp
             }
             else
             {
-                SendLog("很抱歉，拷贝基础框架失败！您可手动解压缩.\\Templates\\WebMis.zip文件到项目文件，并注意修改路径！");
-                MessageBox.Show("很抱歉，拷贝基础框架失败！\r\n您可手动解压缩.\\Templates\\WebMis.zip文件到项目文件，并注意修改路径！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                SendLog("很抱歉，拷贝基础框架失败！您可手动解压缩.\\Templates\\对应架构文件到目标文件夹，并注意修改路径！");
+                MessageBox.Show("很抱歉，拷贝基础框架失败！\r\n您可手动解压缩.\\Templates\\对应架构文件到目标文件夹，并注意修改路径！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
         
