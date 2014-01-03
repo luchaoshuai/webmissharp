@@ -42,7 +42,7 @@ namespace Core
         {
             try
             {
-                string BllContent = FileHelper.ReadFile(".\\Templates\\BLL.cs");
+                string BllContent = FileHelper.ReadFile(".\\Templates\\SimpleThreeLayer\\BLL.cs");
                 string Content = BllContent.Replace("{TABLENAME}", BllName).Replace("{MODELNAME}", ModelName);
                 FileHelper.WriteFile(Path + "\\BLL\\Business\\" + BllName + ".cs", Content);
                 FileHelper.WriteFile(Path + "\\BLL\\BLL.csproj", FileHelper.ReadFile(Path + "\\BLL\\BLL.csproj").Replace("<!--DHELPERBLL-->", "<Compile Include=\"Business\\" + BllName + ".cs\" />\r\n\t<!--DHELPERBLL-->"));
@@ -83,7 +83,7 @@ namespace Core
         {
             try
             {
-                string ModelTemplate = FileHelper.ReadFile(".\\Templates\\Model.cs");
+                string ModelTemplate = FileHelper.ReadFile(".\\Templates\\SimpleThreeLayer\\Model.cs");
                 ModelTemplate = ModelTemplate.Replace("{0}", TableName).Replace("{1}", AutoID).Replace("{2}", ModelContent);
                 FileHelper.WriteFile(Path + "\\Model\\Entities\\" + ModelName + ".cs", ModelTemplate);
                 string ModelCSProj = FileHelper.ReadFile(Path + "\\Model\\Model.csproj");
@@ -277,7 +277,7 @@ namespace Core
                     Directory.CreateDirectory(path + "\\Web\\Admin\\" + UIPath);
 
                 //创建Aspx
-                string Aspx = FileHelper.ReadFile(".\\Templates\\Template.aspx").Replace("Template", PageName);
+                string Aspx = FileHelper.ReadFile(".\\Templates\\SimpleThreeLayer\\Template.aspx").Replace("Template", PageName);
                 Aspx = Aspx.Replace("{TABLENAME}", ModelName)
                          .Replace("{RecordField}", list[0].ToString())
                          .Replace("{AutoID}", AutoID)
@@ -289,14 +289,14 @@ namespace Core
                          .Replace("<!--CBOSTORE-->", list[4].ToString());
 
                 //创建Aspx.cs
-                string AspxCS = FileHelper.ReadFile(".\\Templates\\Template.aspx.cs").Replace("Template", PageName);
+                string AspxCS = FileHelper.ReadFile(".\\Templates\\SimpleThreeLayer\\Template.aspx.cs").Replace("Template", PageName);
                 AspxCS = AspxCS.Replace("{ModelSetValue}", list[6].ToString())
                     .Replace("//{CBOBIND}", list[8].ToString())
                     .Replace("//{CBOBINDFun}", list[7].ToString().Replace("{TABLENAME}",ModelName))
                     .Replace("{AutoID}", AutoID)
                     .Replace("{TABLENAME}", ModelName);
                 //创建Aspx.designer
-                string AspxDesigner = FileHelper.ReadFile(".\\Templates\\Template.aspx.designer.cs").Replace("Template", PageName);
+                string AspxDesigner = FileHelper.ReadFile(".\\Templates\\SimpleThreeLayer\\Template.aspx.designer.cs").Replace("Template", PageName);
                 AspxDesigner = AspxDesigner.Replace("{DesignPOINT}", list[5].ToString())
                     .Replace("{TABLENAME}", ModelName);
 

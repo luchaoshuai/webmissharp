@@ -10,7 +10,7 @@ namespace StaticConfigure
         public enum ProjStructs
         {
             SimpleThreeLayer,
-            ASPNetMVC,
+            EnterpriseExtJs,
             Other
         }
     }
