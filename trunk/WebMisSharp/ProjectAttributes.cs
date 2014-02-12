@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using BaseLibs;
 using StaticConfigure;
+using System.IO;
 
 namespace WebMisSharp
 {
@@ -101,5 +102,26 @@ namespace WebMisSharp
             }
         }
 
+        //当选择项目的时候,判断是否存在模板
+        private void SelectFramework(object sender, EventArgs e)
+        {
+            if (radioSimpleThreeLayer.Checked)
+            {
+                this.lbFwInfo.Text = "入门级框架，分三个大层DAL，BLL，Web。适合快速开发网站，企业中小型软件。";
+                if (!File.Exists(".\\Templates\\SimpleThreeLayer\\WebMis.zip"))
+                {
+                    MessageBox.Show("简单三层-项目模板不存在，请到官网下载【http://www.chinacloudtech.com】！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+
+            if (this.radioEnterpriseExtjs.Checked)
+            {
+                this.lbFwInfo.Text = "大型企业项目，DDD模式，EF+MVC4.0，集成单点登录SSO，认证授权中心";
+                if (!File.Exists(".\\Templates\\EnterpriseExtjs\\WMC2.0-Client.zip"))
+                {
+                    MessageBox.Show("企业应用框架-项目模板不存在，请到官网下载【http://www.chinacloudtech.com】！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+        }
     }
 }

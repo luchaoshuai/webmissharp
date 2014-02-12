@@ -49,7 +49,7 @@ namespace WebMisSharp
             foreach (DataGridViewRow r in DGridTableStruct.Rows)
             {
                 if (r.Cells["FieldDesc"].Value.ToString().Trim().Length <= 0) continue;
-                if (ObjectProperty.ObjectList.Table.ToString() == GlobalForm.LbGlobalTable.Text)
+                if (ObjectProperty.ObjectList.Table.ToString() == GlobalForm.LbGlobalViewTableProc.Text)
                     SQLDBHelper.SetTableFieldRemark(GlobalForm.LbGlobalProject.Text,
                                                     r.Cells["Tid"].Value.ToString().Trim(),
                                                     r.Cells["Cid"].Value.ToString().Trim(),

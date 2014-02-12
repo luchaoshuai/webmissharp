@@ -55,19 +55,19 @@
             this.CBWeb = new System.Windows.Forms.CheckBox();
             this.CBModel = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPageName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbEditTypeWin = new System.Windows.Forms.CheckBox();
+            this.cbEditTypeCell = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtBLLName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtModelName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.TxtExtjsAppName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.BtnSaveFieldRemark = new System.Windows.Forms.Button();
             this.NUDColumns = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbEditTypeCell = new System.Windows.Forms.CheckBox();
-            this.cbEditTypeWin = new System.Windows.Forms.CheckBox();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -360,6 +360,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.txtPageName);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cbEditTypeWin);
             this.groupBox1.Controls.Add(this.cbEditTypeCell);
             this.groupBox1.Controls.Add(this.label8);
@@ -368,8 +370,6 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.TxtModelName);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.TxtExtjsAppName);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.BtnSaveFieldRemark);
             this.groupBox1.Controls.Add(this.NUDColumns);
             this.groupBox1.Controls.Add(this.label2);
@@ -381,10 +381,51 @@
             this.groupBox1.Text = "基本配置";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtPageName
+            // 
+            this.txtPageName.Location = new System.Drawing.Point(133, 60);
+            this.txtPageName.Name = "txtPageName";
+            this.txtPageName.Size = new System.Drawing.Size(96, 21);
+            this.txtPageName.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 12);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Extjs模块名称[中文]：";
+            // 
+            // cbEditTypeWin
+            // 
+            this.cbEditTypeWin.AutoSize = true;
+            this.cbEditTypeWin.Enabled = false;
+            this.cbEditTypeWin.Location = new System.Drawing.Point(322, 84);
+            this.cbEditTypeWin.Name = "cbEditTypeWin";
+            this.cbEditTypeWin.Size = new System.Drawing.Size(126, 16);
+            this.cbEditTypeWin.TabIndex = 17;
+            this.cbEditTypeWin.Text = "行编辑-Window模式";
+            this.cbEditTypeWin.UseVisualStyleBackColor = true;
+            this.cbEditTypeWin.CheckedChanged += new System.EventHandler(this.cbEditTypeWin_CheckedChanged);
+            // 
+            // cbEditTypeCell
+            // 
+            this.cbEditTypeCell.AutoSize = true;
+            this.cbEditTypeCell.Checked = true;
+            this.cbEditTypeCell.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbEditTypeCell.Location = new System.Drawing.Point(322, 63);
+            this.cbEditTypeCell.Name = "cbEditTypeCell";
+            this.cbEditTypeCell.Size = new System.Drawing.Size(126, 16);
+            this.cbEditTypeCell.TabIndex = 16;
+            this.cbEditTypeCell.Text = "行编辑-单元格模式";
+            this.cbEditTypeCell.UseVisualStyleBackColor = true;
+            this.cbEditTypeCell.CheckedChanged += new System.EventHandler(this.cbEditTypeCell_CheckedChanged);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(208, 28);
+            this.label8.Location = new System.Drawing.Point(230, 30);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(23, 12);
             this.label8.TabIndex = 15;
@@ -417,7 +458,7 @@
             // 
             // TxtModelName
             // 
-            this.TxtModelName.Location = new System.Drawing.Point(111, 23);
+            this.TxtModelName.Location = new System.Drawing.Point(133, 25);
             this.TxtModelName.Name = "TxtModelName";
             this.TxtModelName.Size = new System.Drawing.Size(96, 21);
             this.TxtModelName.TabIndex = 11;
@@ -425,27 +466,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(51, 28);
+            this.label5.Location = new System.Drawing.Point(73, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 10;
             this.label5.Text = "实体类名：";
-            // 
-            // TxtExtjsAppName
-            // 
-            this.TxtExtjsAppName.Location = new System.Drawing.Point(111, 64);
-            this.TxtExtjsAppName.Name = "TxtExtjsAppName";
-            this.TxtExtjsAppName.Size = new System.Drawing.Size(96, 21);
-            this.TxtExtjsAppName.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 12);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Extjs界面名称：";
             // 
             // BtnSaveFieldRemark
             // 
@@ -464,7 +489,7 @@
             this.NUDColumns.Enabled = false;
             this.NUDColumns.Location = new System.Drawing.Point(399, 103);
             this.NUDColumns.Maximum = new decimal(new int[] {
-            5,
+            4,
             0,
             0,
             0});
@@ -490,31 +515,6 @@
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 0;
             this.label2.Text = "表单列数：";
-            // 
-            // cbEditTypeCell
-            // 
-            this.cbEditTypeCell.AutoSize = true;
-            this.cbEditTypeCell.Checked = true;
-            this.cbEditTypeCell.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbEditTypeCell.Location = new System.Drawing.Point(322, 63);
-            this.cbEditTypeCell.Name = "cbEditTypeCell";
-            this.cbEditTypeCell.Size = new System.Drawing.Size(126, 16);
-            this.cbEditTypeCell.TabIndex = 16;
-            this.cbEditTypeCell.Text = "行编辑-单元格模式";
-            this.cbEditTypeCell.UseVisualStyleBackColor = true;
-            this.cbEditTypeCell.CheckedChanged += new System.EventHandler(this.cbEditTypeCell_CheckedChanged);
-            // 
-            // cbEditTypeWin
-            // 
-            this.cbEditTypeWin.AutoSize = true;
-            this.cbEditTypeWin.Enabled = false;
-            this.cbEditTypeWin.Location = new System.Drawing.Point(322, 84);
-            this.cbEditTypeWin.Name = "cbEditTypeWin";
-            this.cbEditTypeWin.Size = new System.Drawing.Size(126, 16);
-            this.cbEditTypeWin.TabIndex = 17;
-            this.cbEditTypeWin.Text = "行编辑-Window模式";
-            this.cbEditTypeWin.UseVisualStyleBackColor = true;
-            this.cbEditTypeWin.CheckedChanged += new System.EventHandler(this.cbEditTypeWin_CheckedChanged);
             // 
             // TableInfo4Extjs
             // 
@@ -554,8 +554,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TxtModelName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TxtExtjsAppName;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnSaveFieldRemark;
         private System.Windows.Forms.NumericUpDown NUDColumns;
         private System.Windows.Forms.Label label2;
@@ -578,6 +576,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox cbEditTypeWin;
         private System.Windows.Forms.CheckBox cbEditTypeCell;
+        private System.Windows.Forms.TextBox txtPageName;
+        private System.Windows.Forms.Label label1;
 
     }
 }
