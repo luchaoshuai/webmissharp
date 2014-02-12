@@ -29,12 +29,13 @@ namespace WebMisSharp
             this.txtContent.Text = Contents;
         }
 
-        public YJCode(string strCode, string FileType,string temp)
+        public YJCode(string strCode, string FileType,string title)
         {
             InitializeComponent();
             txtContent.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy(FileType);
             
             this.txtContent.Text = strCode;
+            this.Text = title;
         }
     }
 }

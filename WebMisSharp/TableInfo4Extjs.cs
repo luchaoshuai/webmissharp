@@ -27,7 +27,7 @@ namespace WebMisSharp
             BindTableStruct();
             this.TxtModelName.Text = GlobalForm.LbGlobalTable.Text;
             this.TxtBLLName.Text = GlobalForm.LbGlobalTable.Text;
-            this.TxtExtjsAppName.Text = GlobalForm.LbGlobalTable.Text;
+            this.txtPageName.Text = GlobalForm.LbGlobalTable.Text;
         }
         //绑定表结构
         public void BindTableStruct()
@@ -48,7 +48,7 @@ namespace WebMisSharp
             foreach (DataGridViewRow r in DGridTableStruct.Rows)
             {
                 if (r.Cells["FieldDesc"].Value.ToString().Trim().Length <= 0) continue;
-                if (ObjectProperty.ObjectList.Table.ToString() == GlobalForm.LbGlobalTable.Text)
+                if (ObjectProperty.ObjectList.Table.ToString() == GlobalForm.LbGlobalViewTableProc.Text)
                     SQLDBHelper.SetTableFieldRemark(GlobalForm.LbGlobalProject.Text,
                                                     r.Cells["Tid"].Value.ToString().Trim(),
                                                     r.Cells["Cid"].Value.ToString().Trim(),
@@ -89,14 +89,14 @@ namespace WebMisSharp
                 this.cbEditTypeWin.Checked = false;
                 this.cbEditTypeWin.Enabled = false;
                 this.NUDColumns.Enabled = false;
-                this.TxtExtjsAppName.Enabled = true;
+                //this.txtPageName.Enabled = true;
             }
             else
             {
                 this.cbEditTypeCell.Enabled = false;
-                this.TxtExtjsAppName.Enabled = false;
                 this.cbEditTypeWin.Enabled = false;
                 this.NUDColumns.Enabled = false;
+                //this.txtPageName.Enabled = false;
             }
         }
 
@@ -149,35 +149,42 @@ namespace WebMisSharp
         //生成代码到项目中
         /****声明******/
         DataTable ColumnsDT = null;
-        string Path, ModelName, TableName, AutoID, UIPath, BLLName;
+        string Path, ModelName, TableName, BLLName, PageName;
         int Cols = 2;
-        bool MC = false, WC = false, BC = false;
+        bool MC = false, WC = false, BC = false, isWinEdit = false;
+
         private void BtnCreateCode2Proj_Click(object sender, EventArgs e)
         {
             ColumnsDT = DGridTableStruct.DataSource as DataTable;
             //配置线程参数
-            Path = ExtNetCore.GetPath(GlobalForm.LbGlobalProject.Text);
+            Path = Extjs4Core.GetPath(GlobalForm.LbGlobalProject.Text);
             ModelName = TxtModelName.Text.Trim();
             BLLName = TxtBLLName.Text.Trim();
-            AutoID = "";
-            UIPath = TxtExtjsAppName.Text.Trim();
-            Cols = (int)NUDColumns.Value;
+            PageName = txtPageName.Text.Trim();
+
             MC = CBModel.Checked;
             WC = CBWeb.Checked;
             BC = CBBLL.Checked;
-            if (AutoID.Length <= 0 || ModelName.Length <= 0)
+            isWinEdit = this.cbEditTypeWin.Checked;
+            //如果是window编辑模式
+            if (isWinEdit)
             {
-                MessageBox.Show("自增ID和Model名称不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Cols = (int)NUDColumns.Value;
+            }
+
+            if (MC && ModelName.Length <= 0)
+            {
+                MessageBox.Show("实体名称不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
-            if (BC && BLLName.Length <= 0)
+            if (BC && BLLName.Length <= 0 && PageName.Length <= 0)
             {
-                MessageBox.Show("BLL类名不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("BLL类名不能为空！Extjs模块名称[中文]不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
-            if (WC && UIPath.Length <= 0)
+            if (WC && PageName.Length <= 0)
             {
-                MessageBox.Show("UI文件名不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Extjs模块名称[中文]不能为空！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
             //End
@@ -188,49 +195,45 @@ namespace WebMisSharp
         private void Create2Proj()
         {
             PrintLine("开始生成...0%");
-            PrintLine("获取项目路径...5%");
+            PrintLine("获取目标路径...5%");
             PrintLine(Path);
             if (MC)
             {
-                string ModelColumns = ExtNetCore.CreateModelContent(ColumnsDT);
+                string ModelColumns = Extjs4Core.CreateModelContent(ColumnsDT);
                 PrintLine("成功生成Model的get;set;...25%");
                 PrintLine("生成Model文件...");
-                PrintLine(ExtNetCore.WriteModelFile(ModelColumns, TableName, ModelName, AutoID, Path));
+                PrintLine(Extjs4Core.WriteModelFile(ModelColumns, TableName, Path));
                 PrintLine("成功创建Model文件...40%");
             }
             else
                 PrintLine("跳过Model生成...");
             if (BC)
             {
-                PrintLine("生成BLL文件...");
-                PrintLine(ExtNetCore.CreateBLL(Path, BLLName, ModelName));
-                PrintLine("成功创建了BLL文件...60%");
-                PrintLine("配置BLL逻辑工厂...");
-                //生成单独的bll实体类，则不需要生成泛型工厂
-                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, BLLName, false));
-                PrintLine("成功配置BLL逻辑工厂...62%");
+                PrintLine("生成业务类文件...");
+                PrintLine(Extjs4Core.CreateBLL(Path, BLLName, TableName, PageName));
+                PrintLine("成功创建了业务类文件...60%");
+                PrintLine("配置EF DBSet和工厂...");
+                PrintLine(Extjs4Core.UpdateBLLMWSFactory(Path, BLLName, TableName));
+                PrintLine("成功配置EF DBSet和工厂...62%");
             }
             else
             {
-                PrintLine("跳过BLL生成...");
-                PrintLine("配置BLL逻辑工厂...");
-                PrintLine(ExtNetCore.UpdateBLLMWSFactory(Path, ModelName, ModelName));
-                PrintLine("成功配置BLL逻辑工厂...50%");
+                PrintLine("跳过业务逻辑生成...");
             }
             if (WC)
             {
-                PrintLine("开始生成WebUI...");
-                ArrayList stringList = ExtNetCore.CreateUIElement(ColumnsDT, COMStoreList, AutoID, Cols);
+                PrintLine("开始生成Extjs界面...");
+                ArrayList stringList = Extjs4Core.CreateUIElement(ColumnsDT, isWinEdit, Cols);
                 if (stringList == null)
                 {
-                    PrintLine("WebUI元素获取失败，生成无法继续！");
+                    PrintLine("Extjs界面元素获取失败，生成无法继续！");
                     return;
                 }
-                PrintLine("成功获取WebUI元素...90%");
-                PrintLine(ExtNetCore.CreateAspx(stringList, Path, UIPath, ModelName, AutoID, Cols));
+                PrintLine("成功生成ExtjsUI元素...90%");
+                PrintLine(Extjs4Core.CreateExtjsApp(stringList, Path, BLLName,PageName, isWinEdit));
             }
             else
-                PrintLine("跳过WebUI生成...");
+                PrintLine("跳过Extjs界面生成...");
             PrintLine("恭喜您，生成成功！");
         }
 
@@ -256,8 +259,20 @@ namespace WebMisSharp
 
         private void BtnCreateCodeNeWin_Click(object sender, EventArgs e)
         {
-            YJCode ti = new YJCode("abc public", "C#", "");
-            ti.Show(GlobalForm.MainDockPanel);
+            Cols = (int)NUDColumns.Value;
+            ColumnsDT = DGridTableStruct.DataSource as DataTable;
+            ArrayList stringList = Extjs4Core.CreateUIElement(ColumnsDT, true, Cols);
+            YJCode uiWin = new YJCode("/**********************Model************************/"
+                                    + stringList[0].ToString().TrimEnd(',')
+                                    +"\r\n\r\n/*********************Grid Columns*************************/"
+                                    + stringList[1].ToString().TrimEnd(',')
+                                    + "\r\n\r\n/*********************Edit Window Form*************************/"
+                                    + stringList[2].ToString().TrimEnd(','), "C#", "Extjs-UI-界面代码");
+            uiWin.Show(GlobalForm.MainDockPanel);
+
+            string ModelColumns = Extjs4Core.CreateModelContent(ColumnsDT);
+            YJCode modelWin = new YJCode(ModelColumns, "C#", "EntityModel");
+            modelWin.Show(GlobalForm.MainDockPanel);
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

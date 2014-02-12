@@ -19,8 +19,8 @@ namespace WebMisSharp
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-            CCTWS.ChinaCloudTechWS ws = new CCTWS.ChinaCloudTechWS();
-            webBrowser.DocumentText = ws.GetWSInfo("WebMisSharp")[0].incontent;
+            //CCTWS.ChinaCloudTechWS ws = new CCTWS.ChinaCloudTechWS();
+            //webBrowser.DocumentText = ws.GetWSInfo("WebMisSharp")[0].incontent;
         }
     }
 }

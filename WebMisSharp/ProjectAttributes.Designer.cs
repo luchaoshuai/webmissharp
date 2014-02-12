@@ -44,6 +44,7 @@
             this.radioSimpleThreeLayer = new System.Windows.Forms.RadioButton();
             this.BtnTryDBConnect = new System.Windows.Forms.Button();
             this.BtnSaveProject = new System.Windows.Forms.Button();
+            this.lbFwInfo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lbFwInfo);
             this.groupBox2.Controls.Add(this.radioEnterpriseExtjs);
             this.groupBox2.Controls.Add(this.radioSimpleThreeLayer);
             this.groupBox2.Location = new System.Drawing.Point(331, 95);
@@ -161,7 +163,7 @@
             // radioEnterpriseExtjs
             // 
             this.radioEnterpriseExtjs.AutoSize = true;
-            this.radioEnterpriseExtjs.Location = new System.Drawing.Point(13, 61);
+            this.radioEnterpriseExtjs.Location = new System.Drawing.Point(13, 47);
             this.radioEnterpriseExtjs.Name = "radioEnterpriseExtjs";
             this.radioEnterpriseExtjs.Size = new System.Drawing.Size(131, 16);
             this.radioEnterpriseExtjs.TabIndex = 2;
@@ -179,6 +181,7 @@
             this.radioSimpleThreeLayer.TabStop = true;
             this.radioSimpleThreeLayer.Text = "简单三层[Ext.net]";
             this.radioSimpleThreeLayer.UseVisualStyleBackColor = true;
+            this.radioSimpleThreeLayer.CheckedChanged += new System.EventHandler(this.SelectFramework);
             // 
             // BtnTryDBConnect
             // 
@@ -199,6 +202,16 @@
             this.BtnSaveProject.Text = "保存项目";
             this.BtnSaveProject.UseVisualStyleBackColor = true;
             this.BtnSaveProject.Click += new System.EventHandler(this.BtnSaveProject_Click);
+            // 
+            // lbFwInfo
+            // 
+            this.lbFwInfo.Font = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbFwInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lbFwInfo.Location = new System.Drawing.Point(6, 72);
+            this.lbFwInfo.Name = "lbFwInfo";
+            this.lbFwInfo.Size = new System.Drawing.Size(143, 56);
+            this.lbFwInfo.TabIndex = 3;
+            this.lbFwInfo.Text = "入门级框架，分三个大层DAL，BLL，Web。适合快速开发网站，企业中小型软件。";
             // 
             // ProjectAttributes
             // 
@@ -243,5 +256,6 @@
         private System.Windows.Forms.RadioButton radioSimpleThreeLayer;
         private System.Windows.Forms.Button BtnTryDBConnect;
         private System.Windows.Forms.Button BtnSaveProject;
+        private System.Windows.Forms.Label lbFwInfo;
     }
 }

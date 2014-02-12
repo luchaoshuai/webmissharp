@@ -69,7 +69,7 @@ namespace BaseLibs
         {
             if (!File.Exists(zipFilePath))
             {
-                return "无法找到压缩包！";
+                return "无法找到该框架的压缩包，请您确认已经从官网下载过该框架压缩包！";
             }
 
             if (!Directory.Exists(destPath))
